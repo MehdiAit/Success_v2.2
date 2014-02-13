@@ -29,7 +29,7 @@ public class Main extends Activity implements OnClickListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.acceuil);
-		
+		// Je vais rajouter du code ici!
         // Session class instance
         session = new SessionManager(getApplicationContext());
         
