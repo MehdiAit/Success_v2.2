@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <Button
+        android:id="@+id/btnMap_agence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Carte"/>
+
+    <Button
+        android:id="@+id/btnCall_agence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Appeler" />
+
+    <Button
+        android:id="@+id/btnReserver_agence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.13"
+        android:text="Réserver" />
+
+</LinearLayout>
+
+    <TextView
+        android:id="@+id/id_agence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID" />
+
+    <TextView
+        android:id="@+id/nom_agence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nom" />
+
+    <TextView
+        android:id="@+id/adr_agence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adresse" />
+
+    <TextView
+        android:id="@+id/tel_agence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telephone" />
+
+    <TextView
+        android:id="@+id/fax_agence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fax" />
+
+    <TextView
+        android:id="@+id/mail_agence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mail" />
+
+    <TextView
+        android:id="@+id/desc_agence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description" />
+
+    <TextView
+        android:id="@+id/latitude_agence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Latitude" />
+
+    <TextView
+        android:id="@+id/longitude_agence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Longitude" />
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+</LinearLayout>

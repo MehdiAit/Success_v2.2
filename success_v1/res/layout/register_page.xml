@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="12dip"
+            android:layout_marginRight="12dip"
+            android:layout_marginTop="5dip"
+            android:background="@drawable/round_corner_layout"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtLogPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="Inscription"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtGenre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="Genre*"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/spinGenre"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:gravity="center_horizontal"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txtPrenom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="Prenom*"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editPrenom"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="Votre prénom"
+                android:inputType="textPersonName"
+                android:textSize="17sp" >
+
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/txtNom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="Nom*"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editNom"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="Votre nom"
+                android:inputType="textPersonName"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txtDateNais"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="Date de naissance*"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnDateNais"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="Votre date de naissance"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txtMailRegistration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="E-mail*"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editMailRegistration"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="exemple@exemple.com"
+                android:inputType="textEmailAddress"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txtCnfirmMail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="Confirmez votre e-mail"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editCnfirmMail"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="exemple@exemple.com"
+                android:inputType="textEmailAddress"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txtMdpRegistration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="Mot de passe"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editMdpRegistration"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="Votre mot de passe"
+                android:inputType="textPassword"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txtCnfirmMdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="Confirmez votre mot de passe"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editCnfirmMdp"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="Confirmation du mot de passe"
+                android:inputType="textPassword"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txtNumPerm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="Permis de conduire N°"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editNumPerm"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="Votre N° de permis de conduire"
+                android:inputType="number"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txtDatePerm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="Délivré le"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnDatePerm"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="Date de délivrance"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txtAdress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="Adresse"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editAdress"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="Votre adresse"
+                android:inputType="textPostalAddress"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txtCodePost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="Code postal"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editCodePost"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="Votre code postal"
+                android:inputType="number"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txtVille"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="Ville"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editVille"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="Votre ville"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txtPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="Téléphone"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editPhone"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="Votre numéro de téléphone"
+                android:inputType="phone"
+                android:textSize="17sp" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/btnCreateCount"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="10dip"
+                    android:background="#94181A"
+                    android:drawableEnd="@drawable/right_arrow"
+                    android:text="S&apos;inscrire"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/txtNreserv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="N° de reservation" />
+
+    <TextView
+        android:id="@+id/txtNumReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txtDatReserv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date de reservation" />
+
+    <TextView
+        android:id="@+id/txtDatReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txtDebutReserv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date de début de location" />
+
+    <TextView
+        android:id="@+id/txtDebutReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txtFinReserv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date de fin de location" />
+
+    <TextView
+        android:id="@+id/txtFinReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txtMarqueReserv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marque du véhicule" />
+
+    <TextView
+        android:id="@+id/txtMarqueReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txtModeleReserv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modele du véhicule" />
+
+    <TextView
+        android:id="@+id/txtModelReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txtCategReserv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Catégorie du véhicule" />
+
+    <TextView
+        android:id="@+id/txtCategorieReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txtNomAgenceReserv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agence de location" />
+
+    <TextView
+        android:id="@+id/txtNomAgenceReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agence de location" />
+
+    <TextView
+        android:id="@+id/txtEtatReserv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Etat de la réservation" />
+
+    <TextView
+        android:id="@+id/txtEtatReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/btnAnnulerReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Annuler reservation" />
+
+</LinearLayout>

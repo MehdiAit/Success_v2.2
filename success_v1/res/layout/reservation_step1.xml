@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- Conteneur principal -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:weightSum="100" 
+        android:background="@color/white">
+
+        <!-- conteneur logo_reservStep1 -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:background="#ffffff"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="reservation_step_1"
+                android:src="@drawable/logo_reserv_step1" />
+        </LinearLayout>
+        <!-- conteneur logo_reservStep2 -->
+        <!-- conteneur texte -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtCreation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Création de la réservation"
+                android:textColor="#94181A"
+                android:textSize="18sp" />
+        </LinearLayout>
+        <!-- conteneur texte -->
+        <!-- conteneur formulaire -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_weight="80"
+            android:background="@drawable/round_corner_layout"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtLocalisationForm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Vous êtes actuellement à proximité de Ben Aknoun"
+                android:textSize="12.5sp" />
+            <TextView
+                android:id="@+id/txtDateVilleDepart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="Date et ville de départ:"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnDateDeb"
+                android:layout_width="180dip"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dip"
+                android:background="@drawable/roundcorner"
+                android:text="Date de départ"
+                android:textColor="#D6CDC6" />
+
+            <Button
+                android:id="@+id/btnVilleDepart1"
+                android:layout_width="160dip"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dip"
+                android:background="@drawable/roundcorner"
+                android:text="Ville de départ"
+                android:textColor="#D6CDC6" />
+
+            <TextView
+                android:id="@+id/txtDateRetour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dip"
+                android:text="Date et ville d&apos;arrivée:"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnDateRetour"
+                android:layout_width="180dip"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dip"
+                android:background="@drawable/roundcorner"
+                android:text="Date d&apos;arrivée"
+                android:textColor="#D6CDC6" />
+
+            <Button
+                android:id="@+id/btnVilleArrive1"
+                android:layout_width="160dip"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dip"
+                android:background="@drawable/roundcorner"
+                android:text="Ville d&apos;arrivée"
+                android:textColor="#D6CDC6" />
+
+            <TextView
+                android:id="@+id/txtTypeVehicule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="Type du véhicule"
+                android:textSize="18sp" />
+
+            <Switch
+                android:id="@+id/switchTypeVehicule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dip"
+                android:background="@drawable/roundcorner"
+                android:textColor="#94181A"
+                android:textOff="Utilitaire"
+                android:textOn="Tourisme"
+                android:thumb="@drawable/switch_inner"
+                android:track="@drawable/switch_track" />
+
+            <CheckBox
+                android:id="@+id/checkBox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:button="@drawable/chekbox_selector"
+                android:text="  Trouver une agence à proximité" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/logo_koutchi2" />
+
+                <Button
+                    android:id="@+id/btnSearchCar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/circle_button"
+                    android:text="Next"
+                    android:textColor="#D6CDC6" />
+
+                <Button
+                    android:id="@+id/btnBackPage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/circle_button"
+                    android:text="Back"
+                    android:textColor="#D6CDC6" />
+            </RelativeLayout>
+        </LinearLayout>
+        <!-- conteneur formulaire -->
+    </LinearLayout>
+    <!-- Conteneur principal -->
+
+</LinearLayout>

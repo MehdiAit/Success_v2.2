@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="12dip"
+            android:layout_marginRight="12dip"
+            android:layout_marginTop="5dip"
+            android:background="@drawable/round_corner_layout"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtLogPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:text="Profil"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtGenreProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:textSize="18sp" 
+                android:text="Genre*" />
+
+            <Spinner
+                android:id="@+id/spinGenreProfil"
+                                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:gravity="center_horizontal"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/txtPrenomProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:textSize="18sp" 
+                android:text="Prenom*" />
+
+            <EditText
+                android:id="@+id/editPrenomProfil"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:textSize="17sp"
+                android:hint="Votre prénom"
+                android:inputType="textPersonName" >
+
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/txtNomProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:textSize="18sp" 
+                android:text="Nom*" />
+
+            <EditText
+                android:id="@+id/editNomProfil"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:textSize="17sp"
+                android:hint="Votre nom"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/txtDateNaisProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:textSize="18sp" 
+                android:text="Date de naissance*" />
+
+            <Button
+                android:id="@+id/btnDateNaisProfil"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:textSize="17sp"
+                android:hint="Votre prénom"
+                android:text="Choisir date" />
+
+            <TextView
+                android:id="@+id/txtMailRegistrationProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:textSize="18sp" 
+                android:text="E-mail*" />
+
+            <EditText
+                android:id="@+id/editMailRegistrationProfil"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:textSize="17sp"
+                android:hint="exemple@exemple.com"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/txtMdpRegistrationProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:textSize="18sp" 
+                android:text="Mot de passe" />
+
+            <EditText
+                android:id="@+id/editMdpRegistrationProfil"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:textSize="17sp"
+                android:hint="Votre mot de passe"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/txtNumPermProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:textSize="18sp" 
+                android:text="Permis de conduire N°" />
+
+            <EditText
+                android:id="@+id/editNumPermProfil"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:textSize="17sp"
+                android:hint="Votre N° de permis"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/txtDatePermProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:textSize="18sp" 
+                android:text="Délivré le" />
+
+            <Button
+                android:id="@+id/btnDatePermProfil"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:textSize="17sp"
+                android:hint="Date de délivrance" />
+
+            <TextView
+                android:id="@+id/txtAdressProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:textSize="18sp" 
+                android:text="Adresse" />
+
+            <EditText
+                android:id="@+id/editAdressProfil"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:textSize="17sp"
+                android:hint="Votre adresse"
+                android:inputType="textPostalAddress" />
+
+            <TextView
+                android:id="@+id/txtCodePostProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:textSize="18sp" 
+                android:text="Code postal" />
+
+            <EditText
+                android:id="@+id/editCodePostProfil"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:textSize="17sp"
+                android:hint="Votre code postal"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/txtVilleProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:textSize="18sp" 
+                android:text="Ville" />
+
+            <EditText
+                android:id="@+id/editVilleProfil"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:textSize="17sp"
+                android:hint="Votre ville" />
+
+            <TextView
+                android:id="@+id/txtPaysProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:textSize="18sp" 
+                android:text="Pays" />
+
+            <EditText
+                android:id="@+id/editPaysProfil"
+                 android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:textSize="17sp"
+                android:hint="Votre pays"/>
+
+            <TextView
+                android:id="@+id/txtPhoneProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:textSize="18sp" 
+                android:text="Téléphone" />
+
+            <EditText
+                android:id="@+id/editPhoneProfil"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/roundcorner"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:textSize="17sp"
+                android:hint="Votre N° de téléphone"
+                android:inputType="phone" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/btnEditCountProfil"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="10dip"
+                    android:background="#94181A"
+                    android:drawableEnd="@drawable/right_arrow"
+                    android:text="Modifier mes informations"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
