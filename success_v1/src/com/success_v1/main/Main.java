@@ -36,8 +36,10 @@ public class Main extends Activity implements OnClickListener{
 		btnAgences = (Button)this.findViewById(R.id.btnAgences);
 		btnReservation= (Button)this.findViewById(R.id.btnReservations);
 		btnCompte = (Button)this.findViewById(R.id.btnCompte);
+		
 		btnAgences.setOnClickListener(this);
 		btnReservation.setOnClickListener(this);
+		btnCompte.setOnClickListener(this);
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -57,7 +59,7 @@ public class Main extends Activity implements OnClickListener{
 		case R.id.btnReservations:
 			startActivity(new Intent(this, ReservationTab.class));
 			break;
-		case R.id.btnCompte:
+		case R.id.btnCompte:			
 			if(session.isLoggedIn())
 			{
 				Intent profilActivity= new Intent(this,ProfilPage.class);
