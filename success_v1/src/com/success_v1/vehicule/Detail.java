@@ -92,18 +92,19 @@ public class Detail extends Activity {
 		date_retour_intent = result.getStringExtra("date_retour");
          
         id_vehicule = (TextView) findViewById(R.id.id_vehicule_recup);
-        model_vehicule = (TextView) findViewById(R.id.nom_vehicule_recup);
-        marque_vehicule = (TextView) findViewById(R.id.marqueVehicule);
+        model_vehicule = (TextView) findViewById(R.id.nom_vehicule_recup);//
+        marque_vehicule = (TextView) findViewById(R.id.marqueVehicule);//
         moteur_vehicule = (TextView) findViewById(R.id.motorVehicule);
         prix_vehicule = (TextView) findViewById(R.id.prixVehicule);
+        
         genreUser= (TextView) findViewById(R.id.txtGenreResume);
         nomUser= (TextView) findViewById(R.id.txtNomResume);
         prenomUser = (TextView) findViewById(R.id.txtPrenomResume);
         mailUser = (TextView) findViewById(R.id.txtMailResume);
         numeroUser = (TextView) findViewById(R.id.txtPhoneResume);
         
-        date_depart = (TextView) findViewById(R.id.date_depart_recup);
-        date_retour = (TextView) findViewById(R.id.date_retour_recup);
+        date_depart = (TextView) findViewById(R.id.date_depart_recup);//
+        date_retour = (TextView) findViewById(R.id.date_retour_recup);//
 
 		prenomUser.setText(user.get(SessionManager.KEY_PRENOM));
 		nomUser.setText(user.get(SessionManager.KEY_NOM));

@@ -10,6 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -63,9 +64,9 @@ private ProgressDialog pDialog;
 				
 				String id = idtest.id.toString();
 				
-				/*Intent intent = new Intent(getApplicationContext(), Detail.class);
-				//intent.putExtra("id_get", id);
-				startActivityForResult(intent,10);*/
+				Intent intent = new Intent(getActivity(), ReservationValideDetails.class);
+				intent.putExtra("id_get", id);
+				startActivityForResult(intent,10);
 								}
 							}
 				);

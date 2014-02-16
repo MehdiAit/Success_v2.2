@@ -85,6 +85,10 @@
             android:name="com.success_v1.reservation.ReservationEnCoursDetails"
             android:label="@string/app_name" >
         </activity>
+                <activity
+            android:name="com.success_v1.reservation.ReservationValideDetails"
+            android:label="@string/app_name" >
+        </activity>
                       
         <activity
             android:name="com.success_v1.vehicule.VehiculeTab"
