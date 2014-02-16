@@ -34,6 +34,7 @@
 
             <ImageView
                 android:id="@+id/imageProfilResume"
+                android:contentDescription="@string/logo_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dip"
@@ -46,7 +47,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dip"
                 android:layout_toRightOf="@id/imageProfilResume"
-                android:text="Monsieur "
+                android:text="@string/txtGenreResume"
                 android:textColor="@color/black_color"
                 android:textSize="18sp" />
 
@@ -57,7 +58,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dip"
                 android:layout_toRightOf="@id/txtGenreResume"
-                android:text="Nom "
+                android:text="@string/txtNomResume"
                 android:layout_marginRight="5dip"
                 android:textColor="@color/black_color"
                 android:textSize="18sp" />
@@ -69,7 +70,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dip"
                 android:layout_toRightOf="@id/txtNomResume"
-                android:text="Prenom "
+                android:text="@string/txtPrenomResume"
                 android:textColor="@color/black_color"
                 android:textSize="18sp" />
 
@@ -79,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txtGenreResume"
                 android:layout_toRightOf="@id/imageProfilResume"
-                android:text="Adresse mail"
+                android:text="@string/txtMailResume"
                 android:textColor="@color/black_color"
                 android:textSize="18sp" />
 
@@ -89,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txtMailResume"
                 android:layout_toRightOf="@id/imageProfilResume"
-                android:text="Phone number"
+                android:text="@string/txtPhoneResume"
                 android:textColor="@color/black_color"
                 android:textSize="18sp" />
         </RelativeLayout>
@@ -108,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dip"
-                android:text="Résumé"
+                android:text="@string/txtTitreResume"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
@@ -124,6 +125,7 @@
                     android:id="@+id/imgLogoCar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/imgLogoCar"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/logo_car" />
 
@@ -141,7 +143,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginRight="5dip"
-                        android:text="Marque "
+                        android:text="@string/marqueVehicule"
                         android:textSize="18sp" />
 
                     <TextView
@@ -150,7 +152,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginRight="5dip"
-                        android:text="Modele  "
+                        android:text="@string/nom_vehicule_recup"
                         android:textSize="18sp" />
 
                     <TextView
@@ -159,7 +161,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginRight="5dip"
-                        android:text="Motorisation "
+                        android:text="@string/motorVehicule"
                         android:textSize="18sp" />
                 </LinearLayout>
 
@@ -168,7 +170,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Nom de l&apos;agence "
+                    android:text="@string/nomAgenceResume"
                     android:textSize="15sp" />
 
                 <LinearLayout
@@ -184,7 +186,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="Départ le "
+                        android:text="@string/txtDepartLe"
                         android:textSize="18sp" />
 
                     <TextView
@@ -192,7 +194,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="Date de départ"
+                        android:text="@string/date_depart_recup"
                         android:textSize="18sp" />
                 </LinearLayout>
 
@@ -209,7 +211,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="De "
+                        android:text="@string/deVille"
                         android:textSize="14sp" />
 
                     <TextView
@@ -217,7 +219,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="Alger"
+                        android:text="@string/ville_depart"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -234,7 +236,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="Arrivée le "
+                        android:text="@string/le_arrive"
                         android:textSize="18sp" />
 
                     <TextView
@@ -242,7 +244,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="Date d&apos;arrivée"
+                        android:text="@string/date_retour_recup"
                         android:textSize="18sp" />
                 </LinearLayout>
 
@@ -259,7 +261,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="A "
+                        android:text="@string/aVille"
                         android:textSize="14sp" />
 
                     <TextView
@@ -267,7 +269,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="Oran"
+                        android:text="@string/villeRetour"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -284,7 +286,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="Prix : "
+                        android:text="@string/txtPrixVehiculeRecup"
                         android:textColor="#94181A"
                         android:textSize="20sp" />
 
@@ -293,7 +295,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="2500da"
                         android:textColor="#94181A"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -306,6 +307,7 @@
 
                 <ImageView
                     android:id="@+id/imgLogoKoutchi2"
+                    android:contentDescription="@string/logo_koutchi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
@@ -321,7 +323,7 @@
                     android:layout_centerHorizontal="true"
                     android:background="#94181A"
                     android:drawableRight="@drawable/right_arrow"
-                    android:text="Enregistrer ma réservation"
+                    android:text="@string/btntestreseravation"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
             </RelativeLayout>

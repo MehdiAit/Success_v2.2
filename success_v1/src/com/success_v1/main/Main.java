@@ -36,11 +36,8 @@ public class Main extends Activity implements OnClickListener{
 		btnAgences = (Button)this.findViewById(R.id.btnAgences);
 		btnReservation= (Button)this.findViewById(R.id.btnReservations);
 		btnCompte = (Button)this.findViewById(R.id.btnCompte);
-		btnTestPref = (Button)this.findViewById(R.id.btnTestPref);
 		btnAgences.setOnClickListener(this);
 		btnReservation.setOnClickListener(this);
-		btnCompte.setOnClickListener(this);
-		btnTestPref.setOnClickListener(this);
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -56,10 +53,6 @@ public class Main extends Activity implements OnClickListener{
 		case R.id.btnAgences:
 			Intent agenceActivity= new Intent(this,ReservationStep1.class);
 			startActivity(agenceActivity);
-			break;
-		case R.id.btnTestPref:
-			session.logoutUser();
-			Toast.makeText(getApplicationContext(), "Deconexion", Toast.LENGTH_LONG).show();
 			break;
 		case R.id.btnReservations:
 			startActivity(new Intent(this, ReservationTab.class));

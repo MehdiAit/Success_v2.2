@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dip"
-            android:text="Connexion"
+            android:text="@string/txtLogPage"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dip"
-            android:text="Adresse mail:"
+            android:text="@string/txtMail"
             android:textSize="18sp" />
 
         <EditText
@@ -46,7 +46,7 @@
             android:background="@drawable/roundcorner"
             android:ems="10"
             android:gravity="center_horizontal"
-            android:hint="exemple@exemple.com"
+            android:hint="@string/editMail"
             android:inputType="textEmailAddress"
             android:textSize="17sp" >
 
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dip"
-            android:text="Mot de passe"
+            android:text="@string/txtMdp"
             android:textSize="18sp" />
 
         <EditText
@@ -73,7 +73,7 @@
             android:background="@drawable/roundcorner"
             android:ems="10"
             android:gravity="center_horizontal"
-            android:hint="Votre mot de passe"
+            android:hint="@string/editMdp"
             android:inputType="textPassword"
             android:textSize="17sp" />
 
@@ -89,7 +89,7 @@
                 android:layout_alignParentBottom="true"
                 android:background="#94181A"
                 android:drawableEnd="@drawable/right_arrow"
-                android:text="Se connecter"
+                android:text="@string/btnConnect"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
         </RelativeLayout>
@@ -111,7 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dip"
-            android:text="Vous n&apos;êtes pas inscrits?"
+            android:text="@string/txtPaInscrit"
             android:textSize="12.5sp" />
 
         <TextView
@@ -120,7 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dip"
-            android:text="Inscrivez vous dès maintenant!"
+            android:text="@string/txtOrdre"
             android:textSize="12.5sp" />
 
         <Button
@@ -129,7 +129,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dip"
             
-            android:text="Inscrivez vous!"
+            android:text="@string/btnRegister"
             android:drawableRight="@drawable/right_arrow"
             android:background="#94181A"
             android:textColor="@color/white"
@@ -142,6 +142,7 @@
 
             <ImageView
                 android:id="@+id/imageView1"
+                android:contentDescription="@string/logo_koutchi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"

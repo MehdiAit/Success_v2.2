@@ -40,11 +40,11 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/txtCreation"
+                android:id="@+id/txtCreationReserv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Création de la réservation"
+                android:text="@string/txtCreationReserv"
                 android:textColor="#94181A"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -66,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Vous êtes actuellement à proximité de Ben Aknoun"
+                android:text="@string/txtLocalisationForm"
                 android:textSize="12.5sp" />
             <TextView
                 android:id="@+id/txtDateVilleDepart"
@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dip"
-                android:text="Date et ville de départ:"
+                android:text="@string/txtDateVilleDepart"
                 android:textSize="18sp" />
 
             <Button
@@ -84,7 +84,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dip"
                 android:background="@drawable/roundcorner"
-                android:text="Date de départ"
+                android:text="@string/date_depart_recup"
                 android:textColor="#D6CDC6" />
 
             <Button
@@ -94,7 +94,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dip"
                 android:background="@drawable/roundcorner"
-                android:text="Ville de départ"
+                android:text="@string/btnVilleDepart1"
                 android:textColor="#D6CDC6" />
 
             <TextView
@@ -103,9 +103,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dip"
-                android:text="Date et ville d&apos;arrivée:"
+                android:text="@string/txtDateRetour"
                 android:textSize="18sp" />
-
             <Button
                 android:id="@+id/btnDateRetour"
                 android:layout_width="180dip"
@@ -113,7 +112,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dip"
                 android:background="@drawable/roundcorner"
-                android:text="Date d&apos;arrivée"
+                android:text="@string/btnDateRetour"
                 android:textColor="#D6CDC6" />
 
             <Button
@@ -123,7 +122,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dip"
                 android:background="@drawable/roundcorner"
-                android:text="Ville d&apos;arrivée"
+                android:text="@string/btnVilleArrive1"
                 android:textColor="#D6CDC6" />
 
             <TextView
@@ -132,7 +131,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dip"
-                android:text="Type du véhicule"
+                android:text="@string/txtTypeVehicule"
                 android:textSize="18sp" />
 
             <Switch

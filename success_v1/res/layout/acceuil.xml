@@ -24,7 +24,7 @@
 
             <ImageView
                 android:id="@+id/imageView1"
-                android:contentDescription="logo koutchi"
+                android:contentDescription="@string/logo_koutchi"
                 android:layout_width="wrap_content"
                 android:layout_height="0dip"
                 android:layout_gravity="center_horizontal"
@@ -45,7 +45,7 @@
                 android:id="@+id/txtAProxim"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="A proximité de " />
+                android:text="@string/txtAProxim" />
 
             <TextView
                 android:id="@+id/txtLocalMap"
@@ -69,7 +69,7 @@
                 android:layout_height="fill_parent"
                 android:background="#ffffff"
                 android:drawableTop="@drawable/logo_reservervehicule"
-                android:text="Réserver un véhicule" />
+                android:text="@string/btnAgences" />
         </LinearLayout>
         <!-- conteneur Réserver un véhicule -->
         <!-- conteneur last part -->
@@ -89,7 +89,7 @@
                 android:layout_weight="5"
                 android:background="#ffffff"
                 android:drawableTop="@drawable/logo_reservation"
-                android:text="Mes réservations" />
+                android:text="@string/btnReservations" />
 
             <Button
                 android:id="@+id/btnCompte"
@@ -98,16 +98,9 @@
                 android:layout_weight="5"
                 android:background="#ffffff"
                 android:drawableTop="@drawable/logo_profil"
-                android:text="Mon compte" />
+                android:text="@string/btnCompte" />
         </LinearLayout>
         <!-- conteneur last part -->
-<!-- A ne pas prendre en compte et à supprimer-->
-    <Button
-        android:id="@+id/btnTestPref"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-android:visibility = "gone" />
     </LinearLayout>
     <!-- Conteneur principal -->
 
