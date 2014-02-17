@@ -9,6 +9,7 @@
     <color name="counter_text_color">#c5c4c4</color>
     <color name="delete_color">#C60800</color>
     <color name="black_color">#000</color>
+    <color name="title_color">#94181A</color>
 
     <!-- Recently added -->
     <color name="yellow_theme">#F2B705</color>

@@ -29,6 +29,8 @@ public class Main extends Activity implements OnClickListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.acceuil);
+		getActionBar().setTitle(null);
+		getActionBar().setDisplayShowHomeEnabled(false);
 		// Je vais rajouter du code ici!
         // Session class instance
         session = new SessionManager(getApplicationContext());

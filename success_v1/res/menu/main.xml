@@ -2,8 +2,20 @@
 
     <item
         android:id="@+id/action_settings"
+        android:icon="@drawable/set_orange"
         android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:showAsAction="ifRoom"
+        android:title="@string/action_settings">
+         <!-- "file" submenu -->
+        <menu>
+            <item android:id="@+id/SubMenuLogOut"
+                  android:title="@string/home_sub1" />
+            <item android:id="@+id/SubMenuNote"
+                  android:title="@string/home_sub2" />
+                        <item android:id="@+id/SubMenuAbout"
+                  android:title="@string/home_sub3" />
+        </menu>
+        
+        </item>
 
 </menu>

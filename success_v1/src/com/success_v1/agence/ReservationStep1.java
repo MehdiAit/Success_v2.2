@@ -8,20 +8,26 @@ import java.util.Date;
 
 import org.json.JSONObject;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.success_v1.successCar.R;
@@ -44,6 +50,8 @@ public class ReservationStep1 extends Activity{
 	private int monthRetour;
 	private int dayDepart;
 	private int nbBtn;
+	private TextView titleActionBar;
+	private ImageView logoEtape;
 	private String state;
 
 	static final int DATE_DIALOG_DEPART = 999;
@@ -93,8 +101,14 @@ public class ReservationStep1 extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.reservation_step1);
-
-
+		getActionBar().setDisplayShowHomeEnabled(false);
+		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+		getActionBar().setCustomView(R.layout.koutchy_actionbar);
+		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
+		logoEtape = (ImageView)findViewById(R.id.logoEtape1);
+		titleActionBar.setText("Création de la réservation (1/3)");
+		logoEtape.setVisibility(ImageView.VISIBLE);
+		
 		final Calendar c = Calendar.getInstance();
 		year = c.get(Calendar.YEAR);
 		month = c.get(Calendar.MONTH);

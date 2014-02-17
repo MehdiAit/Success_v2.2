@@ -372,7 +372,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_marginTop="10dip"
-                    android:background="#94181A"
+                    android:background="@color/title_color"
                     android:drawableEnd="@drawable/right_arrow"
                     android:text="S&apos;inscrire"
                     android:textColor="@color/white"
