@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -21,6 +22,8 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.success_v1.res.JSONParser;
@@ -31,6 +34,7 @@ public class LogPage extends Activity{
 	EditText editMdp;
 	Button btnConnect;
 	Button btnRegister;
+	TextView titleActionBar;
 	/**********************************/
 	 // Progress Dialog
     private ProgressDialog pDialog;
@@ -69,6 +73,11 @@ public class LogPage extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.log_page);
+		getActionBar().setDisplayShowHomeEnabled(false);
+		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+		getActionBar().setCustomView(R.layout.koutchy_actionbar);
+		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
+		titleActionBar.setText("Connexion");
 		session= new SessionManager(getApplicationContext());
 		editMail = (EditText)this.findViewById(R.id.editMail);
 		editMdp = (EditText)this.findViewById(R.id.editMdp);

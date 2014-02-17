@@ -11,6 +11,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -25,6 +26,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.success_v1.res.JSONParser;
 import com.success_v1.successCar.R;
@@ -45,6 +47,7 @@ public class RegisterPage extends Activity{
 	EditText editVille;
 	EditText editPhone;
 	Button btnCreateCount;
+	TextView titleActionBar;
 	/**************************************/
 	int year;
 	int month;
@@ -80,7 +83,11 @@ public class RegisterPage extends Activity{
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.register_page);
-
+		getActionBar().setDisplayShowHomeEnabled(false);
+		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+		getActionBar().setCustomView(R.layout.koutchy_actionbar);
+		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
+		titleActionBar.setText("Inscription");
 		spinGenre = (Spinner)findViewById(R.id.spinGenre);
 
 		editPrenom = (EditText)findViewById(R.id.editPrenom);

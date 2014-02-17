@@ -10,17 +10,21 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
+import android.widget.TextView;
 
 
 public class ReservationTab extends FragmentActivity {
 	  
 	 ActionBar actionabar;
 	 ViewPager viewpager;
-	 
+	 TextView titleActionBar;
 	 @Override
 	 protected void onCreate(Bundle savedInstanceState) {
 	  super.onCreate(savedInstanceState);
 	  setContentView(R.layout.reservation_tab);
+		getActionBar().setDisplayShowHomeEnabled(false);
+		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+		getActionBar().setCustomView(R.layout.koutchy_actionbar);
 	   
 	        actionabar = getActionBar();
 	        actionabar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
