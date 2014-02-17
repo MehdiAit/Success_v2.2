@@ -92,6 +92,7 @@
                       
         <activity
             android:name="com.success_v1.vehicule.VehiculeTab"
+            android:icon="@drawable/style_unchecked" 
             android:label="@string/app_name" >
         </activity>
 
