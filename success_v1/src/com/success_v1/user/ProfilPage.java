@@ -12,6 +12,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -27,6 +28,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -49,6 +51,7 @@ public class ProfilPage extends Activity{
 	EditText editPaysProfil;
 	EditText editPhoneProfil;
 	Button btnEditCountProfil;
+	TextView titleActionBar;
 	/**************************************/
 	int year;
 	int month;
@@ -93,8 +96,13 @@ public class ProfilPage extends Activity{
 		setContentView(R.layout.profil_page);
         // Session class instance
         session = new SessionManager(getApplicationContext());
+		getActionBar().setDisplayShowHomeEnabled(false);
+		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+		getActionBar().setCustomView(R.layout.koutchy_actionbar);
+		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
+		titleActionBar.setText("Profil");
 		spinGenreProfil = (Spinner)findViewById(R.id.spinGenreProfil);
-
+		
 		editPrenomProfil = (EditText)findViewById(R.id.editPrenomProfil);
 		editNomProfil = (EditText)findViewById(R.id.editNomProfil);
 		editMailRegistrationProfil = (EditText)findViewById(R.id.editMailRegistrationProfil);

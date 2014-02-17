@@ -25,6 +25,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.success_v1.res.JSONParser;
 import com.success_v1.successCar.R;
@@ -45,6 +46,7 @@ public class RegisterPage extends Activity{
 	EditText editVille;
 	EditText editPhone;
 	Button btnCreateCount;
+	TextView titleActionBar;
 	/**************************************/
 	int year;
 	int month;
