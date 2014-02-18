@@ -25,7 +25,6 @@ public class Main extends Activity implements OnClickListener{
 	private Button btnAgences;
 	private Button btnReservation;
 	private Button btnCompte;
-	private Button btnTestPref;
     // Session Manager Class
     SessionManager session;
     HashMap<String, String> user;
@@ -73,7 +72,7 @@ public class Main extends Activity implements OnClickListener{
 		switch(item.getItemId())
 		{
 		case R.id.SubMenuLogOut: session.logoutUser();Toast.makeText(getApplicationContext(), "Deconnexion", Toast.LENGTH_SHORT).show();break;
-		case R.id.SubMenuNote:Toast.makeText(this, "Note moi", Toast.LENGTH_SHORT).show();
+		case R.id.SubMenuNote:Toast.makeText(this, "Notez nous", Toast.LENGTH_SHORT).show();
 		case R.id.SubMenuAbout:Toast.makeText(this, "Qui suis-je?", Toast.LENGTH_SHORT).show();
 		}
 		return super.onOptionsItemSelected(item);

@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -21,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.success_v1.res.JSONParser;
 import com.success_v1.successCar.R;
@@ -44,6 +46,7 @@ public class VehiculeListe extends Fragment {
 	
 	
 	private ListView lv;
+	private AdapterVehicule ad;
 	private SessionManager session;
 	private View rootView = null;
 
@@ -100,7 +103,7 @@ public class VehiculeListe extends Fragment {
 				intent.putExtra("id_agence", idAgence);
 				intent.putExtra("date_depart", dateDepart);
 				intent.putExtra("date_retour", dateRetour);
-				startActivityForResult(intent,10);
+				startActivityForResult(intent,1);
 				
 				}
 				else
@@ -113,6 +116,20 @@ public class VehiculeListe extends Fragment {
 		}
 				);		
 		return rootView;
+	}
+	
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if(requestCode == 1)
+		{
+			getActivity();
+			if(resultCode == Activity.RESULT_OK)
+			{
+				vehiculelist = new ArrayList<Vehicule>();
+				new LoadAll().execute();
+				Toast.makeText(getActivity().getApplicationContext(), "Test intent" , Toast.LENGTH_LONG).show();
+			}
+		}
 	}
 	
 
@@ -171,9 +188,8 @@ public class VehiculeListe extends Fragment {
 			pDialog.dismiss();
 			getActivity().runOnUiThread(new Runnable() {                 
 				public void run() {                 	
-					AdapterVehicule ad = new AdapterVehicule(getActivity(), vehiculelist);
+					ad = new AdapterVehicule(getActivity(), vehiculelist);
 					lv.setAdapter(ad);               	
-					//Log.i("Thread","Hello thread");
 				}
 			});
 		}

@@ -22,6 +22,12 @@ public class AdapterVehicule extends BaseAdapter {
 		fl = LayoutInflater.from(context);
 		vehicule = vehic;
 	}
+	
+	public AdapterVehicule()
+	{
+		this.fl = null;
+		this.vehicule = null;
+	}
 
 	@Override
 	public int getCount() {
