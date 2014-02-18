@@ -307,11 +307,11 @@ containing a value of this type.
         public static final int tab_unselected_pressed_koutchystyle=0x7f02005f;
     }
     public static final class id {
-        public static final int SubMenuAbout=0x7f0500ab;
-        public static final int SubMenuLogOut=0x7f0500a9;
-        public static final int SubMenuNote=0x7f0500aa;
+        public static final int SubMenuAbout=0x7f0500ae;
+        public static final int SubMenuLogOut=0x7f0500ac;
+        public static final int SubMenuNote=0x7f0500ad;
         public static final int aVille=0x7f05009b;
-        public static final int action_settings=0x7f0500a8;
+        public static final int action_settings=0x7f0500ab;
         public static final int adr_agence=0x7f050015;
         public static final int btnAdd=0x7f05000d;
         public static final int btnAgences=0x7f050008;
@@ -383,6 +383,7 @@ containing a value of this type.
         public static final int le_arrive=0x7f050099;
         public static final int listVehicule=0x7f0500a1;
         public static final int listView1=0x7f05000e;
+        public static final int listVille=0x7f0500a8;
         public static final int logoEtape1=0x7f05001d;
         public static final int logoEtape2=0x7f05001e;
         public static final int logoEtape3=0x7f05001f;
@@ -398,8 +399,10 @@ containing a value of this type.
         public static final int nomAgenceResume=0x7f050094;
         public static final int nom_agence=0x7f050014;
         public static final int nom_vehicule_recup=0x7f050092;
+        public static final int nom_ville=0x7f0500aa;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
+        public static final int num_ville=0x7f0500a9;
         public static final int pager=0x7f050087;
         public static final int prixVehicule=0x7f05009e;
         public static final int satellite=0x7f050002;
@@ -505,6 +508,8 @@ containing a value of this type.
         public static final int vehicule_list=0x7f030012;
         public static final int vehicule_list_item=0x7f030013;
         public static final int vehicule_tab=0x7f030014;
+        public static final int ville_list=0x7f030015;
+        public static final int ville_list_item=0x7f030016;
     }
     public static final class menu {
         public static final int main=0x7f0b0000;

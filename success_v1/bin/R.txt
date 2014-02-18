@@ -140,11 +140,11 @@ int drawable tab_selected_pressed_koutchystyle 0x7f02005c
 int drawable tab_unselected_focused_koutchystyle 0x7f02005d
 int drawable tab_unselected_koutchystyle 0x7f02005e
 int drawable tab_unselected_pressed_koutchystyle 0x7f02005f
-int id SubMenuAbout 0x7f0500ab
-int id SubMenuLogOut 0x7f0500a9
-int id SubMenuNote 0x7f0500aa
+int id SubMenuAbout 0x7f0500ae
+int id SubMenuLogOut 0x7f0500ac
+int id SubMenuNote 0x7f0500ad
 int id aVille 0x7f05009b
-int id action_settings 0x7f0500a8
+int id action_settings 0x7f0500ab
 int id adr_agence 0x7f050015
 int id btnAdd 0x7f05000d
 int id btnAgences 0x7f050008
@@ -216,6 +216,7 @@ int id latitude_agence 0x7f05001a
 int id le_arrive 0x7f050099
 int id listVehicule 0x7f0500a1
 int id listView1 0x7f05000e
+int id listVille 0x7f0500a8
 int id logoEtape1 0x7f05001d
 int id logoEtape2 0x7f05001e
 int id logoEtape3 0x7f05001f
@@ -231,8 +232,10 @@ int id motorisation_vehicule 0x7f0500a5
 int id nomAgenceResume 0x7f050094
 int id nom_agence 0x7f050014
 int id nom_vehicule_recup 0x7f050092
+int id nom_ville 0x7f0500aa
 int id none 0x7f050000
 int id normal 0x7f050001
+int id num_ville 0x7f0500a9
 int id pager 0x7f050087
 int id prixVehicule 0x7f05009e
 int id satellite 0x7f050002
@@ -334,6 +337,8 @@ int layout vehicule_detail 0x7f030011
 int layout vehicule_list 0x7f030012
 int layout vehicule_list_item 0x7f030013
 int layout vehicule_tab 0x7f030014
+int layout ville_list 0x7f030015
+int layout ville_list_item 0x7f030016
 int menu main 0x7f0b0000
 int string aVille 0x7f060040
 int string action_settings 0x7f06001e

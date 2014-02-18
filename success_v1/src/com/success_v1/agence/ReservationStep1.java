@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
@@ -41,6 +42,7 @@ public class ReservationStep1 extends Activity{
 	private String date;
 	private Button btnDateDepart;
 	private Button btnDateRetour;
+	private Button btnVilleDepart;
 	private Button btnSearchCar;
 	private Switch switchTypeVehicule;
 	private int yearDepart;
@@ -117,6 +119,7 @@ public class ReservationStep1 extends Activity{
 
 		btnDateDepart = (Button) findViewById(R.id.btnDateDeb);
 		btnDateRetour = (Button) findViewById(R.id.btnDateRetour);
+		btnVilleDepart = (Button) findViewById(R.id.btnVilleDepart1);
 		btnSearchCar = (Button) findViewById(R.id.btnSearchCar);
 		switchTypeVehicule = (Switch) findViewById(R.id.switchTypeVehicule);
 		
@@ -191,8 +194,27 @@ public class ReservationStep1 extends Activity{
 
 
 			}
-		});		
+		});	
+		
+		
+		btnVilleDepart.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+	}
+	
+	
+	
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {
