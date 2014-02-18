@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.ActionBar;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -19,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
@@ -35,7 +37,7 @@ private ProgressDialog pDialog;
     SessionManager session;
 	private ListView lv;
     View rootView = null;
-    
+    TextView titleActionBar;
 	//private static String url_all = "http://10.0.3.2/Success2i_V1/get_reservations_valide.php";
 	private static String url_all = "http://192.168.1.99/Success2i_V1/get_reservations_valide.php";
 	private static final String TAG_SUCCESS = "success";
@@ -50,6 +52,7 @@ private ProgressDialog pDialog;
         rootView = inflater.inflate(R.layout.reservation_en_cours_list, container, false);
         // Session class instance
         session = new SessionManager(getActivity().getApplicationContext());
+
 		reservationlist = new ArrayList<Reservation>();	
 		new LoadAllReservations().execute();
 		

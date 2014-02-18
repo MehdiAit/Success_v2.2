@@ -53,7 +53,7 @@ public class VehiculeListe extends Fragment {
 	private static final String TAG_MODELE = "modele";
 	private static final String TAG_MOTORISATION = "motorisation";
 	private static final String TAG_TARIF = "tarifJour";
-		
+	//private static final String TAG_IMG = "imageVehicule";
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -146,7 +146,6 @@ public class VehiculeListe extends Fragment {
 						String model = c.getString(TAG_MODELE);
 						String motor = c.getString(TAG_MOTORISATION);
 						String tarif = c.getString(TAG_TARIF);
-
 						Vehicule vehicule = new Vehicule(id,mark,model,motor,tarif);
 						//Log.i("mark",vehicule.);
 

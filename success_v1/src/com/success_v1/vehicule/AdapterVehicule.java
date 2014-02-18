@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.success_v1.successCar.R;
@@ -63,7 +64,6 @@ public class AdapterVehicule extends BaseAdapter {
 			holder.motorisation_vehicule = (TextView)arg1.findViewById(R.id.motorisation_vehicule);
 			holder.tarifJour_vehicule = (TextView)arg1.findViewById(R.id.tarifJour_vehicule);
 			
-			
 			arg1.setTag(holder);
 		}else
 		{
@@ -75,7 +75,6 @@ public class AdapterVehicule extends BaseAdapter {
 		holder.modele_vehicule.setText(vehicule.get(arg0).getModele());
 		holder.motorisation_vehicule.setText(vehicule.get(arg0).getMotorisation());
 		holder.tarifJour_vehicule.setText(vehicule.get(arg0).getPrix());
-		
 		return arg1;
 	}
 

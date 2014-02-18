@@ -22,13 +22,14 @@ public class ReservationTab extends FragmentActivity {
 	 protected void onCreate(Bundle savedInstanceState) {
 	  super.onCreate(savedInstanceState);
 	  setContentView(R.layout.reservation_tab);
-		getActionBar().setDisplayShowHomeEnabled(false);
-		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-		getActionBar().setCustomView(R.layout.koutchy_actionbar);
 	   
 	        actionabar = getActionBar();
 	        actionabar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-	         
+	        actionabar.setDisplayShowHomeEnabled(false);
+	        actionabar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+	        actionabar.setCustomView(R.layout.koutchy_actionbar);
+			titleActionBar = (TextView)findViewById(R.id.titleActionBar);
+			titleActionBar.setText("Historique des réservations");
 	        viewpager = (ViewPager) findViewById(R.id.pager);
 	        FragmentManager fm = getSupportFragmentManager();
 	         

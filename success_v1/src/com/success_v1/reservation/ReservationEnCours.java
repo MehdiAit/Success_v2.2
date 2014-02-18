@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.ActionBar;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -19,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
@@ -33,6 +35,7 @@ private ProgressDialog pDialog;
     ArrayList<Reservation> reservationlist;
     JSONArray jsonTab = null;
     SessionManager session;
+    private TextView titleActionBar;
 	private ListView lv;
     View rootView = null;
     
@@ -48,6 +51,7 @@ private ProgressDialog pDialog;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
         rootView = inflater.inflate(R.layout.reservation_en_cours_list, container, false);
+
         // Session class instance
         session = new SessionManager(getActivity().getApplicationContext());
 		reservationlist = new ArrayList<Reservation>();	
