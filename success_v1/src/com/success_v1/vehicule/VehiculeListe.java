@@ -40,6 +40,9 @@ public class VehiculeListe extends Fragment {
 	private String typeVehicule;
 	private String dateDepart;
 	private String dateRetour;
+	private String ville;
+	
+	
 	private ListView lv;
 	private SessionManager session;
 	private View rootView = null;
@@ -53,6 +56,8 @@ public class VehiculeListe extends Fragment {
 	private static final String TAG_MODELE = "modele";
 	private static final String TAG_MOTORISATION = "motorisation";
 	private static final String TAG_TARIF = "tarifJour";
+	
+	private static final String TAG_ville_param = "ville_agence";
 	//private static final String TAG_IMG = "imageVehicule";
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState){
@@ -66,6 +71,7 @@ public class VehiculeListe extends Fragment {
 		typeVehicule = result.getStringExtra("typeVehicule");
 		dateDepart = result.getStringExtra("dateDepart");
 		dateRetour=result.getStringExtra("dateRetour");
+		ville =result.getStringExtra("ville");
 
 		
 		Log.i("Date depart", dateDepart);
@@ -128,6 +134,7 @@ public class VehiculeListe extends Fragment {
 				List<NameValuePair> params = new ArrayList<NameValuePair>();
 				params.add(new BasicNameValuePair("cat_vehicule", cat));
 				params.add(new BasicNameValuePair("type_vehicule", typeVehicule));
+				params.add(new BasicNameValuePair(TAG_ville_param, ville));
 				params.add(new BasicNameValuePair("dateDebLoc_reservation", dateDepart));
 				params.add(new BasicNameValuePair("dateFinLoc_reservation", dateRetour));
 				JSONObject json = jsonParser.makeHttpRequest(url_all, "GET", params);

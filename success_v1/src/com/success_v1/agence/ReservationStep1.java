@@ -37,14 +37,19 @@ public class ReservationStep1 extends Activity{
 	private int year;
 	private int month;
 	private int day;
+	
 	private String dateDepart;
 	private String dateRetour;
 	private String date;
+	private String ville;
+	
 	private Button btnDateDepart;
 	private Button btnDateRetour;
 	private Button btnVilleDepart;
 	private Button btnSearchCar;
+	
 	private Switch switchTypeVehicule;
+	
 	private int yearDepart;
 	private int monthDepart;
 	private int dayRetour;
@@ -181,6 +186,7 @@ public class ReservationStep1 extends Activity{
 				{
 					listCarActivity.putExtra("dateDepart", dateDepart);
 					listCarActivity.putExtra("dateRetour", dateRetour);
+					listCarActivity.putExtra("ville", ville);
 
 					if (state== "Tourisme"){
 						listCarActivity.putExtra("typeVehicule", "Tourisme");
@@ -210,7 +216,8 @@ public class ReservationStep1 extends Activity{
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == 1) {
 	        if (resultCode == RESULT_OK) {	        		        	
-	        	btnVilleDepart.setText(data.getCharSequenceExtra("nomVille"));	        	
+	        	btnVilleDepart.setText(data.getCharSequenceExtra("nomVille"));
+	        	ville = btnVilleDepart.getText().toString();
 	        }
 	    }
 
