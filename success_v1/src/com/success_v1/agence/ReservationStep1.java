@@ -197,20 +197,23 @@ public class ReservationStep1 extends Activity{
 		});	
 		
 		
-		btnVilleDepart.setOnClickListener(new OnClickListener() {
-			
+		btnVilleDepart.setOnClickListener(new OnClickListener() {			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
+				Intent i = new Intent(getApplicationContext(),List_Ville.class);
+				startActivityForResult(i, 1);			
 			}
 		});
 	}
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		// TODO Auto-generated method stub
-		super.onActivityResult(requestCode, resultCode, data);
+		if (requestCode == 1) {
+	        if (resultCode == RESULT_OK) {	        		        	
+	        	btnVilleDepart.setText(data.getCharSequenceExtra("nomVille"));	        	
+	        }
+	    }
+
 	}
 	
 	
