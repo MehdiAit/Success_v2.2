@@ -6,9 +6,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.success_v1.agence.ReservationStep1;
@@ -25,14 +28,14 @@ public class Main extends Activity implements OnClickListener{
 	private Button btnTestPref;
     // Session Manager Class
     SessionManager session;
+    HashMap<String, String> user;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.acceuil);
 		getActionBar().setTitle(null);
 		getActionBar().setDisplayShowHomeEnabled(false);
-		// Je vais rajouter du code ici!
-        // Session class instance
+		
         session = new SessionManager(getApplicationContext());
         
 		btnAgences = (Button)this.findViewById(R.id.btnAgences);
@@ -43,11 +46,37 @@ public class Main extends Activity implements OnClickListener{
 		btnReservation.setOnClickListener(this);
 		btnCompte.setOnClickListener(this);
 	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if(requestCode == 1)
+		{
+			if(resultCode == RESULT_OK)
+			{
+				user = session.getUserDetails();
+				Toast.makeText(getApplicationContext(), "Bienvenue a vous : "+ user.get(SessionManager.KEY_NOM), Toast.LENGTH_SHORT).show();
+			}
+		}
+	}
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		switch(item.getItemId())
+		{
+		case R.id.SubMenuLogOut: session.logoutUser();Toast.makeText(getApplicationContext(), "Deconnexion", Toast.LENGTH_SHORT).show();break;
+		case R.id.SubMenuNote:Toast.makeText(this, "Note moi", Toast.LENGTH_SHORT).show();
+		case R.id.SubMenuAbout:Toast.makeText(this, "Qui suis-je?", Toast.LENGTH_SHORT).show();
+		}
+		return super.onOptionsItemSelected(item);
 	}
 	@Override
 	public void onClick(View arg0) {
@@ -65,11 +94,11 @@ public class Main extends Activity implements OnClickListener{
 			if(session.isLoggedIn())
 			{
 				Intent profilActivity= new Intent(this,ProfilPage.class);
-				startActivity(profilActivity);
+				startActivityForResult(profilActivity,2);
 			}else
 			{
 				Intent compteActivity = new Intent(this,LogPage.class);
-				startActivity(compteActivity);
+				startActivityForResult(compteActivity,1);
 			}
 			
 			break;

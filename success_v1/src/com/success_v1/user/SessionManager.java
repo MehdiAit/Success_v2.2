@@ -2,6 +2,8 @@ package com.success_v1.user;
 
 import java.util.HashMap;
 
+import com.success_v1.main.Main;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -131,7 +133,7 @@ public class SessionManager {
        editor.commit();
         
        // After logout redirect user to Loing Activity
-       Intent i = new Intent(_context, LogPage.class);
+       Intent i = new Intent(_context, Main.class);
        // Closing all the Activities
        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         

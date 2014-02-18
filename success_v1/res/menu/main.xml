@@ -6,16 +6,19 @@
         android:orderInCategory="100"
         android:showAsAction="ifRoom"
         android:title="@string/action_settings">
-         <!-- "file" submenu -->
+
+        <!-- "file" submenu -->
         <menu>
-            <item android:id="@+id/SubMenuLogOut"
-                  android:title="@string/home_sub1" />
-            <item android:id="@+id/SubMenuNote"
-                  android:title="@string/home_sub2" />
-                        <item android:id="@+id/SubMenuAbout"
-                  android:title="@string/home_sub3" />
+            <item
+                android:id="@+id/SubMenuLogOut"
+                android:title="@string/home_sub1"/>
+            <item
+                android:id="@+id/SubMenuNote"
+                android:title="@string/home_sub2"/>
+            <item
+                android:id="@+id/SubMenuAbout"
+                android:title="@string/home_sub3"/>
         </menu>
-        
-        </item>
+    </item>
 
 </menu>
