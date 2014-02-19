@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Switch;
@@ -34,7 +35,7 @@ public class Main extends Activity implements OnClickListener{
 		setContentView(R.layout.acceuil);
 		getActionBar().setTitle(null);
 		getActionBar().setDisplayShowHomeEnabled(false);
-		
+
         session = new SessionManager(getApplicationContext());
         
 		btnAgences = (Button)this.findViewById(R.id.btnAgences);
@@ -44,6 +45,22 @@ public class Main extends Activity implements OnClickListener{
 		btnAgences.setOnClickListener(this);
 		btnReservation.setOnClickListener(this);
 		btnCompte.setOnClickListener(this);
+		
+		TranslateAnimation trans1 = new TranslateAnimation (0,0,800,0);
+		trans1.setStartOffset(600);
+		trans1.setFillAfter(true);
+		trans1.setDuration(800);
+		btnAgences.startAnimation(trans1);
+		TranslateAnimation trans2 = new TranslateAnimation (320,0,0,0);
+		trans2.setStartOffset(320);
+		trans2.setFillAfter(true);
+		trans2.setDuration(800);
+		btnReservation.startAnimation(trans2);
+		TranslateAnimation trans3 = new TranslateAnimation (0,0,400,0); /*gauche, droite, haut, bas */
+		trans3.setStartOffset(400);
+		//trans3.setFillAfter(true);
+		trans3.setDuration(800);
+		btnCompte.startAnimation(trans3);
 	}
 	
 	@Override

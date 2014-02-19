@@ -59,7 +59,7 @@ public class VehiculeListe extends Fragment {
 	private static final String TAG_MODELE = "modele";
 	private static final String TAG_MOTORISATION = "motorisation";
 	private static final String TAG_TARIF = "tarifJour";
-	
+	private static final String TAG_IMG = "imageVehicule";
 	private static final String TAG_ville_param = "ville_agence";
 	//private static final String TAG_IMG = "imageVehicule";
 	@Override
@@ -103,6 +103,7 @@ public class VehiculeListe extends Fragment {
 				intent.putExtra("id_agence", idAgence);
 				intent.putExtra("date_depart", dateDepart);
 				intent.putExtra("date_retour", dateRetour);
+				intent.putExtra("url_image", idtest.getUrlImage().toString());
 				startActivityForResult(intent,1);
 				
 				}
@@ -170,7 +171,8 @@ public class VehiculeListe extends Fragment {
 						String model = c.getString(TAG_MODELE);
 						String motor = c.getString(TAG_MOTORISATION);
 						String tarif = c.getString(TAG_TARIF);
-						Vehicule vehicule = new Vehicule(id,mark,model,motor,tarif);
+						String image = c.getString(TAG_IMG);
+						Vehicule vehicule = new Vehicule(id,mark,model,motor,tarif,image);
 						//Log.i("mark",vehicule.);
 
 						vehiculelist.add(vehicule);

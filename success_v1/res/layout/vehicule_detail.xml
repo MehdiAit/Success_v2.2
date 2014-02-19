@@ -2,10 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white" >
-
-
+    android:background="@color/white"
+    android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -26,19 +24,19 @@
             android:layout_marginRight="12dip"
             android:layout_marginTop="10dip"
             android:orientation="vertical" >
-            
-                    <TextView
-        android:id="@+id/id_vehicule_recup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/id_vehicule_recup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible" />
 
             <ImageView
                 android:id="@+id/imageProfilResume"
-                android:contentDescription="@string/logo_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dip"
+                android:contentDescription="@string/logo_user"
                 android:src="@drawable/logo_user" />
 
             <TextView
@@ -57,10 +55,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginRight="5dip"
                 android:layout_marginTop="10dip"
                 android:layout_toRightOf="@id/txtGenreResume"
                 android:text="@string/txtNomResume"
-                android:layout_marginRight="5dip"
                 android:textColor="@color/black_color"
                 android:textSize="18sp" />
 
@@ -124,17 +122,19 @@
 
                 <ImageView
                     android:id="@+id/imgLogoCar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/imgLogoCar"
+                    android:layout_width="200dip"
+                    android:layout_height="150dip"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/logo_car" />
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/default_car_large"
+                    android:contentDescription="@string/imgLogoCar"
+                    android:scaleType="fitCenter" />
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
                     android:layout_gravity="center_horizontal"
+                    android:background="@color/white"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal" >
 
@@ -308,20 +308,20 @@
 
                 <ImageView
                     android:id="@+id/imgLogoKoutchi2"
-                    android:contentDescription="@string/logo_koutchi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
+                    android:contentDescription="@string/logo_koutchi"
                     android:src="@drawable/logo_koutchi2" />
 
                 <Button
                     android:id="@+id/btntestreseravation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dip"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dip"
                     android:background="#94181A"
                     android:drawableRight="@drawable/right_arrow"
                     android:text="@string/btntestreseravation"
@@ -329,7 +329,6 @@
                     android:textSize="18sp" />
             </RelativeLayout>
         </LinearLayout>
-
     </LinearLayout>
-    
+
 </LinearLayout>

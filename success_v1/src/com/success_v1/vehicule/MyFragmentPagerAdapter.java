@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.Log;
 
 public class MyFragmentPagerAdapter extends FragmentPagerAdapter{
 
@@ -38,6 +39,7 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter{
 			data.putInt("current_page", arg0+1);
 			vehiculeSportive.setArguments(data);
 			return vehiculeSportive;
+
 		}
 
 

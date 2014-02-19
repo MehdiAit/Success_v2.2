@@ -6,18 +6,26 @@ public class Vehicule {
 	private String modele;
 	private String motorisation;
 	private String prix;
+	private String urlImage;
 	
-	public Vehicule(String identif, String mark, String mod, String motor, String price)
+	public Vehicule(String identif, String mark, String mod, String motor, String price, String urlPic)
 	{
 		setId(identif);
 		setMarque(mark);
 		setModele(mod);
 		setMotorisation(motor);
 		setPrix(price);
+		setUrlImage(urlPic);
 	}
 	public Vehicule()
 	{
 		
+	}
+	public String getUrlImage() {
+		return urlImage;
+	}
+	public void setUrlImage(String urlImage) {
+		this.urlImage = urlImage;
 	}
 	public String getId() {
 		return id;

@@ -20,5 +20,13 @@
                 android:title="@string/home_sub3"/>
         </menu>
     </item>
-
+   <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_menu_search_holo_light"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:visible="false"
+        android:title="@string/action_search">
+    </item>
+    
 </menu>

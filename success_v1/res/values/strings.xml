@@ -6,7 +6,7 @@
     <string name="home_sub1">Déconnexion</string>
     <string name="home_sub2">Notez nous!</string>
     <string name="home_sub3">A propos!</string>
-    <string name="action_settings">Home menu</string>
+    <string name="action_settings">Menu</string>
     <string name="hello_world">Hello world!</string>
     <string name="logo_koutchi">logo koutchi</string>
     <string name="txtAProxim">A proximité de </string>
@@ -52,7 +52,7 @@
     <string name="btnDateRetour">Date d\'arrivée</string>
     <string name="btnVilleArrive1">Ville d\'arrivée</string>
     <string name="txtTypeVehicule">Type du véhicule</string>
-
+	<string name="action_search">Recherche</string>
     <string-array name="gender_array">
         <item>Madame</item>
         <item>Monsieur</item>

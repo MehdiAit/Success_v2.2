@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.success_v1.successCar.R;
 
 public class AdapterVehicule extends BaseAdapter {
@@ -21,12 +22,6 @@ public class AdapterVehicule extends BaseAdapter {
 	{
 		fl = LayoutInflater.from(context);
 		vehicule = vehic;
-	}
-	
-	public AdapterVehicule()
-	{
-		this.fl = null;
-		this.vehicule = null;
 	}
 
 	@Override
@@ -52,6 +47,8 @@ public class AdapterVehicule extends BaseAdapter {
 		TextView modele_vehicule;
 		TextView motorisation_vehicule;
 		TextView tarifJour_vehicule;
+		TextView photo_vehicule;
+		ImageView image_vehicule;
 	}
 
 	@Override
@@ -69,7 +66,8 @@ public class AdapterVehicule extends BaseAdapter {
 			holder.modele_vehicule = (TextView)arg1.findViewById(R.id.modele_vehicule);
 			holder.motorisation_vehicule = (TextView)arg1.findViewById(R.id.motorisation_vehicule);
 			holder.tarifJour_vehicule = (TextView)arg1.findViewById(R.id.tarifJour_vehicule);
-			
+			holder.photo_vehicule = (TextView)arg1.findViewById(R.id.photo_vehicule);
+			holder.image_vehicule = (ImageView)arg1.findViewById(R.id.img_vehicule);
 			arg1.setTag(holder);
 		}else
 		{
@@ -81,7 +79,12 @@ public class AdapterVehicule extends BaseAdapter {
 		holder.modele_vehicule.setText(vehicule.get(arg0).getModele());
 		holder.motorisation_vehicule.setText(vehicule.get(arg0).getMotorisation());
 		holder.tarifJour_vehicule.setText(vehicule.get(arg0).getPrix());
+		holder.photo_vehicule.setText(vehicule.get(arg0).getUrlImage());
+		Picasso.with(arg1.getContext()).load(holder.photo_vehicule.getText().toString()).into(holder.image_vehicule);
+		//holder.image_vehicule.setImageBitmap((new ImageVehicule().execute(holder.photo_vehicule.getText().toString())));
 		return arg1;
 	}
+	
+	 
 
 }

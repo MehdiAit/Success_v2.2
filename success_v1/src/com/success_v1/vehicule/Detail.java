@@ -23,6 +23,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.success_v1.res.JSONParser;
 import com.success_v1.successCar.R;
 import com.success_v1.user.SessionManager;
@@ -43,6 +44,7 @@ public class Detail extends Activity {
     TextView mailUser;
     TextView numeroUser;
    TextView titleActionBar;
+   ImageView imageCaisse;
    ImageView logoEtape;
     
     
@@ -55,6 +57,7 @@ public class Detail extends Activity {
     String pid_user;
     String date_depart_intent;
     String date_retour_intent;
+    String url_image; 
     // Progress Dialog
     private ProgressDialog pDialog;
  
@@ -102,7 +105,7 @@ public class Detail extends Activity {
 		pid = result.getStringExtra("id_voiture");
 		date_depart_intent = result.getStringExtra("date_depart");
 		date_retour_intent = result.getStringExtra("date_retour");
-         
+		url_image = result.getStringExtra("url_image");
         id_vehicule = (TextView) findViewById(R.id.id_vehicule_recup);
         model_vehicule = (TextView) findViewById(R.id.nom_vehicule_recup);//
         marque_vehicule = (TextView) findViewById(R.id.marqueVehicule);//
@@ -114,7 +117,7 @@ public class Detail extends Activity {
         prenomUser = (TextView) findViewById(R.id.txtPrenomResume);
         mailUser = (TextView) findViewById(R.id.txtMailResume);
         numeroUser = (TextView) findViewById(R.id.txtPhoneResume);
-        
+        imageCaisse = (ImageView) findViewById(R.id.imgLogoCar);
         date_depart = (TextView) findViewById(R.id.date_depart_recup);//
         date_retour = (TextView) findViewById(R.id.date_retour_recup);//
 
@@ -184,7 +187,7 @@ public class Detail extends Activity {
 	            marque_vehicule.setText(detail_tab.getString(TAG_MARK));
 	            moteur_vehicule.setText(detail_tab.getString(TAG_ENGINE));
 	            prix_vehicule.setText(detail_tab.getString(TAG_PRICE));
-	            
+	            Picasso.with(getApplicationContext()).load(url_image).into(imageCaisse);
 	            date_depart.setText(date_depart_intent);
 	            date_retour.setText(date_retour_intent);           
 			} catch (JSONException e) {
