@@ -9,7 +9,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.ActionBar;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -20,7 +19,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
@@ -35,7 +33,6 @@ private ProgressDialog pDialog;
     ArrayList<Reservation> reservationlist;
     JSONArray jsonTab = null;
     SessionManager session;
-    private TextView titleActionBar;
 	private ListView lv;
     View rootView = null;
     
