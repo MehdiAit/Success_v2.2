@@ -69,8 +69,8 @@ public class Detail extends Activity {
     //private static String url_detail = "http://10.0.3.2/Success2i_V1/get_vehicule_detail.php";
     //private static String url_reservation = "http://10.0.3.2/Success2i_V1/add_reservation.php";
     
-    private static String url_detail = "http://192.168.1.99/Success2i_V1/get_vehicule_detail.php";
-    private static String url_reservation = "http://192.168.1.99/Success2i_V1/add_reservation.php";
+    private static String url_detail = "http://192.168.1.72/Success2i_V1/get_vehicule_detail.php";
+    private static String url_reservation = "http://192.168.1.72/Success2i_V1/add_reservation.php";
     // JSON Node names
 	private static final String TAG_SUCCESS = "success";
     private static final String TAG_TAB = "vehicule_tab";

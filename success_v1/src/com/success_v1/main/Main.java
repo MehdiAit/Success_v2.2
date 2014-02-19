@@ -104,7 +104,14 @@ public class Main extends Activity implements OnClickListener{
 			startActivity(agenceActivity);
 			break;
 		case R.id.btnReservations:
+			if(session.isLoggedIn())
+			{
 			startActivity(new Intent(this, ReservationTab.class));
+			}else
+			{
+				Intent compteActivity = new Intent(this,LogPage.class);
+				startActivityForResult(compteActivity,1);
+			}
 			break;
 		case R.id.btnCompte:			
 			if(session.isLoggedIn())

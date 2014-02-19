@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -37,7 +38,7 @@ private ProgressDialog pDialog;
     View rootView = null;
     
 	//private static String url_all = "http://10.0.3.2/Success2i_V1/get_reservations_encours.php";
-	private static String url_all = "http://192.168.1.99/Success2i_V1/get_reservations_encours.php";
+	private static String url_all = "http://192.168.1.72/Success2i_V1/get_reservations_encours.php";
 	private static final String TAG_SUCCESS = "success";
     private static final String TAG_TAB = "tab_reservation";
     private static final String TAG_ID = "id";
@@ -73,6 +74,19 @@ private ProgressDialog pDialog;
 				);
 		return rootView;
 	}
+	
+	@Override
+		public void onActivityResult(int requestCode, int resultCode, Intent data) {
+			// TODO Auto-generated method stub
+			if(requestCode == 10)
+			{
+				if(resultCode == Activity.RESULT_OK)
+				{
+					reservationlist = new ArrayList<Reservation>();	
+					new LoadAllReservations().execute();
+				}
+			}
+		}
 		
     class LoadAllReservations extends AsyncTask<String, String, String> {
 

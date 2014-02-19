@@ -57,8 +57,8 @@ public class ReservationValideDetails extends Activity{
  
     // JSON Node names
     //private static String url_detail = "http://10.0.3.2/Success2i_V1/get_reservation_encours_detail.php";
-    private static String url_detail = "http://192.168.1.99/Success2i_V1/get_reservation_valide_detail.php";
-    private static String url_deleteReservation = "http://192.168.1.99/Success2i_V1/delete_reservation.php";
+    private static String url_detail = "http://192.168.1.72/Success2i_V1/get_reservation_valide_detail.php";
+    private static String url_deleteReservation = "http://192.168.1.72/Success2i_V1/delete_reservation.php";
 	private static final String TAG_SUCCESS = "success";
     private static final String TAG_TAB = "tab_detailReservation";
     private static final String TAG_ID = "id";
