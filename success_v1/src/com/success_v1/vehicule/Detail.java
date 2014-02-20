@@ -34,22 +34,23 @@ import com.success_v1.user.SessionManager;
 
 public class Detail extends Activity {
 
-	TextView id_vehicule;
-	TextView model_vehicule;
-	TextView marque_vehicule;
-	TextView moteur_vehicule;
-	TextView couleur_vehicule;
-	TextView annee_vehicule;
-	TextView km_vehicule;
-	TextView prix_vehicule;
-	TextView genreUser;
-	TextView prenomUser;
-	TextView nomUser;
-	TextView mailUser;
-	TextView numeroUser;
+	private TextView id_vehicule;
+	private TextView model_vehicule;
+	private TextView marque_vehicule;
+	private TextView moteur_vehicule;
+	private TextView couleur_vehicule;
+	private TextView annee_vehicule;
+	private TextView km_vehicule;
+	private TextView prix_vehicule;
+	private TextView genreUser;
+	private TextView prenomUser;
+	private TextView nomUser;
+	private TextView mailUser;
+	private TextView numeroUser;
 	private TextView titleActionBar;
 	private ImageView imageCaisse;
 	private ImageView logoEtape;
+	private TextView nbre_jours_reserv;
 
 
 	private TextView date_depart;
@@ -146,11 +147,13 @@ public class Detail extends Activity {
 		imageCaisse = (ImageView) findViewById(R.id.imgLogoCar);
 		date_depart = (TextView) findViewById(R.id.date_depart_recup);//
 		date_retour = (TextView) findViewById(R.id.date_retour_recup);//
+		nbre_jours_reserv = (TextView) findViewById(R.id.nbre_jours_reserv);//
 
 		prenomUser.setText(user.get(SessionManager.KEY_PRENOM));
 		nomUser.setText(user.get(SessionManager.KEY_NOM));
 		mailUser.setText(user.get(SessionManager.KEY_MAIL));
 		numeroUser.setText(user.get(SessionManager.KEY_NUM));
+		
 		//Log.d("value", a);
 
 		findViewById(R.id.btntestreseravation).setOnClickListener(new View.OnClickListener(){
@@ -215,6 +218,7 @@ public class Detail extends Activity {
 
 				Integer carPrice = Integer.valueOf(detail_tab.getString(TAG_PRICE));
 				carPrice = carPrice * numberDays;
+				nbre_jours_reserv.setText(numberDays.toString());
 
 
 				prix_vehicule.setText(carPrice.toString());
