@@ -20,8 +20,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.success_v1.res.JSONParser;
 import com.success_v1.successCar.R;
 import com.success_v1.user.SessionManager;
@@ -46,10 +48,11 @@ public class ReservationValideDetails extends Activity{
     TextView mailUser;
     TextView numeroUser;
     TextView titleActionBar;
+    ImageView imgLogoCar;
     SessionManager session;
     
     String pid_user;
-    
+    String url_imageReserv;
     String pid;
     // Progress Dialog
     private ProgressDialog pDialog;
@@ -91,7 +94,8 @@ public class ReservationValideDetails extends Activity{
         pid_user = user.get(SessionManager.KEY_ID);
         Intent result = getIntent();
 		pid = result.getStringExtra("id_get");
-         
+		url_imageReserv = result.getStringExtra("url_image");
+		
 		txtNumReservation = (TextView) findViewById(R.id.txtTitreResume);//
 		//txtDatReservation = (TextView) findViewById(R.id.txtDatReservation);
 		txtDebutReservation = (TextView) findViewById(R.id.date_depart_recup);//
@@ -109,91 +113,19 @@ public class ReservationValideDetails extends Activity{
         prenomUser = (TextView) findViewById(R.id.txtPrenomResume);
         mailUser = (TextView) findViewById(R.id.txtMailResume);
         numeroUser = (TextView) findViewById(R.id.txtPhoneResume);
-        
+        imgLogoCar = (ImageView) findViewById(R.id.imgLogoCar);
         prenomUser.setText(user.get(SessionManager.KEY_PRENOM));
 		nomUser.setText(user.get(SessionManager.KEY_NOM));
 		mailUser.setText(user.get(SessionManager.KEY_MAIL));
 		numeroUser.setText(user.get(SessionManager.KEY_NUM));
 		
 		btnAnnulerReservation.setVisibility(Button.GONE);
-		btnAnnulerReservation.setOnClickListener(new View.OnClickListener(){
-  	      @Override
-  	      public void onClick(View v) {
-  	        
-  	    	new DelReservation().execute();
-  	      }
-  	    });
 
         //Log.d("value", a);
         
         new GetReservationDetails().execute(); 
  
     }
-    class DelReservation extends AsyncTask<String, String, String> {
-     	 
-        /**
-         * Before starting background thread Show Progress Dialog
-         * */
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pDialog = new ProgressDialog(ReservationValideDetails.this);
-            pDialog.setMessage("Annulation en cours ...");
-            pDialog.setIndeterminate(false);
-            pDialog.setCancelable(true);
-            pDialog.show();
-        }
- 
-        /**
-         * Creating product
-         * */
-        protected String doInBackground(String... args) { 
-            // Building Parameters
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("id_reservation", txtNumReservation.getText().toString()));
-            // getting JSON Object
-            // Note that create product url accepts POST method
-            JSONObject json = jsonParser.makeHttpRequest(url_deleteReservation, "POST", params);
- 
-            // check log cat fro response
-            Log.d("Test reservation", json.toString());
- 
-            // check for success tag
-            try {
-                int success = json.getInt(TAG_SUCCESS);
- 
-                if (success == 1) {
-                	
-                    // successfully created product
-        	    	Intent result = getIntent();
-        	        setResult(RESULT_OK, result);
-        	        finish();
-        	        
-                } else {
-                    // failed to create product
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
- 
-            return null;
-        }
- 
-        /**
-         * After completing background task Dismiss the progress dialog
-         * **/
-        protected void onPostExecute(String file_url) {
-            // dismiss the dialog once done
-            pDialog.dismiss();
-        }
- 
-    }
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
     class GetReservationDetails extends AsyncTask<String, String, String> {
 
         @Override
@@ -231,7 +163,9 @@ public class ReservationValideDetails extends Activity{
             return null;
         }
         protected void onPostExecute(String file_url) {
-            try {           		            
+            try {           		           
+            	Log.d("Url image", url_imageReserv);
+            	Picasso.with(getApplicationContext()).load(url_imageReserv).into(imgLogoCar);
 	            txtNumReservation.setText(detail_tab.getString(TAG_ID));
 	            //txtDatReservation.setText(detail_tab.getString(TAG_DATERESERV));
 	            txtDebutReservation.setText(detail_tab.getString(TAG_DEBRESERV));
@@ -248,6 +182,6 @@ public class ReservationValideDetails extends Activity{
 			}                      
             pDialog.dismiss();           
         }
-    } 
-    
+    }
 }
+    

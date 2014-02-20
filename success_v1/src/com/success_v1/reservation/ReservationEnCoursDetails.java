@@ -20,11 +20,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.success_v1.res.JSONParser;
 import com.success_v1.successCar.R;
-import com.success_v1.user.RegisterPage;
 import com.success_v1.user.SessionManager;
 
 public class ReservationEnCoursDetails extends Activity {
@@ -47,11 +48,13 @@ public class ReservationEnCoursDetails extends Activity {
     TextView mailUser;
     TextView numeroUser;
     TextView titleActionBar;
+    ImageView imgLogoCar;
     SessionManager session;
     
     String pid_user;
     
     String pid;
+    String url_imageReserv;
     // Progress Dialog
     private ProgressDialog pDialog;
  
@@ -93,7 +96,7 @@ public class ReservationEnCoursDetails extends Activity {
         pid_user = user.get(SessionManager.KEY_ID);
         Intent result = getIntent();
 		pid = result.getStringExtra("id_get");
-         
+        url_imageReserv = result.getStringExtra("url_image");
 		txtNumReservation = (TextView) findViewById(R.id.txtTitreResume);//
 		//txtDatReservation = (TextView) findViewById(R.id.txtDatReservation);
 		txtDebutReservation = (TextView) findViewById(R.id.date_depart_recup);//
@@ -111,12 +114,12 @@ public class ReservationEnCoursDetails extends Activity {
         prenomUser = (TextView) findViewById(R.id.txtPrenomResume);
         mailUser = (TextView) findViewById(R.id.txtMailResume);
         numeroUser = (TextView) findViewById(R.id.txtPhoneResume);
-        
+        imgLogoCar = (ImageView) findViewById(R.id.imgLogoCar);
         prenomUser.setText(user.get(SessionManager.KEY_PRENOM));
 		nomUser.setText(user.get(SessionManager.KEY_NOM));
 		mailUser.setText(user.get(SessionManager.KEY_MAIL));
 		numeroUser.setText(user.get(SessionManager.KEY_NUM));
-		
+
 		btnAnnulerReservation.setText("Annuler ma réservation");
 		btnAnnulerReservation.setOnClickListener(new View.OnClickListener(){
   	      @Override
@@ -233,7 +236,9 @@ public class ReservationEnCoursDetails extends Activity {
             return null;
         }
         protected void onPostExecute(String file_url) {
-            try {           		            
+            try {           		           
+            	Log.d("Url image", url_imageReserv);
+            	Picasso.with(getApplicationContext()).load(url_imageReserv).into(imgLogoCar);
 	            txtNumReservation.setText(detail_tab.getString(TAG_ID));
 	            //txtDatReservation.setText(detail_tab.getString(TAG_DATERESERV));
 	            txtDebutReservation.setText(detail_tab.getString(TAG_DEBRESERV));

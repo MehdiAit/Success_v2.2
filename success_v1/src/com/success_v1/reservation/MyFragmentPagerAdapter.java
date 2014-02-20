@@ -22,13 +22,15 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter{
    
    /** Android tab is selected */
    case 0:
-    ReservationEnCours reservEnCours = new ReservationEnCours();   
+    ReservationList reservEnCours = new ReservationList();
+    reservEnCours.etat = "En cours";
     data.putInt("current_page", arg0+1);
     reservEnCours.setArguments(data);
     return reservEnCours;
      
    case 1:
-    ReservationValide reservValide = new ReservationValide();
+	ReservationList reservValide = new ReservationList();
+	reservValide.etat = "Validee";
     data.putInt("current_page", arg0+1);
     reservValide.setArguments(data);
     return reservValide;

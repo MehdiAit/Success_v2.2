@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    >
- 
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp" 
+    android:background="@drawable/list_selector">
+
     <ImageView
-		android:id="@+id/img_reservEnCours"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-	   	android:layout_gravity="center_vertical"
-	   	android:background="@drawable/ic_launcher"
-	   	android:padding="10px"
-		/>
- 
-	<LinearLayout
-	    android:orientation="vertical"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	   	android:layout_gravity="center_vertical"
-	   	android:paddingLeft="10px"
-	    android:layout_weight="1"
-	    >
+        android:id="@+id/img_reservEnCours"
+        android:layout_width="150dip"
+        android:layout_height="100dip"
+        android:scaleType="fitCenter"
+       	android:adjustViewBounds="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/default_car_large"
+        android:layout_centerVertical="true" />
+              <TextView android:id="@+id/photo_reservEnCours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/counter_bg"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:textColor="@color/counter_text_color"
+        android:visibility="gone"/>
      <TextView
         android:id="@+id/id_reservationEnCours"
         android:layout_width="wrap_content"
@@ -30,19 +32,53 @@
         android:visibility="gone"
          />
 
-	    <TextView android:id="@+id/date_reservationEnCours"
-	         android:layout_width="fill_parent"
-	         android:layout_height="fill_parent"
-	         />
- 
-	    <TextView android:id="@+id/validite_reservationEnCours"
-	         android:layout_width="fill_parent"
-	         android:layout_height="fill_parent"
-	        android:textSize="16px"
-	         android:textStyle="bold"
-	         android:text="Du xx/xx/xxxx au xx/xx/xxxx"
-	         />
- 
-    </LinearLayout>
- 
-</LinearLayout>
+    <TextView
+        android:id="@+id/date_reservationEnCours"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/img_reservEnCours"
+        android:textColor="@color/black_color"
+        android:paddingRight="5dp"/>
+    
+    <TextView
+        android:id="@+id/txtDu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/img_reservEnCours"
+        android:layout_below="@id/date_reservationEnCours"
+        android:gravity="center_vertical"
+        android:text="Du "
+        android:textColor="@color/black_color"/>
+    
+       <TextView android:id="@+id/dateDeb_reserv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/txtDu"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:textColor="@color/black_color"/>
+       
+       <TextView android:id="@+id/txtAu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/img_reservEnCours"
+        android:layout_below="@id/txtDu"
+        android:text=" Au "
+        android:layout_marginRight="8dp"
+        android:textColor="@color/black_color"/>
+       
+        <TextView android:id="@+id/dateFin_reserv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/txtAu"
+        android:layout_below="@id/dateDeb_reserv"
+        android:layout_marginRight="8dp"
+        android:textColor="@color/black_color"/>
+              
+       	<TextView android:id="@+id/id_vehicule"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:visibility="gone"
+	    />
+
+</RelativeLayout>
