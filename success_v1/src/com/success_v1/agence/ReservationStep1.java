@@ -13,11 +13,10 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -26,7 +25,6 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.DatePicker;
 import android.widget.ImageView;
-import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -65,6 +63,8 @@ public class ReservationStep1 extends Activity{
 	static final int DATE_DIALOG_RETOUR = 899;
 
 	JSONObject detail_tab = new JSONObject();
+	ConnectivityManager wf;
+	NetworkInfo info;
 
 
 	public void ConvertDate(String format, Button btndate)
@@ -126,6 +126,10 @@ public class ReservationStep1 extends Activity{
 		btnVilleDepart = (Button) findViewById(R.id.btnVilleDepart1);
 		btnSearchCar = (Button) findViewById(R.id.btnSearchCar);
 		switchTypeVehicule = (Switch) findViewById(R.id.switchTypeVehicule);
+		
+		wf = (ConnectivityManager)this.getSystemService(CONNECTIVITY_SERVICE);
+		info = wf.getActiveNetworkInfo();
+		
 		state="Tourisme";
 		
 		ConvertDate("dd-MM-yyyy", btnDateDepart);
@@ -186,15 +190,23 @@ public class ReservationStep1 extends Activity{
 					listCarActivity.putExtra("dateDepart", dateDepart);
 					listCarActivity.putExtra("dateRetour", dateRetour);
 					listCarActivity.putExtra("ville", ville);
-
-					if (state== "Tourisme"){
-						listCarActivity.putExtra("typeVehicule", "Tourisme");
-					}
-					else if (state== "Utilitaire")
+					
+					if(info != null)
 					{
-						listCarActivity.putExtra("typeVehicule", "Utilitaire");
-					}
-					startActivity(listCarActivity);
+						Log.d("wifi state","Connected");
+						if (state== "Tourisme"){
+							listCarActivity.putExtra("typeVehicule", "Tourisme");
+						}
+						else if (state== "Utilitaire")
+						{
+							listCarActivity.putExtra("typeVehicule", "Utilitaire");
+						}
+						startActivity(listCarActivity);
+					}else
+					{
+						Toast.makeText(getApplicationContext(), "Vous devez etre connectés >.<", Toast.LENGTH_LONG).show();
+						Log.d("wifi state","Deconnected");
+					}					
 				}
 
 

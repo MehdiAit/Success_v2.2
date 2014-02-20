@@ -33,7 +33,7 @@ public class ListAgences extends Activity {
 		
 	private ListView lv;
 	
-	private static String url_all = "http://192.168.1.72/Success2i_V1/get_agence.php";
+	private static String url_all = "http://192.168.1.74/Success2i_V1/get_agence.php";
 	private static final String TAG_SUCCESS = "success";
     private static final String TAG_TAB = "tab_agence";
     private static final String TAG_ID = "id";

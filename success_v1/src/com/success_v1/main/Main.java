@@ -3,16 +3,19 @@ package com.success_v1.main;
 import java.util.HashMap;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
-import android.widget.SeekBar;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.success_v1.agence.ReservationStep1;
@@ -29,6 +32,9 @@ public class Main extends Activity implements OnClickListener{
     // Session Manager Class
     SessionManager session;
     HashMap<String, String> user;
+    ConnectivityManager wf;
+    NetworkInfo info;
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,6 +43,15 @@ public class Main extends Activity implements OnClickListener{
 		getActionBar().setDisplayShowHomeEnabled(false);
 
         session = new SessionManager(getApplicationContext());
+		wf = (ConnectivityManager)this.getSystemService(CONNECTIVITY_SERVICE);
+        info = wf.getActiveNetworkInfo();
+        if(info != null)
+        {
+        	Log.d("wifi state","Connected");
+        }else
+        {
+        	Log.d("wifi state","Deconnected");
+        }
         
 		btnAgences = (Button)this.findViewById(R.id.btnAgences);
 		btnReservation= (Button)this.findViewById(R.id.btnReservations);

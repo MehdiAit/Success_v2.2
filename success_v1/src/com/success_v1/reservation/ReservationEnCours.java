@@ -38,7 +38,7 @@ private ProgressDialog pDialog;
     View rootView = null;
     
 	//private static String url_all = "http://10.0.3.2/Success2i_V1/get_reservations_encours.php";
-	private static String url_all = "http://192.168.1.72/Success2i_V1/get_reservations_encours.php";
+	private static String url_all = "http://192.168.1.74/Success2i_V1/get_reservations_encours.php";
 	private static final String TAG_SUCCESS = "success";
     private static final String TAG_TAB = "tab_reservation";
     private static final String TAG_ID = "id";

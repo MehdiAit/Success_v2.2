@@ -40,7 +40,7 @@ public class LogPage extends Activity{
 
 	// JSON Node names
 	//private static String url_authentification = "http://10.0.3.2/Success2i_V1/auth_user.php";
-	private static String url_authentification = "http://192.168.1.72/Success2i_V1/auth_user.php";
+	private static String url_authentification = "http://192.168.1.74/Success2i_V1/auth_user.php";
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_TAB = "user_tab";
 	private static final String TAG_ID = "id";

@@ -46,7 +46,7 @@ public class Detail extends Activity {
     JSONParser jParser = new JSONParser();
  
     // JSON Node names
-    private static String url_detail = "http://192.168.1.72/Success2i_V1/get_agence_detail.php";
+    private static String url_detail = "http://192.168.1.74/Success2i_V1/get_agence_detail.php";
 	private static final String TAG_SUCCESS = "success";
     private static final String TAG_TAB = "agence_tab";
     private static final String TAG_ID = "id";
