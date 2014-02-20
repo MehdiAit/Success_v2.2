@@ -71,6 +71,7 @@ public class Detail extends Activity {
 
 	private static SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 	private Integer numberDays;
+	private Integer carPrice;
 	private Date d1;
 	private Date d2;
 
@@ -216,10 +217,9 @@ public class Detail extends Activity {
 				marque_vehicule.setText(detail_tab.getString(TAG_MARK));
 				moteur_vehicule.setText(detail_tab.getString(TAG_ENGINE));
 
-				Integer carPrice = Integer.valueOf(detail_tab.getString(TAG_PRICE));
+				carPrice = Integer.valueOf(detail_tab.getString(TAG_PRICE));
 				carPrice = carPrice * numberDays;
 				nbre_jours_reserv.setText(numberDays.toString());
-
 
 				prix_vehicule.setText(carPrice.toString());
 				Picasso.with(getApplicationContext()).load(url_image).into(imageCaisse);
@@ -259,6 +259,8 @@ public class Detail extends Activity {
 			params.add(new BasicNameValuePair("id_user", pid_user));
 			params.add(new BasicNameValuePair("date_depart", date_depart_intent));
 			params.add(new BasicNameValuePair("date_retour", date_retour_intent));
+			params.add(new BasicNameValuePair("nb_jour", numberDays.toString()));
+			params.add(new BasicNameValuePair("prix_total", carPrice.toString()));
 
 			// getting JSON Object
 			// Note that create product url accepts POST method
