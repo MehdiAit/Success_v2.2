@@ -121,20 +121,19 @@ public class ReservationStep1 extends Activity{
 		month = c.get(Calendar.MONTH);
 		day = c.get(Calendar.DAY_OF_MONTH);
 
-
 		btnDateDepart = (Button) findViewById(R.id.btnDateDeb);
 		btnDateRetour = (Button) findViewById(R.id.btnDateRetour);
 		btnVilleDepart = (Button) findViewById(R.id.btnVilleDepart1);
 		btnSearchCar = (Button) findViewById(R.id.btnSearchCar);
 		switchTypeVehicule = (Switch) findViewById(R.id.switchTypeVehicule);
+		state="Tourisme";
 		
 		ConvertDate("dd-MM-yyyy", btnDateDepart);
 		ConvertDate("dd-MM-yyyy", btnDateRetour);
 		
 		switchTypeVehicule.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-			// TODO Auto-generated method stub
-			state="Tourisme";
+			// TODO Auto-generated method stub			
 			if(isChecked){
 			state="Utilitaire";
 			}
