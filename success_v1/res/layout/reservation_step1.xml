@@ -109,8 +109,9 @@
                 android:layout_marginTop="5dip"
                 android:background="@drawable/roundcorner"
                 android:textColor="#94181A"
-                android:textOff="Utilitaire"
-                android:textOn="Tourisme"
+                android:textColorHighlight="@color/yellow_theme"
+                android:textOff="Tourisme "
+                android:textOn="Utilitaire"
                 android:thumb="@drawable/switch_inner"
                 android:track="@drawable/switch_track" />
 

@@ -1,11 +1,14 @@
 package com.success_v1.vehicule;
 
 
+import com.success_v1.agence.ReservationStep1;
 import com.success_v1.successCar.R;
 import com.success_v1.successCar.R.color;
+import com.success_v1.user.SessionManager;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,9 +16,11 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class VehiculeTab extends FragmentActivity {
@@ -24,6 +29,8 @@ public class VehiculeTab extends FragmentActivity {
 	 private ViewPager viewpager;
 	 private TextView titleActionBar;
 	 private ImageView logoEtape;
+	    // Session Manager Class
+	    SessionManager session;
 	 
 	@Override
 	 protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +116,22 @@ public class VehiculeTab extends FragmentActivity {
 	 public boolean onCreateOptionsMenu(Menu menu) {
 	  // Inflate the menu; this adds items to the action bar if it is present.
 	  getMenuInflater().inflate(R.menu.main, menu);
+	  menu.findItem(R.id.action_search).setVisible(true);
 	  return true;
 	 }
-	 
+		@Override
+		public boolean onOptionsItemSelected(MenuItem item) {
+			// TODO Auto-generated method stub
+			switch(item.getItemId())
+			{
+			case R.id.SubMenuLogOut: session.logoutUser();Toast.makeText(getApplicationContext(), "Deconnexion", Toast.LENGTH_SHORT).show();break;
+			case R.id.SubMenuNote:Toast.makeText(this, "Notez nous", Toast.LENGTH_SHORT).show();
+			case R.id.SubMenuAbout:Toast.makeText(this, "Qui suis-je?", Toast.LENGTH_SHORT).show();
+			case R.id.action_search:
+				Intent searchActivity= new Intent(this,VehiculeSearch.class);
+				startActivity(searchActivity);
+				break;
+			}
+			return super.onOptionsItemSelected(item);
+		}
 	}

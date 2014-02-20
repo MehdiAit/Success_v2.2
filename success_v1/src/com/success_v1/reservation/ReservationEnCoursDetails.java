@@ -10,12 +10,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -44,6 +46,7 @@ public class ReservationEnCoursDetails extends Activity {
     TextView nomUser;
     TextView mailUser;
     TextView numeroUser;
+    TextView titleActionBar;
     SessionManager session;
     
     String pid_user;
@@ -80,6 +83,10 @@ public class ReservationEnCoursDetails extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vehicule_detail);
         
+        getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+		getActionBar().setCustomView(R.layout.koutchy_actionbar);
+		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
+		titleActionBar.setText("Détails de la réservation");
   session = new SessionManager(getApplicationContext());
         
         HashMap<String, String> user = session.getUserDetails();
@@ -124,6 +131,12 @@ public class ReservationEnCoursDetails extends Activity {
         new GetReservationDetails().execute(); 
  
     }
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
     class DelReservation extends AsyncTask<String, String, String> {
      	 
         /**

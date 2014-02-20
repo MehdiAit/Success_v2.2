@@ -134,9 +134,9 @@ public class ReservationStep1 extends Activity{
 		switchTypeVehicule.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 			// TODO Auto-generated method stub
-			state="Utilitaire";
-			if(isChecked){
 			state="Tourisme";
+			if(isChecked){
+			state="Utilitaire";
 			}
 			Toast.makeText(getApplicationContext(), "Switch 1 is "+state,Toast.LENGTH_LONG).show();
 			}

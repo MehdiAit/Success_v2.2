@@ -57,5 +57,13 @@
         <item>Madame</item>
         <item>Monsieur</item>
     </string-array>
+        <string-array name="color_array">
+        <item>Noir</item>
+        <item>Rouge</item>
+        <item>Bleu</item>
+        <item>Blanc</item>
+        <item>Gris métalisé</item>
+        <item>Gris souris</item>
+    </string-array>
 
 </resources>

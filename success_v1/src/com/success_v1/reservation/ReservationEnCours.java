@@ -43,6 +43,9 @@ private ProgressDialog pDialog;
     private static final String TAG_TAB = "tab_reservation";
     private static final String TAG_ID = "id";
     private static final String TAG_DATE = "date_reservation";
+    private static final String TAG_DATEDEB = "dateDebLoc_reservation";
+    private static final String TAG_DATEFIN = "dateFinLoc_reservation";
+    private static final String TAG_IMG = "photo_vehicule";
 	
 
 	@Override
@@ -117,7 +120,9 @@ private ProgressDialog pDialog;
  
                         String id = c.getString(TAG_ID);
                         String date = c.getString(TAG_DATE);
-                        
+                        String dateDeb = c.getString(TAG_DATEDEB);
+                        String dateFin = c.getString(TAG_DATEFIN);
+                        String photo = c.getString(TAG_IMG);
                         
                         Reservation reservationEnCours = new Reservation(id,date);
  
