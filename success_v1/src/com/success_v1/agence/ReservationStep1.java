@@ -140,6 +140,9 @@ public class ReservationStep1 extends Activity{
 			// TODO Auto-generated method stub			
 			if(isChecked){
 			state="Utilitaire";
+			}else
+			{
+				state="Tourisme";
 			}
 			Toast.makeText(getApplicationContext(), "Switch 1 is "+state,Toast.LENGTH_LONG).show();
 			}
