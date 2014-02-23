@@ -39,7 +39,6 @@ public class VehiculeListe extends Fragment {
 	//mettre un acc/mut pour la variable cat
 	String cat;
 	private String idAgence;
-	private String typeVehicule;
 	private String dateDepart;
 	private String dateRetour;
 	private String ville;
@@ -71,7 +70,6 @@ public class VehiculeListe extends Fragment {
 		session = new SessionManager(getActivity().getApplicationContext());
 
 		Intent result = getActivity().getIntent();
-		typeVehicule = result.getStringExtra("typeVehicule");
 		dateDepart = result.getStringExtra("dateDepart");
 		dateRetour=result.getStringExtra("dateRetour");
 		ville =result.getStringExtra("ville");
@@ -151,7 +149,6 @@ public class VehiculeListe extends Fragment {
 
 				List<NameValuePair> params = new ArrayList<NameValuePair>();
 				params.add(new BasicNameValuePair("cat_vehicule", cat));
-				params.add(new BasicNameValuePair("type_vehicule", typeVehicule));
 				params.add(new BasicNameValuePair(TAG_ville_param, ville));
 				params.add(new BasicNameValuePair("dateDebLoc_reservation", dateDepart));
 				params.add(new BasicNameValuePair("dateFinLoc_reservation", dateRetour));

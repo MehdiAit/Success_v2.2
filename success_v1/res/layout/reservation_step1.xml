@@ -90,30 +90,8 @@
                 android:layout_marginTop="5dip"
                 android:background="@drawable/roundcorner"
                 android:text="@string/btnVilleArrive1"
+                android:visibility="gone"
                 android:textColor="#D6CDC6" />
-
-            <TextView
-                android:id="@+id/txtTypeVehicule"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dip"
-                android:text="@string/txtTypeVehicule"
-                android:textSize="18sp" />
-
-            <Switch
-                android:id="@+id/switchTypeVehicule"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="5dip"
-                android:background="@drawable/roundcorner"
-                android:textColor="#94181A"
-                android:textColorHighlight="@color/yellow_theme"
-                android:textOff="Tourisme "
-                android:textOn="Utilitaire"
-                android:thumb="@drawable/switch_inner"
-                android:track="@drawable/switch_track" />
 
             <CheckBox
                 android:id="@+id/checkBox1"

@@ -21,21 +21,21 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter{
 
 		case 0:
 			VehiculeListe vehiculeUrbain = new VehiculeListe();  
-			vehiculeUrbain.cat = "Citadine";
+			vehiculeUrbain.cat = "Tourisme";
 			data.putInt("current_page", arg0+1);
 			vehiculeUrbain.setArguments(data);
 			return vehiculeUrbain;
 
 		case 1:
 			VehiculeListe vehiculeCompacte = new VehiculeListe();
-			vehiculeCompacte.cat = "Compacte";
+			vehiculeCompacte.cat = "Utilitaire";
 			data.putInt("current_page", arg0+1);
 			vehiculeCompacte.setArguments(data);
 			return vehiculeCompacte;
 
 		case 2:
 			VehiculeListe vehiculeSportive = new VehiculeListe();
-			vehiculeSportive.cat = "Sportive";
+			vehiculeSportive.cat = "Luxe";
 			data.putInt("current_page", arg0+1);
 			vehiculeSportive.setArguments(data);
 			return vehiculeSportive;

@@ -46,7 +46,6 @@ public class ReservationStep1 extends Activity{
 	private Button btnVilleDepart;
 	private Button btnSearchCar;
 	
-	private Switch switchTypeVehicule;
 	
 	private int yearDepart;
 	private int monthDepart;
@@ -57,7 +56,6 @@ public class ReservationStep1 extends Activity{
 	private int nbBtn;
 	private TextView titleActionBar;
 	private ImageView logoEtape;
-	private String state;
 
 	static final int DATE_DIALOG_DEPART = 999;
 	static final int DATE_DIALOG_RETOUR = 899;
@@ -125,28 +123,13 @@ public class ReservationStep1 extends Activity{
 		btnDateRetour = (Button) findViewById(R.id.btnDateRetour);
 		btnVilleDepart = (Button) findViewById(R.id.btnVilleDepart1);
 		btnSearchCar = (Button) findViewById(R.id.btnSearchCar);
-		switchTypeVehicule = (Switch) findViewById(R.id.switchTypeVehicule);
 		
 		wf = (ConnectivityManager)this.getSystemService(CONNECTIVITY_SERVICE);
 		info = wf.getActiveNetworkInfo();
-		
-		state="Tourisme";
-		
+				
 		ConvertDate("dd-MM-yyyy", btnDateDepart);
 		ConvertDate("dd-MM-yyyy", btnDateRetour);
 		
-		switchTypeVehicule.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-			// TODO Auto-generated method stub			
-			if(isChecked){
-			state="Utilitaire";
-			}else
-			{
-				state="Tourisme";
-			}
-			Toast.makeText(getApplicationContext(), "Switch 1 is "+state,Toast.LENGTH_LONG).show();
-			}
-			});
 		btnDateDepart.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -197,13 +180,6 @@ public class ReservationStep1 extends Activity{
 					if(info != null)
 					{
 						Log.d("wifi state","Connected");
-						if (state== "Tourisme"){
-							listCarActivity.putExtra("typeVehicule", "Tourisme");
-						}
-						else if (state== "Utilitaire")
-						{
-							listCarActivity.putExtra("typeVehicule", "Utilitaire");
-						}
 						startActivity(listCarActivity);
 					}else
 					{
