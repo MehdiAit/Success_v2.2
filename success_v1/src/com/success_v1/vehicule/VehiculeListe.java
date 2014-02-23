@@ -14,21 +14,16 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.success_v1.res.JSONParser;
 import com.success_v1.successCar.R;
-import com.success_v1.user.SessionManager;
 
-public class VehiculeListe extends Fragment {
+public class VehiculeListe extends Activity {
 
 	private ProgressDialog pDialog;
 
@@ -46,8 +41,7 @@ public class VehiculeListe extends Fragment {
 	
 	private ListView lv;
 	private AdapterVehicule ad;
-	private SessionManager session;
-	private View rootView = null;
+
 
 	//private static String url_all = "http://10.0.3.2/Success2i_V1/get_vehicule.php";
 	private static String url_all = "http://192.168.1.74/Success2i_V1/get_vehicule.php";
@@ -62,41 +56,39 @@ public class VehiculeListe extends Fragment {
 	private static final String TAG_ville_param = "ville_agence";
 	//private static final String TAG_IMG = "imageVehicule";
 	@Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-        rootView = inflater.inflate(R.layout.vehicule_list, container, false);
-        
-        
-		session = new SessionManager(getActivity().getApplicationContext());
+		setContentView(R.layout.vehicule_list);
 
-		Intent result = getActivity().getIntent();
+		Intent result = getIntent();
 		dateDepart = result.getStringExtra("dateDepart");
 		dateRetour=result.getStringExtra("dateRetour");
 		ville =result.getStringExtra("ville");
+		cat = result.getStringExtra("nom_cat");
 
 		
 		Log.i("Date depart", dateDepart);
 		Log.i("Date retour", dateRetour);
+		Log.i("cat",cat);
+		Log.i("ville",ville);
 
 		vehiculelist = new ArrayList<Vehicule>();	
 		new LoadAll().execute();
 
-		lv = (ListView)rootView.findViewById(R.id.listVehicule);
+		lv = (ListView)findViewById(R.id.listVehicule);
 		lv.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 		        
-				if(session.isLoggedIn())
-				{
 				Vehicule idtest = new Vehicule();
 				idtest = (Vehicule) lv.getAdapter().getItem(arg2);
 
 				String id = idtest.getId().toString();
 				Log.i("id voiture",id);
 				
-				Intent intent = new Intent(getActivity().getApplicationContext(), com.success_v1.vehicule.Detail.class);
+				Intent intent = new Intent(getApplicationContext(), com.success_v1.vehicule.Detail.class);
 				intent.putExtra("id_voiture", id);
 				intent.putExtra("id_agence", idAgence);
 				intent.putExtra("date_depart", dateDepart);
@@ -104,40 +96,31 @@ public class VehiculeListe extends Fragment {
 				intent.putExtra("url_image", idtest.getUrlImage().toString());
 				startActivityForResult(intent,1);
 				
-				}
-				else
-				{
-					Intent intent = new Intent(getActivity().getApplicationContext(), com.success_v1.user.LogPage.class);
-					startActivity(intent);
-				}
-				
 			}
 		}
 				);		
-		return rootView;
 	}
 	
 	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
 		if(requestCode == 1)
 		{
-			getActivity();
-			if(resultCode == Activity.RESULT_OK)
+			if(resultCode == RESULT_OK)
 			{
-				vehiculelist = new ArrayList<Vehicule>();
+				vehiculelist = new ArrayList<Vehicule>();	
 				new LoadAll().execute();
-				Toast.makeText(getActivity().getApplicationContext(), "Test intent" , Toast.LENGTH_LONG).show();
 			}
 		}
 	}
 	
-
 	class LoadAll extends AsyncTask<String, String, String> {
 
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			pDialog = new ProgressDialog(getActivity());
+			pDialog = new ProgressDialog(VehiculeListe.this);
 			pDialog.setMessage("Loading .Please wait...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(false);
@@ -185,9 +168,9 @@ public class VehiculeListe extends Fragment {
 
 		protected void onPostExecute(String file_url) {
 			pDialog.dismiss();
-			getActivity().runOnUiThread(new Runnable() {                 
+			runOnUiThread(new Runnable() {                 
 				public void run() {                 	
-					ad = new AdapterVehicule(getActivity(), vehiculelist);
+					ad = new AdapterVehicule(getApplicationContext(), vehiculelist);
 					lv.setAdapter(ad);               	
 				}
 			});

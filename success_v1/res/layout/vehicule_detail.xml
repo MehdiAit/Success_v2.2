@@ -173,6 +173,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/nomAgenceResume"
+                    android:visibility="gone"
                     android:textSize="15sp" />
 
                 <LinearLayout

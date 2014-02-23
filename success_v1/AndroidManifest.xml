@@ -92,13 +92,17 @@
             android:icon="@drawable/style_unchecked"
             android:label="@string/app_name" >
         </activity>
-        
         <activity
             android:name="com.success_v1.agence.List_Ville"
             android:label="@string/app_name" >
         </activity>
-                <activity
+        <activity
             android:name="com.success_v1.vehicule.VehiculeSearch"
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="com.success_v1.vehicule.VehiculeListe"
             android:label="@string/app_name" >
         </activity>
 

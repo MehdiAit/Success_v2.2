@@ -12,7 +12,10 @@ import org.json.JSONObject;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -125,7 +128,9 @@ public class ReservationEnCoursDetails extends Activity {
   	      @Override
   	      public void onClick(View v) {
   	        
-  	    	new DelReservation().execute();
+  	    	Dialog();
+  	    	//new DelReservation().execute();
+  	    	
   	      }
   	    });
 
@@ -133,6 +138,37 @@ public class ReservationEnCoursDetails extends Activity {
         
         new GetReservationDetails().execute(); 
  
+    }
+    
+    public void Dialog()
+    {
+    	AlertDialog.Builder confirm = new AlertDialog.Builder(this);
+    	confirm.setIcon(android.R.drawable.ic_dialog_alert);
+    	confirm.setTitle("Delete");
+    	confirm.setMessage("Voulez vous vraiment anuler votre reservation ?");
+    	
+    	confirm.setPositiveButton("Oui", new OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				new DelReservation().execute();
+				
+			}
+		});
+    	
+    	confirm.setNegativeButton("Anuler", new OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+    	
+    	
+    	confirm.show();
+    	
     }
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -199,6 +235,8 @@ public class ReservationEnCoursDetails extends Activity {
         }
  
     }
+    
+ 
     class GetReservationDetails extends AsyncTask<String, String, String> {
 
         @Override

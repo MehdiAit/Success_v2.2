@@ -38,9 +38,9 @@ public class Detail extends Activity {
 	private TextView model_vehicule;
 	private TextView marque_vehicule;
 	private TextView moteur_vehicule;
-	private TextView couleur_vehicule;
-	private TextView annee_vehicule;
-	private TextView km_vehicule;
+	//private TextView couleur_vehicule;
+	//private TextView annee_vehicule;
+	//private TextView km_vehicule;
 	private TextView prix_vehicule;
 	private TextView genreUser;
 	private TextView prenomUser;
@@ -93,7 +93,8 @@ public class Detail extends Activity {
 	//private static final String TAG_YEAR = "annee";
 	private static final String TAG_PRICE = "tarifJour";
 
-	JSONObject detail_tab = new JSONObject();
+	private JSONObject detail_tab = new JSONObject();
+	private HashMap<String, String> user = new HashMap<String, String>();
 
 	public static Date stringToDate(String sDate) throws ParseException {
 		return formatter.parse(sDate);
@@ -113,7 +114,7 @@ public class Detail extends Activity {
 		logoEtape.setVisibility(ImageView.VISIBLE);
 		session = new SessionManager(getApplicationContext());
 
-		HashMap<String, String> user = session.getUserDetails();
+		user = session.getUserDetails();
 		pid_user = user.get(SessionManager.KEY_ID);
 
 		Intent result = getIntent();
@@ -155,24 +156,50 @@ public class Detail extends Activity {
 		mailUser.setText(user.get(SessionManager.KEY_MAIL));
 		numeroUser.setText(user.get(SessionManager.KEY_NUM));
 		
-		//Log.d("value", a);
 
 		findViewById(R.id.btntestreseravation).setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
 
-				new AddReservation().execute();
+				if(session.isLoggedIn())
+				{
+					new AddReservation().execute();
+				}
+				else
+				{
+					Intent intent = new Intent(getApplicationContext(), com.success_v1.user.LogPage.class);
+					startActivityForResult(intent,55);
+				}
 			}
 		});
 
 		new GetCarDetails().execute(); 
 
 	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if(requestCode == 55)
+		{
+			if(resultCode == RESULT_OK)
+			{
+				user = session.getUserDetails();
+				pid_user = user.get(SessionManager.KEY_ID);
+				
+				prenomUser.setText(user.get(SessionManager.KEY_PRENOM));
+				nomUser.setText(user.get(SessionManager.KEY_NOM));
+				mailUser.setText(user.get(SessionManager.KEY_MAIL));
+				numeroUser.setText(user.get(SessionManager.KEY_NUM));
+				
+			}
+		}
 	}
 
 	class GetCarDetails extends AsyncTask<String, String, String> {
@@ -201,6 +228,7 @@ public class Detail extends Activity {
 				if (success == 1) {
 					JSONArray productObj = json.getJSONArray(TAG_TAB);
 					detail_tab = productObj.getJSONObject(0);
+					
 
 				}else{
 					// Resultat de requete vide
