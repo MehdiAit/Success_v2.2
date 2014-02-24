@@ -27,9 +27,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 
 
 import com.success_v1.res.JSONParser;
@@ -37,7 +40,9 @@ import com.success_v1.successCar.R;
 import com.success_v1.user.RegisterPage.AddUser;
 
 public class ProfilPage extends Activity{
-	Spinner spinGenreProfil;
+	RadioGroup rdioGenre;
+	RadioButton radioMadameButton;
+	RadioButton radioMonsieurButton;
 	EditText editPrenomProfil;
 	EditText editNomProfil;
 	Button btnDateNaisProfil;
@@ -72,6 +77,7 @@ public class ProfilPage extends Activity{
 	private String dateNaissanceProfil;
 	private String datePermisProfil;
 	private String id_user;
+	private String genreSelected ="Monsieur";
 
 	/****************************************/
     // Session Manager Class
@@ -101,8 +107,29 @@ public class ProfilPage extends Activity{
 		getActionBar().setCustomView(R.layout.koutchy_actionbar);
 		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
 		titleActionBar.setText("Profil");
-		spinGenreProfil = (Spinner)findViewById(R.id.spinGenreProfil);
-		
+		rdioGenre = (RadioGroup)findViewById(R.id.rdioGenreProfil);
+		radioMadameButton = (RadioButton)findViewById(R.id.rdioMadameProfil);
+		radioMonsieurButton = (RadioButton)findViewById(R.id.rdioMonsieurProfil);
+		/*rdioGenre.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	        {
+	            public void onCheckedChanged(RadioGroup group, int checkedId) {
+	                switch(checkedId){
+	                    case R.id.rdioMonsieurProfil:
+	                        genreSelected = "Monsieur";
+	                        Log.d("TestGenre",genreSelected);
+	                    break;
+
+	                    case R.id.rdioMadameProfil:
+	                    	genreSelected = "Madame";
+	                    	Log.d("TestGenre",genreSelected);
+	                    break;
+
+	                }
+
+
+	            }
+	        });*/
+
 		editPrenomProfil = (EditText)findViewById(R.id.editPrenomProfil);
 		editNomProfil = (EditText)findViewById(R.id.editNomProfil);
 		editMailRegistrationProfil = (EditText)findViewById(R.id.editMailRegistrationProfil);
@@ -114,17 +141,10 @@ public class ProfilPage extends Activity{
 		editPaysProfil = (EditText)findViewById(R.id.editPaysProfil);
 		editPhoneProfil = (EditText)findViewById(R.id.editPhoneProfil);
 
-
 		btnDateNaisProfil = (Button)findViewById(R.id.btnDateNaisProfil);
 		btnDatePermProfil = (Button)findViewById(R.id.btnDatePermProfil);
 		btnEditCountProfil = (Button)findViewById(R.id.btnEditCountProfil);
 		
-		// Create an ArrayAdapter using the string array and a default spinner layout
-				ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.gender_array, android.R.layout.simple_spinner_item);
-				// Specify the layout to use when the list of choices appears
-				adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-				// Apply the adapter to the spinner
-				spinGenreProfil.setAdapter(adapter);
 		 // get user data from session
         HashMap<String, String> user = session.getUserDetails();
          
@@ -166,7 +186,19 @@ public class ProfilPage extends Activity{
 		editMdpRegistrationProfil.setText(user.get(SessionManager.KEY_MDP));
 		editNumPermProfil.setText(user.get(SessionManager.KEY_NUMPERMIS));
 		editAdressProfil.setText(user.get(SessionManager.KEY_ADRESSE));
-		//spinGenreProfil.setText(user.get(SessionManager.KEY_GENRE));
+		genreSelected=user.get(SessionManager.KEY_GENRE);
+		Log.d("genreSelected",genreSelected);
+		if (genreSelected.equals("Monsieur"))
+		{
+			radioMonsieurButton.setChecked(true);
+			radioMadameButton.setChecked(false);
+			Log.d("Test","Je rentre dans la condition!");
+		}
+		else if (genreSelected.equals("Madame"))
+		{
+			radioMonsieurButton.setChecked(false);
+			radioMadameButton.setChecked(true);
+		}
 		editCodePostProfil.setText(user.get(SessionManager.KEY_CODEPOST));
 		editVilleProfil.setText(user.get(SessionManager.KEY_VILLE));
 		editPaysProfil.setText(user.get(SessionManager.KEY_PAYS));
@@ -265,6 +297,22 @@ public class ProfilPage extends Activity{
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	public void onRadioButtonClickedProfil(View view) {
+	    // Is the button now checked?
+	    boolean checked = ((RadioButton) view).isChecked();
+	    
+	    // Check which radio button was clicked
+	    switch(view.getId()) {
+	        case R.id.rdioMonsieurProfil:
+	            if (checked)
+	                genreSelected="Monsieur";
+	            break;
+	        case R.id.rdioMadameProfil:
+	            if (checked)
+	            	genreSelected="Madame";
+	            break;
+	    }
+	}
 	 class AddUser extends AsyncTask<String, String, String> {
       	 
 	        /**
@@ -296,7 +344,7 @@ public class ProfilPage extends Activity{
 	            params.add(new BasicNameValuePair("numPhone_user", editPhoneProfil.getText().toString()));
 	            params.add(new BasicNameValuePair("mail_user", editMailRegistrationProfil.getText().toString()));
 	            params.add(new BasicNameValuePair("dateRetraitPermis_user",datePermisProfil));
-	            params.add(new BasicNameValuePair("genre_user", spinGenreProfil.getSelectedItem().toString()));
+	            params.add(new BasicNameValuePair("genre_user", genreSelected));
 	            params.add(new BasicNameValuePair("codePost_user", editCodePostProfil.getText().toString()));
 	            params.add(new BasicNameValuePair("ville_user", editVilleProfil.getText().toString()));
 	            params.add(new BasicNameValuePair("pays_user", editPaysProfil.getText().toString()));
@@ -337,7 +385,7 @@ public class ProfilPage extends Activity{
 	        	session.createLoginSession(id_user, editNomProfil.getText().toString(),editPrenomProfil.getText().toString(),
 	        			editMdpRegistrationProfil.getText().toString(),editAdressProfil.getText().toString(),
 	        			editNumPermProfil.getText().toString(),dateNaissanceProfil,datePermisProfil,
-	        			spinGenreProfil.getSelectedItem().toString(),editCodePostProfil.getText().toString(),
+	        			genreSelected,editCodePostProfil.getText().toString(),
 	        			editVilleProfil.getText().toString(),editPaysProfil.getText().toString(),
 	        			editPhoneProfil.getText().toString(),editMailRegistrationProfil.getText().toString());
 	        	Toast.makeText(getApplicationContext(), "Tout a été modifié: ", Toast.LENGTH_LONG).show();

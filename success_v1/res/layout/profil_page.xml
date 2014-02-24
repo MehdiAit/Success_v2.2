@@ -37,18 +37,27 @@
                 android:textSize="18sp" 
                 android:text="Genre*" />
 
-            <Spinner
-                android:id="@+id/spinGenreProfil"
-                                android:layout_width="match_parent"
-                android:layout_height="30dip"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="10dip"
-                android:layout_marginRight="10dip"
-                android:layout_marginTop="10dip"
-                android:background="@drawable/roundcorner"
-                android:gravity="center_horizontal"
-                android:textSize="17sp"/>
+        <RadioGroup
+            android:id="@+id/rdioGenreProfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal" >
 
+            <RadioButton
+                android:id="@+id/rdioMonsieurProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClickedProfil"
+                android:text="Monsieur" />
+
+            <RadioButton
+                android:id="@+id/rdioMadameProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClickedProfil"
+                android:text="Madame" />
+        </RadioGroup>
             <TextView
                 android:id="@+id/txtPrenomProfil"
                 android:layout_width="wrap_content"

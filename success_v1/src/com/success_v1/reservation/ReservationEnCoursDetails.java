@@ -109,6 +109,7 @@ public class ReservationEnCoursDetails extends Activity {
 		txtModelReservation = (TextView) findViewById(R.id.nom_vehicule_recup);//
 		//txtCategorieReservation= (TextView) findViewById(R.id.txtCategorieReservation);
 		txtNomAgenceReservation = (TextView) findViewById(R.id.nomAgenceResume);//
+		txtNomAgenceReservation.setVisibility(View.VISIBLE);
 		txtPrixReservation = (TextView)findViewById(R.id.prixVehicule);//
 		txtMotorReservation = (TextView) findViewById(R.id.motorVehicule);
 		btnAnnulerReservation= (Button)findViewById(R.id.btntestreseravation);

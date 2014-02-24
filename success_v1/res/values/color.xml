@@ -17,5 +17,9 @@
     <color name="transparent">#00000000</color>
     <color name="tab_highlight">#ff9ecfbf</color>
     <color name="apptheme_color">#94181a</color>
+    <color name="error_color">#FA8072</color>
+    <color name="valid_color">#98FB98</color>
+    
+    
 
 </resources>

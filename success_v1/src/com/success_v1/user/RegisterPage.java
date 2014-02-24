@@ -3,6 +3,7 @@ package com.success_v1.user;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -22,17 +23,22 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.success_v1.res.JSONParser;
 import com.success_v1.successCar.R;
 
 public class RegisterPage extends Activity{
-	Spinner spinGenre;
+	RadioGroup rdioGenre;
+	RadioButton rdioMonsieurRegister;
+	RadioButton rdioMadameRegister;
 	EditText editPrenom;
 	EditText editNom;
 	Button btnDateNais;
@@ -65,6 +71,7 @@ public class RegisterPage extends Activity{
 	
 	private String dateNaissance;
 	private String datePermis;
+	private String genreSelected="Madame";
 
 	/****************************************/
     // Progress Dialog
@@ -76,7 +83,7 @@ public class RegisterPage extends Activity{
     // JSON Node names
    	private static final String TAG_SUCCESS = "success";
     //private static String url_user = "http://10.0.3.2/Success2i_V1/add_user.php";
-	private static String url_user = "http://192.168.1.74/Success2i_V1/add_user.php";
+	private static String url_user = "http://192.168.1.74/Success2i_V1/add_users.php";
     JSONObject registration_tab = new JSONObject();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -88,15 +95,85 @@ public class RegisterPage extends Activity{
 		getActionBar().setCustomView(R.layout.koutchy_actionbar);
 		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
 		titleActionBar.setText("Inscription");
-		spinGenre = (Spinner)findViewById(R.id.spinGenre);
+		/*rdioGenre = (RadioGroup)findViewById(R.id.rdioGenreRegister);
+		rdioMonsieurRegister = (RadioButton)findViewById(R.id.rdioMonsieurRegister);
+		rdioMonsieurRegister.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				 genreSelected = "Monsieur";
+                 Log.d("TestGenre",genreSelected);
+			}
+		});
+		rdioMadameRegister = (RadioButton)findViewById(R.id.rdioMadameRegister);
+		rdioMadameRegister.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+            	genreSelected = "Madame";
+            	Log.d("TestGenre",genreSelected);
+			}
+		});*/
 
 		editPrenom = (EditText)findViewById(R.id.editPrenom);
 		editNom = (EditText)findViewById(R.id.editNom);
 		editMailRegistration = (EditText)findViewById(R.id.editMailRegistration);
-		editCnfirmMail = (EditText)findViewById(R.id.editCnfirmMail);
 		editMdpRegistration = (EditText)findViewById(R.id.editMdpRegistration);
+		editCnfirmMail = (EditText)findViewById(R.id.editCnfirmMail);
+		editMdpRegistration.setOnFocusChangeListener(new OnFocusChangeListener() {
+			
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+				// TODO Auto-generated method stub
+				// TODO Auto-generated method stub
+				Log.d("mail1",editMailRegistration.getText().toString());
+				Log.d("mail2",editCnfirmMail.getText().toString());
+				if ((editCnfirmMail.getText().toString()).equals(editMailRegistration.getText().toString()))
+				{
+					Log.d("TEST", "bon!!!!!");
+					editCnfirmMail.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
+				}
+				else
+				{
+					Log.d("TEST", "pas bon!!!!!");
+					editCnfirmMail.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
+
+				}
+			}
+		});
+		/*editMdpRegistration.setOnClickListener(new OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				
+			}
+		});*/
+		
+		
 		editCnfirmMdp = (EditText)findViewById(R.id.editCnfirmMdp);
 		editNumPerm = (EditText)findViewById(R.id.editNumPerm);
+		editNumPerm.setOnFocusChangeListener(new OnFocusChangeListener() {
+			
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+				// TODO Auto-generated method stub
+				// TODO Auto-generated method stub
+				Log.d("mail1",editMdpRegistration.getText().toString());
+				Log.d("mail2",editCnfirmMdp.getText().toString());
+				if ((editCnfirmMdp.getText().toString()).equals(editMdpRegistration.getText().toString()))
+				{
+					Log.d("TEST", "bon!!!!!");
+					editCnfirmMdp.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
+				}
+				else
+				{
+					Log.d("TEST", "pas bon!!!!!");
+					editCnfirmMdp.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
+
+				}
+			}
+		});
 		editAdress = (EditText)findViewById(R.id.editAdress);
 		editCodePost= (EditText)findViewById(R.id.editCodePost);
 		editVille = (EditText)findViewById(R.id.editVille);
@@ -107,7 +184,10 @@ public class RegisterPage extends Activity{
 		btnDatePerm = (Button)findViewById(R.id.btnDatePerm);
 		btnCreateCount = (Button)findViewById(R.id.btnCreateCount);
 
-		
+		final Calendar c = Calendar.getInstance();
+		year = c.get(Calendar.YEAR);
+		month = c.get(Calendar.MONTH);
+		day = c.get(Calendar.DAY_OF_MONTH);
 		btnDateNais.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -155,6 +235,22 @@ public class RegisterPage extends Activity{
 		    	  new AddUser().execute();
 			}
 		});
+	}
+	public void onRadioButtonClicked(View view) {
+	    // Is the button now checked?
+	    boolean checked = ((RadioButton) view).isChecked();
+	    
+	    // Check which radio button was clicked
+	    switch(view.getId()) {
+	        case R.id.rdioMonsieurRegister:
+	            if (checked)
+	                genreSelected="Monsieur";
+	            break;
+	        case R.id.rdioMadameRegister:
+	            if (checked)
+	            	genreSelected="Madame";
+	            break;
+	    }
 	}
 	@Override
 	protected Dialog onCreateDialog(int id) {
@@ -222,6 +318,7 @@ public class RegisterPage extends Activity{
         protected String doInBackground(String... args) { 
             // Building Parameters
             List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("genre_user", genreSelected));
             params.add(new BasicNameValuePair("nom_user", editNom.getText().toString()));
             params.add(new BasicNameValuePair("prenom_user", editPrenom.getText().toString()));
             params.add(new BasicNameValuePair("mdp_user", editMdpRegistration.getText().toString()));
