@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
     <string name="app_name">SuccessCars</string>
     <string name="home_sub1">Déconnexion</string>
     <string name="home_sub2">Notez nous!</string>
@@ -52,12 +51,13 @@
     <string name="btnDateRetour">Date d\'arrivée</string>
     <string name="btnVilleArrive1">Ville d\'arrivée</string>
     <string name="txtTypeVehicule">Type du véhicule</string>
-	<string name="action_search">Recherche</string>
+    <string name="action_search">Recherche</string>
+
     <string-array name="gender_array">
         <item>Madame</item>
         <item>Monsieur</item>
     </string-array>
-        <string-array name="color_array">
+    <string-array name="color_array">
         <item>Noir</item>
         <item>Rouge</item>
         <item>Bleu</item>
@@ -65,5 +65,7 @@
         <item>Gris métalisé</item>
         <item>Gris souris</item>
     </string-array>
+
+    <string name="title_activity_splash">SplashActivity</string>
 
 </resources>
