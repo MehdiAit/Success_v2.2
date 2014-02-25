@@ -280,7 +280,8 @@
                     android:layout_gravity="center_horizontal"
                     android:background="@color/white"
                     android:gravity="center_horizontal"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal"
+                    android:visibility="gone" >
 
                     <TextView
                         android:id="@+id/aVille"
