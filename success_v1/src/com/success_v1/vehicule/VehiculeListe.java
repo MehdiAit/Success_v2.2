@@ -30,15 +30,15 @@ public class VehiculeListe extends Activity {
 	private JSONParser jsonParser = new JSONParser();
 	private ArrayList<Vehicule> vehiculelist;
 	private JSONArray jsonTab = null;
-	
+
 	//mettre un acc/mut pour la variable cat
 	String cat;
 	private String idAgence;
 	private String dateDepart;
 	private String dateRetour;
 	private String ville;
-	
-	
+
+
 	private ListView lv;
 	private AdapterVehicule ad;
 
@@ -56,7 +56,7 @@ public class VehiculeListe extends Activity {
 	private static final String TAG_ville_param = "ville_agence";
 	//private static final String TAG_IMG = "imageVehicule";
 	@Override
-    public void onCreate(Bundle savedInstanceState){
+	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.vehicule_list);
 
@@ -66,7 +66,7 @@ public class VehiculeListe extends Activity {
 		ville =result.getStringExtra("ville");
 		cat = result.getStringExtra("nom_cat");
 
-		
+
 		Log.i("Date depart", dateDepart);
 		Log.i("Date retour", dateRetour);
 		Log.i("cat",cat);
@@ -81,40 +81,36 @@ public class VehiculeListe extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-		        
+
 				Vehicule idtest = new Vehicule();
 				idtest = (Vehicule) lv.getAdapter().getItem(arg2);
 
 				String id = idtest.getId().toString();
 				Log.i("id voiture",id);
-				
+
 				Intent intent = new Intent(getApplicationContext(), com.success_v1.vehicule.Detail.class);
 				intent.putExtra("id_voiture", id);
 				intent.putExtra("id_agence", idAgence);
 				intent.putExtra("date_depart", dateDepart);
 				intent.putExtra("date_retour", dateRetour);
 				intent.putExtra("url_image", idtest.getUrlImage().toString());
+
 				startActivityForResult(intent,1);
-				
+
 			}
 		}
 				);		
 	}
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
-		if(requestCode == 1)
-		{
-			if(resultCode == RESULT_OK)
-			{
-				vehiculelist = new ArrayList<Vehicule>();	
-				new LoadAll().execute();
-			}
-		}
+
+		vehiculelist = new ArrayList<Vehicule>();	
+		new LoadAll().execute();
 	}
-	
+
 	class LoadAll extends AsyncTask<String, String, String> {
 
 		@Override

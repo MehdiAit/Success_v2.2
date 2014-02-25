@@ -10,23 +10,10 @@
     android:orientation="horizontal" >
 
     <Button
-        android:id="@+id/btnMap_agence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Carte"/>
-
-    <Button
         android:id="@+id/btnCall_agence"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Appeler" />
-
-    <Button
-        android:id="@+id/btnReserver_agence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.13"
-        android:text="Réserver" />
 
 </LinearLayout>
 
@@ -83,11 +70,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Longitude" />
-
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+    
+     <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

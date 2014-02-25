@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
@@ -41,6 +42,7 @@ public class Detail extends Activity {
 	//private TextView couleur_vehicule;
 	//private TextView annee_vehicule;
 	//private TextView km_vehicule;
+	
 	private TextView prix_vehicule;
 	private TextView genreUser;
 	private TextView prenomUser;
@@ -63,6 +65,7 @@ public class Detail extends Activity {
 	private String date_depart_intent;
 	private String date_retour_intent;
 	private String url_image; 
+	private String id_agence;
 	// Progress Dialog
 	private ProgressDialog pDialog;
 
@@ -74,6 +77,7 @@ public class Detail extends Activity {
 	private Integer carPrice;
 	private Date d1;
 	private Date d2;
+	Intent result;
 
 	// JSON Node names
 	//private static String url_detail = "http://10.0.3.2/Success2i_V1/get_vehicule_detail.php";
@@ -86,6 +90,7 @@ public class Detail extends Activity {
 	private static final String TAG_TAB = "vehicule_tab";
 	private static final String TAG_ID = "id";
 	private static final String TAG_MODEL = "modele";
+	private static final String TAG_ID_Agence = "id_agence";
 	//private static final String TAG_COLOR = "couleur";
 	private static final String TAG_ENGINE = "motorisation";
 	private static final String TAG_MARK = "marque";
@@ -231,7 +236,7 @@ public class Detail extends Activity {
 					
 
 				}else{
-					// Resultat de requete vide
+					
 				}
 			} catch (JSONException e) {
 				e.printStackTrace();
@@ -252,7 +257,10 @@ public class Detail extends Activity {
 				prix_vehicule.setText(carPrice.toString());
 				Picasso.with(getApplicationContext()).load(url_image).into(imageCaisse);
 				date_depart.setText(date_depart_intent);
-				date_retour.setText(date_retour_intent);           
+				date_retour.setText(date_retour_intent);  
+				
+				id_agence = detail_tab.getString(TAG_ID_Agence);
+				
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}                      
@@ -304,10 +312,18 @@ public class Detail extends Activity {
 				if (success == 1) {
 
 					// successfully created product
-					Intent result = getIntent();
-					result.putExtra("re_id", pid);
-					setResult(RESULT_OK, result);
+					//Intent result = getIntent();					
+					//setResult(RESULT_OK, result);					
+					//finish();
+					
+					
+					// intent 2 recupe agence ID:
+					
+					result = new Intent(Detail.this, com.success_v1.agence.Detail.class);
+					result.putExtra("id_agence", id_agence);
+					startActivityForResult(result,1);
 					finish();
+					
 
 				} else {
 					// failed to create product
@@ -327,6 +343,17 @@ public class Detail extends Activity {
 			pDialog.dismiss();
 		}
 
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub    	
+		if(keyCode == KeyEvent.KEYCODE_BACK)
+		{
+			setResult(RESULT_OK, result);
+			finish();
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 
 }
