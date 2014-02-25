@@ -20,7 +20,7 @@
     <string name="btnConnect">Se connecter</string>
     <string name="txtPaInscrit">Vous n\'êtes pas inscrits?</string>
     <string name="txtOrdre">Inscrivez vous dès maintenant!</string>
-    <string name="btnRegister">Inscrivez vous!</string>
+    <string name="btnRegister">S\'inscrire!</string>
     <string name="logo_user">Logo utilisateur</string>
     <string name="txtGenreResume">Monsieur </string>
     <string name="txtNomResume">Nom </string>
@@ -44,10 +44,10 @@
     <string name="txtPrixVehiculeRecup">Prix : </string>
     <string name="btntestreseravation">Enregistrer ma réservation</string>
     <string name="txtCreationReserv">Création de la réservation</string>
-    <string name="txtLocalisationForm">Vous êtes actuellement à proximité de Ben Aknoun</string>
+    <string name="txtLocalisationForm">Vous êtes actuellement à proximité de </string>
     <string name="txtDateVilleDepart">Date et ville de départ:</string>
     <string name="btnVilleDepart1">Ville de départ</string>
-    <string name="txtDateRetour">Date et ville d\'arrivée:</string>
+    <string name="txtDateRetour">Date d\'arrivée:</string>
     <string name="btnDateRetour">Date d\'arrivée</string>
     <string name="btnVilleArrive1">Ville d\'arrivée</string>
     <string name="txtTypeVehicule">Type du véhicule</string>

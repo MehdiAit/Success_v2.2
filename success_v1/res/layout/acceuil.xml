@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#F2B105"
+        android:background="#E84C3D"
         android:orientation="vertical"
         android:weightSum="100" >
 
@@ -18,7 +18,7 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="0dip"
-            android:layout_weight="27"
+            android:layout_weight="22"
             android:background="#ffffff"
             android:orientation="vertical" >
 
@@ -38,7 +38,7 @@
             android:layout_width="fill_parent"
             android:layout_height="0dip"
             android:layout_weight="5"
-            android:background="#F2B105"
+            android:background="#E84C3D"
             android:orientation="horizontal" >
 
             <TextView
@@ -60,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_marginBottom="1.5dip"
-            android:layout_weight="34"
+            android:layout_weight="36.5"
             android:orientation="vertical" >
 
             <Button
@@ -68,7 +68,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="#ffffff"
-                android:drawableTop="@drawable/logo_reservervehicule"
+                android:drawableTop="@drawable/reserver"
+                android:paddingTop="30dip"
                 android:text="@string/btnAgences" />
         </LinearLayout>
         <!-- conteneur Réserver un véhicule -->
@@ -77,7 +78,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dip"
-            android:layout_weight="34"
+            android:layout_weight="36.5"
             android:orientation="horizontal"
             android:weightSum="10" >
 
@@ -88,7 +89,8 @@
                 android:layout_marginRight="1.5dip"
                 android:layout_weight="5"
                 android:background="#ffffff"
-                android:drawableTop="@drawable/logo_reservation"
+                android:paddingTop="30dip"
+                android:drawableTop="@drawable/my_reserv"
                 android:text="@string/btnReservations" />
 
             <Button
@@ -97,7 +99,8 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="5"
                 android:background="#ffffff"
-                android:drawableTop="@drawable/logo_profil"
+                android:paddingTop="30dip"
+                android:drawableTop="@drawable/compte"
                 android:text="@string/btnCompte" />
         </LinearLayout>
         <!-- conteneur last part -->

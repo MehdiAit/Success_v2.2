@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:orientation="vertical" >
 
     <!-- Conteneur principal -->
@@ -9,38 +9,69 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@color/white"
         android:orientation="vertical"
         android:weightSum="100" >
 
-       
-        <!-- conteneur formulaire -->
+        <!-- conteneur logo_koutchi -->
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dip"
-            android:layout_marginBottom="10dip"
-            android:layout_marginLeft="10dip"
-            android:layout_marginRight="10dip"
-            android:background="@drawable/round_corner_layout"
+            android:layout_height="0dip"
+            android:layout_weight="22"
+            android:background="#EDEDED"
             android:orientation="vertical" >
 
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:contentDescription="@string/logo_koutchi"
+                android:src="@drawable/logo_koutchi" />
+        </LinearLayout>
+        <!-- conteneur logo_koutchi -->
+        <!-- conteneur texte -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="5"
+            android:background="#E84C3D"
+            android:gravity="center_horizontal" >
+
             <TextView
-                android:id="@+id/txtLocalisationForm"
+                android:id="@+id/txtAProxim"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/txtLocalisationForm"
-                android:textSize="12.5sp" />
+                android:text="@string/txtLocalisationForm" 
+                android:layout_marginRight="2dip"/>
+
+            <TextView
+                android:id="@+id/txtLocalMap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ben Aknoun, Alger" />
+        </LinearLayout>
+        <!-- conteneur texte -->
+        <!-- conteneur formulaire -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="73"
+            android:gravity="center|bottom"
+            android:background="#EDEDED"
+            android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/txtDateVilleDepart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dip"
+                android:layout_marginTop="20dip"
                 android:text="@string/txtDateVilleDepart"
+                android:textColor="#2D3E50"
                 android:textSize="18sp" />
 
             <Button
@@ -48,28 +79,29 @@
                 android:layout_width="180dip"
                 android:layout_height="30dip"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="5dip"
+                android:layout_marginTop="10dip"
                 android:background="@drawable/roundcorner"
                 android:text="@string/date_depart_recup"
-                android:textColor="#D6CDC6" />
+                android:textColor="#D6DADB" />
 
             <Button
                 android:id="@+id/btnVilleDepart1"
                 android:layout_width="160dip"
                 android:layout_height="30dip"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="5dip"
+                android:layout_marginTop="10dip"
                 android:background="@drawable/roundcorner"
                 android:text="@string/btnVilleDepart1"
-                android:textColor="#D6CDC6" />
+                android:textColor="#D6DADB" />
 
             <TextView
                 android:id="@+id/txtDateRetour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="5dip"
+                android:layout_marginTop="20dip"
                 android:text="@string/txtDateRetour"
+                android:textColor="#2D3E50"
                 android:textSize="18sp" />
 
             <Button
@@ -77,10 +109,10 @@
                 android:layout_width="180dip"
                 android:layout_height="30dip"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="5dip"
+                android:layout_marginTop="10dip"
                 android:background="@drawable/roundcorner"
                 android:text="@string/btnDateRetour"
-                android:textColor="#D6CDC6" />
+                android:textColor="#D6DADB" />
 
             <Button
                 android:id="@+id/btnVilleArrive1"
@@ -90,38 +122,30 @@
                 android:layout_marginTop="5dip"
                 android:background="@drawable/roundcorner"
                 android:text="@string/btnVilleArrive1"
-                android:visibility="gone"
-                android:textColor="#D6CDC6" />
+                android:textColor="#D6CDC6"
+                android:visibility="gone" />
 
             <CheckBox
                 android:id="@+id/checkBox1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dip"
+                android:layout_marginTop="20dip"
                 android:button="@drawable/chekbox_selector"
-                android:text="  Trouver une agence à proximité" />
-
-            <RelativeLayout
+                android:text="  Trouver une agence à proximité"
+                android:textColor="#2D3E50" />
+                <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="vertical" >
-
-                <ImageView
-                    android:id="@+id/imageView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/logo_koutchi2" />
-
-                <Button
+                android:layout_height="0dip"
+                android:orientation="vertical"
+                android:layout_weight="10" >
+            <Button
                     android:id="@+id/btnSearchCar"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:background="@color/title_color"
                     android:textColor="@color/white"
+                    android:layout_alignParentBottom="true"
                     android:text="Lancer une réservation" />
             </RelativeLayout>
         </LinearLayout>

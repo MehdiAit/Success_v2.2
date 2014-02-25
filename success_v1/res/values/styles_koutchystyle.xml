@@ -17,13 +17,13 @@
      limitations under the License.
 -->
 
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<resources>
 
     <style name="Theme.Koutchystyle" parent="@android:style/Theme.Holo.Light">
         <item name="android:actionBarItemBackground">@drawable/selectable_background_koutchystyle</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Koutchystyle</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Koutchystyle</item>
-        <item name="android:actionBarTabStyle">@style/FindMyTrain.ActionBar.Tab</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Koutchystyle</item>
         <item name="android:actionDropDownStyle">@style/DropDownNav.Koutchystyle</item>
         <item name="android:actionBarStyle">@style/ActionBar.Solid.Koutchystyle</item>
         <item name="android:actionModeBackground">@drawable/cab_background_top_koutchystyle</item>

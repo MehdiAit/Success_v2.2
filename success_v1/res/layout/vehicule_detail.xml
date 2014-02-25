@@ -12,18 +12,19 @@
         android:layout_marginLeft="12dip"
         android:layout_marginRight="12dip"
         android:layout_marginTop="5dip"
-        android:background="@drawable/round_corner_layout"
+        android:background="#ffffff"
         android:orientation="vertical"
         android:weightSum="100" >
 
         <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="19dp"
             android:layout_marginBottom="10dip"
             android:layout_marginLeft="12dip"
             android:layout_marginRight="12dip"
             android:layout_marginTop="10dip"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:visibility="invisible" >
 
             <TextView
                 android:id="@+id/id_vehicule_recup"
@@ -127,6 +128,7 @@
                     android:layout_height="150dip"
                     android:layout_gravity="center_horizontal"
                     android:adjustViewBounds="true"
+                    android:layout_marginTop="5dip"
                     android:background="@drawable/default_car_large"
                     android:contentDescription="@string/imgLogoCar"
                     android:scaleType="fitCenter" />
@@ -135,7 +137,6 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:background="@color/white"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal" >
 
@@ -146,6 +147,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginRight="5dip"
                         android:text="@string/marqueVehicule"
+                        android:textColor="#2D3E50"
                         android:textSize="18sp" />
 
                     <TextView
@@ -154,6 +156,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginRight="5dip"
+                        android:textColor="#2D3E50"
                         android:text="@string/nom_vehicule_recup"
                         android:textSize="18sp" />
 
@@ -163,6 +166,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginRight="5dip"
+                        android:textColor="#2D3E50"
                         android:text="@string/motorVehicule"
                         android:textSize="18sp" />
                 </LinearLayout>
@@ -173,6 +177,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/nomAgenceResume"
+                    android:textColor="#2D3E50"
                     android:visibility="gone"
                     android:textSize="15sp" />
 
@@ -180,8 +185,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:background="@color/white"
                     android:gravity="center_horizontal"
+                    
                     android:orientation="horizontal" >
 
                     <TextView
@@ -190,6 +195,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="@string/txtDepartLe"
+                        android:textColor="#2D3E50"
                         android:textSize="18sp" />
 
                     <TextView
@@ -198,6 +204,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="@string/date_depart_recup"
+                        android:textColor="#2D3E50"
                         android:textSize="18sp" />
                 </LinearLayout>
 
@@ -205,7 +212,6 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:background="@color/white"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal" >
 
@@ -215,6 +221,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="@string/deVille"
+                        android:textColor="#2D3E50"
+                        android:layout_marginRight="2dip"
                         android:textSize="14sp" />
 
                     <TextView
@@ -223,6 +231,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="@string/ville_depart"
+                        android:textColor="#2D3E50"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -230,7 +239,6 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:background="@color/white"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal" >
 
@@ -240,6 +248,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="@string/le_arrive"
+                        android:textColor="#2D3E50"
                         android:textSize="18sp" />
 
                     <TextView
@@ -248,13 +257,13 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="@string/date_retour_recup"
+                        android:textColor="#2D3E50"
                         android:textSize="18sp" />
                 </LinearLayout>
                                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:background="@color/white"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal" >
 
@@ -263,6 +272,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
+                        android:textColor="#2D3E50"
                         android:text="Nombre de jours: "
                         android:textSize="18sp" />
 
@@ -271,6 +281,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
+                        android:textColor="#2D3E50"
                         android:textSize="18sp" />
                 </LinearLayout>
 
@@ -288,6 +299,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
+                        android:textColor="#2D3E50"
                         android:text="@string/aVille"
                         android:textSize="14sp" />
 
@@ -296,6 +308,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
+                        android:textColor="#2D3E50"
                         android:text="@string/villeRetour"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -304,7 +317,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:background="@color/white"
+                    
                     android:gravity="center_horizontal"
                     android:orientation="horizontal" >
 
@@ -314,47 +327,34 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="@string/txtPrixVehiculeRecup"
-                        android:textColor="#94181A"
-                        android:textSize="20sp" />
+                        android:textColor="#E84C3D"
+                        android:textSize="25sp" />
 
                     <TextView
                         android:id="@+id/prixVehicule"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:textColor="#94181A"
-                        android:textSize="20sp" />
+                        android:textColor="#E84C3D"
+                        android:textSize="25sp" />
                 </LinearLayout>
             </LinearLayout>
-
-            <RelativeLayout
+        </LinearLayout>
+    </LinearLayout>
+       <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:orientation="vertical" >
-
-                <ImageView
-                    android:id="@+id/imgLogoKoutchi2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:contentDescription="@string/logo_koutchi"
-                    android:src="@drawable/logo_koutchi2" />
-
                 <Button
                     android:id="@+id/btntestreseravation"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
                     android:layout_marginTop="10dip"
-                    android:background="#94181A"
-                    android:drawableRight="@drawable/right_arrow"
+                    android:background="@color/title_color"
+                    android:drawableRight="@drawable/confirmation"
                     android:text="@string/btntestreseravation"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
             </RelativeLayout>
-        </LinearLayout>
-    </LinearLayout>
-
 </LinearLayout>

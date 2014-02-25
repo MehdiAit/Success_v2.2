@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
    <item
         android:id="@+id/action_search"
-        android:icon="@drawable/ic_search_icon"
+        android:icon="@drawable/search"
         android:orderInCategory="100"
         android:showAsAction="ifRoom"
         android:visible="false"
@@ -9,7 +9,7 @@
     </item>
     <item
         android:id="@+id/action_settings"
-        android:icon="@drawable/set_orange"
+        android:icon="@drawable/settings_red"
         android:orderInCategory="100"
         android:showAsAction="ifRoom"
         android:title="@string/action_settings">
