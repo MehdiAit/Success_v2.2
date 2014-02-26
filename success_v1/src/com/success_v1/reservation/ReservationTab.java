@@ -14,78 +14,78 @@ import android.widget.TextView;
 
 
 public class ReservationTab extends FragmentActivity {
-	  
-	 ActionBar actionabar;
-	 ViewPager viewpager;
-	 TextView titleActionBar;
-	 @Override
-	 protected void onCreate(Bundle savedInstanceState) {
-	  super.onCreate(savedInstanceState);
-	  setContentView(R.layout.reservation_tab);
-	   
-	        actionabar = getActionBar();
-	        actionabar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-	        actionabar.setDisplayShowHomeEnabled(false);
+
+	ActionBar actionabar;
+	ViewPager viewpager;
+	TextView titleActionBar;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.reservation_tab);
+
+		actionabar = getActionBar();
+		actionabar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		/*actionabar.setDisplayShowHomeEnabled(false);
 	        actionabar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 	        actionabar.setCustomView(R.layout.koutchy_actionbar);
 			titleActionBar = (TextView)findViewById(R.id.titleActionBar);
-			titleActionBar.setText("Historique des réservations");
-	        viewpager = (ViewPager) findViewById(R.id.pager);
-	        FragmentManager fm = getSupportFragmentManager();
-	         
-	        /** Defining a listener for pageChange */
-	        ViewPager.SimpleOnPageChangeListener pageChangeListener = new ViewPager.SimpleOnPageChangeListener(){
-	         @Override
-	         public void onPageSelected(int position) {         
-	          super.onPageSelected(position);
-	          actionabar.setSelectedNavigationItem(position);         
-	         }        
-	        };
-	         
-	        /** Setting the pageChange listner to the viewPager */
-	        viewpager.setOnPageChangeListener(pageChangeListener);
-	         
-	        /** Creating an instance of FragmentPagerAdapter */
-	        MyFragmentPagerAdapter fragmentPagerAdapter = new MyFragmentPagerAdapter(fm);
-	         
-	        viewpager.setAdapter(fragmentPagerAdapter);
-	        actionabar.setDisplayShowTitleEnabled(true);
-	         
-	        /** Defining tab listener */
-	        ActionBar.TabListener tabListener = new ActionBar.TabListener() {
-	    
-	   @Override
-	   public void onTabReselected(Tab arg0, android.app.FragmentTransaction arg1) {
-	     
-	   }
-	 
-	   @Override
-	   public void onTabSelected(Tab tab, android.app.FragmentTransaction ft) {
-	    viewpager.setCurrentItem(tab.getPosition());
-	     
-	   }
-	 
-	   @Override
-	   public void onTabUnselected(Tab tab, android.app.FragmentTransaction ft) {
-	    
-	   }
-	  };
-	 
-	  /** Creating Android Tab */
-	       // Tab tab = actionabar.newTab().setText("My Friends").setIcon(R.drawable.myfriends).setTabListener(tabListener);
-	  Tab tab = actionabar.newTab().setText("Reservations En Cours").setTabListener(tabListener);
-	        actionabar.addTab(tab);
-	        tab = actionabar.newTab().setText("Reservations Validées").setTabListener(tabListener);                              
-	        actionabar.addTab(tab);      
-	 
-	 
-	 }
-	 
-	 @Override
-	 public boolean onCreateOptionsMenu(Menu menu) {
-	  // Inflate the menu; this adds items to the action bar if it is present.
-	  getMenuInflater().inflate(R.menu.main, menu);
-	  return true;
-	 }
-	 
+			titleActionBar.setText("Historique des réservations");*/
+		getActionBar().setTitle("");
+		viewpager = (ViewPager) findViewById(R.id.pager);
+		FragmentManager fm = getSupportFragmentManager();
+
+		/** Defining a listener for pageChange */
+		ViewPager.SimpleOnPageChangeListener pageChangeListener = new ViewPager.SimpleOnPageChangeListener(){
+			@Override
+			public void onPageSelected(int position) {         
+				super.onPageSelected(position);
+				actionabar.setSelectedNavigationItem(position);         
+			}        
+		};
+
+		/** Setting the pageChange listner to the viewPager */
+		viewpager.setOnPageChangeListener(pageChangeListener);
+
+		/** Creating an instance of FragmentPagerAdapter */
+		MyFragmentPagerAdapter fragmentPagerAdapter = new MyFragmentPagerAdapter(fm);
+
+		viewpager.setAdapter(fragmentPagerAdapter);
+
+		/** Defining tab listener */
+		ActionBar.TabListener tabListener = new ActionBar.TabListener() {
+
+			@Override
+			public void onTabReselected(Tab arg0, android.app.FragmentTransaction arg1) {
+
+			}
+
+			@Override
+			public void onTabSelected(Tab tab, android.app.FragmentTransaction ft) {
+				viewpager.setCurrentItem(tab.getPosition());
+
+			}
+
+			@Override
+			public void onTabUnselected(Tab tab, android.app.FragmentTransaction ft) {
+
+			}
+		};
+
+		/** Creating Android Tab */
+		// Tab tab = actionabar.newTab().setText("My Friends").setIcon(R.drawable.myfriends).setTabListener(tabListener);
+		Tab tab = actionabar.newTab().setText("Reservations En Cours").setTabListener(tabListener);
+		actionabar.addTab(tab);
+		tab = actionabar.newTab().setText("Reservations Validées").setTabListener(tabListener);                              
+		actionabar.addTab(tab);      
+
+
 	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+}

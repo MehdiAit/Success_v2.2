@@ -110,13 +110,14 @@ public class Detail extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.vehicule_detail);
 		//getActionBar().setDisplayShowHomeEnabled(false);
-		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+		/*getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		getActionBar().setCustomView(R.layout.koutchy_actionbar);
 
 		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
 		titleActionBar.setText("Création de la réservation (3/3)");
 		logoEtape = (ImageView)findViewById(R.id.logoEtape3);
-		logoEtape.setVisibility(ImageView.VISIBLE);
+		logoEtape.setVisibility(ImageView.VISIBLE);*/
+		getActionBar().setTitle("");
 		session = new SessionManager(getApplicationContext());
 
 		user = session.getUserDetails();

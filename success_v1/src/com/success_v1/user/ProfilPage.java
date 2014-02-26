@@ -102,11 +102,12 @@ public class ProfilPage extends Activity{
 		setContentView(R.layout.profil_page);
         // Session class instance
         session = new SessionManager(getApplicationContext());
-		getActionBar().setDisplayShowHomeEnabled(false);
+		/*getActionBar().setDisplayShowHomeEnabled(false);
 		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		getActionBar().setCustomView(R.layout.koutchy_actionbar);
 		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
-		titleActionBar.setText("Profil");
+		titleActionBar.setText("Profil");*/
+        getActionBar().setTitle("");
 		rdioGenre = (RadioGroup)findViewById(R.id.rdioGenreProfil);
 		radioMadameButton = (RadioButton)findViewById(R.id.rdioMadameProfil);
 		radioMonsieurButton = (RadioButton)findViewById(R.id.rdioMonsieurProfil);

@@ -1,71 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp" 
-    android:background="@drawable/list_selector">
+    android:layout_height="110dp"
+    android:background="@drawable/list_selector" >
 
     <ImageView
         android:id="@+id/img_vehicule"
-        android:layout_width="150dip"
-        android:layout_height="100dip"
-        android:scaleType="fitCenter"
-       	android:adjustViewBounds="true"
+        android:layout_width="130dip"
+        android:layout_height="110dip"
         android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="5dip"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
+        android:layout_marginTop="5dip"
+        android:adjustViewBounds="true"
         android:background="@drawable/default_car_large"
-        android:layout_centerVertical="true" />
+        android:scaleType="fitCenter" />
+
+    <ImageView
+        android:id="@+id/img_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/next" />
+
+    <TextView
+        android:id="@+id/motorisation_vehicule"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/img_vehicule"
+        android:paddingRight="5dp"
+        android:textColor="#2D3E50" />
 
     <TextView
         android:id="@+id/marque_vehicule"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_alignTop="@id/motorisation_vehicule"
+        android:layout_marginRight="2dip"
         android:layout_toRightOf="@id/img_vehicule"
-        android:layout_centerVertical="true"
-        android:textColor="@color/black_color"
-        android:paddingRight="5dp"/>
-
+        android:textColor="#2D3E50"
+        android:textSize="15sp" />
     <TextView
         android:id="@+id/modele_vehicule"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_toRightOf="@id/marque_vehicule"
-        android:layout_centerVertical="true"
-        android:textColor="@color/black_color"
+        android:textColor="#2D3E50"
+		android:textSize="15sp"
         android:paddingRight="5dp"/>
-    
+
     <TextView
-        android:id="@+id/motorisation_vehicule"
+        android:id="@+id/txtAPartir_vehicule"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_toRightOf="@id/img_vehicule"
-        android:layout_below="@id/marque_vehicule"
-        android:gravity="center_vertical"
-        android:textColor="@color/black_color"/>
-    
-       <TextView android:id="@+id/tarifJour_vehicule"
+        android:text="A partir de "
+        android:textColor="#2D3E50"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tarifJour_vehicule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/counter_bg"
+        android:layout_toRightOf="@id/txtAPartir_vehicule"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/title_color"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/photo_vehicule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="8dp"
-        android:textColor="@color/counter_text_color"/>
-       
-              <TextView android:id="@+id/photo_vehicule"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:background="@drawable/counter_bg"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="8dp"
         android:textColor="@color/counter_text_color"
-        android:visibility="gone"/>
-              
-       	<TextView android:id="@+id/id_vehicule"
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-	    android:visibility="gone"
-	    />
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/id_vehicule"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone" />
 
 </RelativeLayout>

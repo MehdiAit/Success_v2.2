@@ -90,11 +90,12 @@ public class RegisterPage extends Activity{
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.register_page);
-		getActionBar().setDisplayShowHomeEnabled(false);
+		/*getActionBar().setDisplayShowHomeEnabled(false);
 		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		getActionBar().setCustomView(R.layout.koutchy_actionbar);
 		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
-		titleActionBar.setText("Inscription");
+		titleActionBar.setText("Inscription");*/
+		getActionBar().setTitle("");
 		/*rdioGenre = (RadioGroup)findViewById(R.id.rdioGenreRegister);
 		rdioMonsieurRegister = (RadioButton)findViewById(R.id.rdioMonsieurRegister);
 		rdioMonsieurRegister.setOnClickListener(new OnClickListener() {

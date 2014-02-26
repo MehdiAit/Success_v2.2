@@ -69,12 +69,13 @@ public class LogPage extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.log_page);
 		
-		getActionBar().setDisplayShowHomeEnabled(false);
+		/*getActionBar().setDisplayShowHomeEnabled(false);
 		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		getActionBar().setCustomView(R.layout.koutchy_actionbar);
 		
 		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
-		titleActionBar.setText("Connexion");
+		titleActionBar.setText("Connexion");*/
+		getActionBar().setTitle("");
 		
 		session= new SessionManager(getApplicationContext());
 		editMail = (EditText)this.findViewById(R.id.editMail);

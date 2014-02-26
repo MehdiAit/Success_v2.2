@@ -46,13 +46,13 @@ public class VehiculeTab extends FragmentActivity {
 			//logoEtape.setVisibility(ImageView.VISIBLE);
 
 
-	        actionabar.setTitle("Création de la réservation (2/3)");
+	        actionabar.setTitle("");
 			int actionBarTitleId = Resources.getSystem().getIdentifier("action_bar_title", "id", "android");
 			if (actionBarTitleId > 0) {
-			    TextView title = (TextView) findViewById(actionBarTitleId);
+			    /*TextView title = (TextView) findViewById(actionBarTitleId);
 			    if (title != null) {
 			        title.setTextColor(getResources().getColor(R.color.title_color));
-			    }
+			    }*/
 			}
 	        /*getActionBar().setDisplayShowHomeEnabled(false);
 			getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -101,6 +101,7 @@ public class VehiculeTab extends FragmentActivity {
 	 
 	  /** Creating Android Tab */
 	  Tab tab = actionabar.newTab().setText("Tourisme").setTabListener(tabListener);
+	  
 	        actionabar.addTab(tab);
 	        
 	        tab = actionabar.newTab().setText("Utilitaire").setTabListener(tabListener);                              
@@ -116,7 +117,6 @@ public class VehiculeTab extends FragmentActivity {
 	 public boolean onCreateOptionsMenu(Menu menu) {
 	  // Inflate the menu; this adds items to the action bar if it is present.
 	  getMenuInflater().inflate(R.menu.main, menu);
-	  menu.findItem(R.id.action_search).setVisible(true);
 	  return true;
 	 }
 		@Override

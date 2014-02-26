@@ -17,9 +17,8 @@ public class SplashActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
 		
-		getActionBar().setTitle(null);
 		getActionBar().setDisplayShowHomeEnabled(false);
-		
+		getActionBar().setTitle("");
 		new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

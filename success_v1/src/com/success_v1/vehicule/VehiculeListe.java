@@ -15,8 +15,11 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
@@ -65,7 +68,7 @@ public class VehiculeListe extends Activity {
 		dateRetour=result.getStringExtra("dateRetour");
 		ville =result.getStringExtra("ville");
 		cat = result.getStringExtra("nom_cat");
-
+		getActionBar().setTitle("");
 
 		Log.i("Date depart", dateDepart);
 		Log.i("Date retour", dateRetour);
@@ -173,5 +176,26 @@ public class VehiculeListe extends Activity {
 		}
 
 	}
-
+	 @Override
+	 public boolean onCreateOptionsMenu(Menu menu) {
+	  // Inflate the menu; this adds items to the action bar if it is present.
+	  getMenuInflater().inflate(R.menu.main, menu);
+	  menu.findItem(R.id.action_search).setVisible(true);
+	  return true;
+	 }
+		@Override
+		public boolean onOptionsItemSelected(MenuItem item) {
+			// TODO Auto-generated method stub
+			switch(item.getItemId())
+			{
+			//case R.id.SubMenuLogOut: session.logoutUser();Toast.makeText(getApplicationContext(), "Deconnexion", Toast.LENGTH_SHORT).show();break;
+			case R.id.SubMenuNote:Toast.makeText(this, "Notez nous", Toast.LENGTH_SHORT).show();
+			case R.id.SubMenuAbout:Toast.makeText(this, "Qui suis-je?", Toast.LENGTH_SHORT).show();
+			case R.id.action_search:
+				Intent searchActivity= new Intent(this,VehiculeSearch.class);
+				startActivity(searchActivity);
+				break;
+			}
+			return super.onOptionsItemSelected(item);
+		}
 }

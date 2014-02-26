@@ -76,7 +76,7 @@ public class Detail extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.agence_detail);
-
+		getActionBar().setTitle("");
 		result = getIntent();
 		pid = result.getStringExtra("id_agence");
 

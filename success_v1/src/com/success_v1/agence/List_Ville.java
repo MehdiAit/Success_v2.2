@@ -23,11 +23,20 @@ public class List_Ville extends Activity{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ville_list);
-				
+		getActionBar().setTitle("");		
 		ville_list.add(new Ville("01","Adrar"));
-		ville_list.add(new Ville("31","Oran"));
-		ville_list.add(new Ville("16","Alger"));
 		ville_list.add(new Ville("09","Blida"));
+		ville_list.add(new Ville("10","Bouira"));
+		ville_list.add(new Ville("15","Tizi Ouzou"));
+		ville_list.add(new Ville("16","Alger"));
+		ville_list.add(new Ville("17","Djelfa"));
+		ville_list.add(new Ville("21","Skikda"));
+		ville_list.add(new Ville("23","Annaba"));
+		ville_list.add(new Ville("25","Constantine"));
+		ville_list.add(new Ville("31","Oran"));		
+		ville_list.add(new Ville("36","El tarf"));
+		ville_list.add(new Ville("39","Mascara"));	
+		
 		
 		list = (ListView)findViewById(R.id.listVille);
 		Ville_Adapter adpV = new Ville_Adapter(this, ville_list);

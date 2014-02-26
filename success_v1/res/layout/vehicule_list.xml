@@ -11,8 +11,10 @@
 
     <ListView
         android:id="@+id/listVehicule"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/title_color"
+		android:dividerHeight="2px" >
         <!--  android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"--> 
     </ListView>

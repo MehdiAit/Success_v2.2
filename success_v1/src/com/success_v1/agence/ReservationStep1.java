@@ -106,14 +106,14 @@ public class ReservationStep1 extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.reservation_step1);
-		getActionBar().setDisplayShowHomeEnabled(false);
+		/*getActionBar().setDisplayShowHomeEnabled(false);
 		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		getActionBar().setCustomView(R.layout.koutchy_actionbar);
 		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
 		logoEtape = (ImageView)findViewById(R.id.logoEtape1);
 		titleActionBar.setText("Création de la réservation (1/3)");
-		logoEtape.setVisibility(ImageView.VISIBLE);
-		
+		logoEtape.setVisibility(ImageView.VISIBLE);*/
+		getActionBar().setTitle("");
 		final Calendar c = Calendar.getInstance();
 		year = c.get(Calendar.YEAR);
 		month = c.get(Calendar.MONTH);
