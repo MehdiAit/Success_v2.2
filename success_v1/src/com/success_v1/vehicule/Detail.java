@@ -11,11 +11,12 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -25,7 +26,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -137,18 +137,17 @@ public class Detail extends Activity {
 		date_depart_intent = result.getStringExtra("date_depart");
 		date_retour_intent = result.getStringExtra("date_retour");
 		url_image = result.getStringExtra("url_image");
+		Log.i("dt",date_depart_intent);
+		
+		DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd");
+		DateTime dt = formatter.parseDateTime(date_depart_intent);
+		
+		DateTimeFormatter formatter2 = DateTimeFormat.forPattern("yyyy-MM-dd");
+		DateTime dt2 = formatter2.parseDateTime(date_retour_intent);
+		
+		Log.i("aze",dt.toString());
 
-		try {
-			d1 = stringToDate(date_depart_intent);
-			d2 = stringToDate(date_retour_intent);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		numberDays = Days.daysBetween(new DateTime(d1), new DateTime(d2)).getDays() + 1;
-
-		Log.d("test",numberDays.toString());
+		numberDays = Days.daysBetween(dt, dt2).getDays() + 1;
 
 		id_vehicule = (TextView) findViewById(R.id.id_vehicule_recup);
 		model_vehicule = (TextView) findViewById(R.id.nom_vehicule_recup);//
