@@ -7,14 +7,16 @@ public class Reservation {
 	String dateDeb;
 	String dateFin;
 	String image;
+	String prix;
 
-	public Reservation (String identifiant, String dateReserv, String DateDebutReserv, String DateFinReserv, String imageVehicule)
+	public Reservation (String identifiant, String dateReserv, String DateDebutReserv, String DateFinReserv, String imageVehicule, String price)
 	{
 		id = identifiant;
 		date= dateReserv;
 		dateDeb= DateDebutReserv;
 		dateFin= DateFinReserv;
 		image = imageVehicule;
+		prix = price;
 	}
 	public Reservation()
 	{

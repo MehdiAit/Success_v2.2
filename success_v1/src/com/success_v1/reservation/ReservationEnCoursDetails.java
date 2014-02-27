@@ -1,6 +1,8 @@
 package com.success_v1.reservation;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -51,6 +53,7 @@ public class ReservationEnCoursDetails extends Activity {
     TextView mailUser;
     TextView numeroUser;
     TextView titleActionBar;
+    TextView txtNbreJour;
     ImageView imgLogoCar;
     SessionManager session;
     
@@ -64,7 +67,6 @@ public class ReservationEnCoursDetails extends Activity {
     // JSON parser class
     JSONParser jsonParser = new JSONParser();
     JSONParser jParser = new JSONParser();
- 
     // JSON Node names
     //private static String url_detail = "http://10.0.3.2/Success2i_V1/get_reservation_encours_detail.php";
     private static String url_detail = "http://192.168.1.74/Success2i_V1/get_reservation_encours_detail.php";
@@ -78,7 +80,9 @@ public class ReservationEnCoursDetails extends Activity {
     private static final String TAG_ETATRESERV = "etat_reservation";
     private static final String TAG_MARKRESERV = "marque_vehicule";
     private static final String TAG_MODELERESERV = "modele_vehicule";
-    private static final String TAG_PRIXRESERV = "tarifJour_vehicule";
+    private static final String TAG_PRIXRESERV = "prix_total";
+    private static final String TAG_NBJOUR = "nombre_jour";
+    
     private static final String TAG_MOTORRESERV = "motorisation_vehicule";
     private static final String TAG_NOMAGENCE = "nom_agence";
        
@@ -89,10 +93,11 @@ public class ReservationEnCoursDetails extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vehicule_detail);
         
-        getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        /*getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		getActionBar().setCustomView(R.layout.koutchy_actionbar);
 		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
-		titleActionBar.setText("Détails de la réservation");
+		titleActionBar.setText("Détails de la réservation");*/
+        getActionBar().setTitle("");
   session = new SessionManager(getApplicationContext());
         
         HashMap<String, String> user = session.getUserDetails();
@@ -100,6 +105,7 @@ public class ReservationEnCoursDetails extends Activity {
         Intent result = getIntent();
 		pid = result.getStringExtra("id_get");
         url_imageReserv = result.getStringExtra("url_image");
+        txtNbreJour = (TextView) findViewById(R.id.nbre_jours_reserv);//
 		txtNumReservation = (TextView) findViewById(R.id.txtTitreResume);//
 		//txtDatReservation = (TextView) findViewById(R.id.txtDatReservation);
 		txtDebutReservation = (TextView) findViewById(R.id.date_depart_recup);//
@@ -289,6 +295,7 @@ public class ReservationEnCoursDetails extends Activity {
 	            txtNomAgenceReservation.setText(detail_tab.getString(TAG_NOMAGENCE));
 	            txtPrixReservation.setText(detail_tab.getString(TAG_PRIXRESERV));
 	            txtMotorReservation.setText(detail_tab.getString(TAG_MOTORRESERV));
+	            txtNbreJour.setText(detail_tab.getString(TAG_NBJOUR));
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}                      

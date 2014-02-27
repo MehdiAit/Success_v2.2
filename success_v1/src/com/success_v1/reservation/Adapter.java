@@ -48,6 +48,7 @@ public class Adapter extends BaseAdapter {
 		TextView date_Debreservation;
 		TextView date_Finreservation;
 		TextView photo_vehicule;
+		TextView price;
 		ImageView image_vehicule;
 	}
 
@@ -67,7 +68,7 @@ public class Adapter extends BaseAdapter {
 			holder.date_Finreservation = (TextView)arg1.findViewById(R.id.dateFin_reserv);
 			holder.photo_vehicule = (TextView)arg1.findViewById(R.id.photo_reservEnCours);
 			holder.image_vehicule = (ImageView)arg1.findViewById(R.id.img_reservEnCours);
-			
+			holder.price = (TextView)arg1.findViewById(R.id.total_reservation);
 			arg1.setTag(holder);
 		}else
 		{
@@ -79,6 +80,7 @@ public class Adapter extends BaseAdapter {
 		holder.date_Debreservation.setText(reservation.get(arg0).dateDeb);
 		holder.date_Finreservation.setText(reservation.get(arg0).dateFin);
 		holder.photo_vehicule.setText(reservation.get(arg0).image);
+		holder.price.setText(reservation.get(arg0).prix);
 		Picasso.with(arg1.getContext()).load(holder.photo_vehicule.getText().toString()).into(holder.image_vehicule);
 		//holder.date_reservation.setText(reservation.get(arg0).date);
 		return arg1;

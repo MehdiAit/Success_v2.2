@@ -41,6 +41,7 @@ public class ReservationValideDetails extends Activity{
     TextView txtEtatReservation;
     TextView txtPrixReservation;
     TextView txtMotorReservation;
+    TextView txtNbreJour;
     Button btnAnnulerReservation;
     TextView genreUser;
     TextView prenomUser;
@@ -74,9 +75,10 @@ public class ReservationValideDetails extends Activity{
     private static final String TAG_ETATRESERV = "etat_reservation";
     private static final String TAG_MARKRESERV = "marque_vehicule";
     private static final String TAG_MODELERESERV = "modele_vehicule";
-    private static final String TAG_PRIXRESERV = "tarifJour_vehicule";
+    private static final String TAG_PRIXRESERV = "prix_total";
     private static final String TAG_MOTORRESERV = "motorisation_vehicule";
     private static final String TAG_NOMAGENCE = "nom_agence";
+    private static final String TAG_NBJOUR = "nombre_jour";
        
     JSONObject detail_tab = new JSONObject();
  
@@ -84,10 +86,11 @@ public class ReservationValideDetails extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vehicule_detail);
-        getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        /*getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		getActionBar().setCustomView(R.layout.koutchy_actionbar);
 		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
-		titleActionBar.setText("Détails de la réservation");
+		titleActionBar.setText("Détails de la réservation");*/
+        getActionBar().setTitle("");
   session = new SessionManager(getApplicationContext());
         
         HashMap<String, String> user = session.getUserDetails();
@@ -95,7 +98,7 @@ public class ReservationValideDetails extends Activity{
         Intent result = getIntent();
 		pid = result.getStringExtra("id_get");
 		url_imageReserv = result.getStringExtra("url_image");
-		
+		txtNbreJour = (TextView) findViewById(R.id.nbre_jours_reserv);//
 		txtNumReservation = (TextView) findViewById(R.id.txtTitreResume);//
 		//txtDatReservation = (TextView) findViewById(R.id.txtDatReservation);
 		txtDebutReservation = (TextView) findViewById(R.id.date_depart_recup);//
@@ -178,6 +181,7 @@ public class ReservationValideDetails extends Activity{
 	            txtNomAgenceReservation.setText(detail_tab.getString(TAG_NOMAGENCE));
 	            txtPrixReservation.setText(detail_tab.getString(TAG_PRIXRESERV));
 	            txtMotorReservation.setText(detail_tab.getString(TAG_MOTORRESERV));
+	            txtNbreJour.setText(detail_tab.getString(TAG_NBJOUR));
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}                      

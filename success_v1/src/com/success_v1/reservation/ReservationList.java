@@ -45,6 +45,7 @@ public class ReservationList extends Fragment{
 	private static final String TAG_DATE = "date_reservation";
 	private static final String TAG_DATEDEB = "dateDebLoc_reservation";
 	private static final String TAG_DATEFIN = "dateFinLoc_reservation";
+	private static final String TAG_PRIX = "prix_total";
 	private static final String TAG_IMG = "photo_vehicule";
 
 	String etat;
@@ -136,9 +137,10 @@ public class ReservationList extends Fragment{
 						String date = c.getString(TAG_DATE);
 						String dateDeb = c.getString(TAG_DATEDEB);
 						String dateFin = c.getString(TAG_DATEFIN);
+						String prix = c.getString(TAG_PRIX);
 						String photo = c.getString(TAG_IMG);
 
-						Reservation reservationEnCours = new Reservation(id,date,dateDeb,dateFin,photo);
+						Reservation reservationEnCours = new Reservation(id,date,dateDeb,dateFin,photo,prix);
 
 						reservationlist.add(reservationEnCours);
 					}

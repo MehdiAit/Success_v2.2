@@ -1,84 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp" 
-    android:background="@drawable/list_selector">
+    android:layout_height="110dp"
+    android:background="@drawable/list_selector" >
 
     <ImageView
         android:id="@+id/img_reservEnCours"
-        android:layout_width="150dip"
-        android:layout_height="100dip"
-        android:scaleType="fitCenter"
-       	android:adjustViewBounds="true"
+        android:layout_width="130dip"
+        android:layout_height="110dip"
         android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="5dip"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
+        android:layout_marginTop="5dip"
+        android:adjustViewBounds="true"
         android:background="@drawable/default_car_large"
-        android:layout_centerVertical="true" />
-              <TextView android:id="@+id/photo_reservEnCours"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/txtDu"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/counter_bg"
-        android:layout_alignParentRight="true"
+        android:layout_height="match_parent"
         android:layout_centerVertical="true"
-        android:layout_marginRight="8dp"
-        android:textColor="@color/counter_text_color"
-        android:visibility="gone"/>
-     <TextView
-        android:id="@+id/id_reservationEnCours"
+        android:layout_toRightOf="@id/img_reservEnCours"
+        android:paddingRight="5dp"
+        android:text="Début: "
+        android:textColor="#2D3E50" />
+
+    <TextView
+        android:id="@+id/date_reserv"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:enabled="false"
-        android:visibility="gone"
-         />
+        android:layout_height="match_parent"
+        android:layout_alignTop="@id/txtDu"
+        android:layout_marginRight="2dip"
+        android:layout_toRightOf="@id/img_reservEnCours"
+        android:text="Réservation du: "
+        android:textColor="#2D3E50"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/date_reservationEnCours"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_toRightOf="@id/img_reservEnCours"
-        android:textColor="@color/black_color"
-        android:paddingRight="5dp"/>
-    
+        android:layout_toRightOf="@id/date_reserv"
+        android:paddingRight="5dp"
+        android:textColor="#2D3E50"
+        android:textSize="15sp" />
+
     <TextView
-        android:id="@+id/txtDu"
+        android:id="@+id/dateDeb_reserv"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_toRightOf="@id/img_reservEnCours"
-        android:layout_below="@id/date_reservationEnCours"
-        android:gravity="center_vertical"
-        android:text="Du "
-        android:textColor="@color/black_color"/>
-    
-       <TextView android:id="@+id/dateDeb_reserv"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/txtDu"
+        android:paddingRight="5dp"
+        android:textColor="#2D3E50" />
+
+    <TextView
+        android:id="@+id/txtAu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@id/dateDeb_reserv"
+        android:paddingRight="5dp"
+        android:text="au "
+        android:visibility="gone"
+        android:textColor="#2D3E50" />
+
+    <TextView
+        android:id="@+id/txtTotal_vehicule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/txtDu"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/img_reservEnCours"
+        android:text="Total: "
+        android:textColor="#2D3E50"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/total_reservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/txtTotal_vehicule"
+        android:textColor="@color/title_color"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/dateFin_reserv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@id/total_reservation"
+        android:visibility="gone"
+        android:paddingRight="5dp"
+        android:textColor="#2D3E50" />
+
+    <ImageView
+        android:id="@+id/img_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/next" />
+
+    <TextView
+        android:id="@+id/photo_reservEnCours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="8dp"
-        android:textColor="@color/black_color"/>
-       
-       <TextView android:id="@+id/txtAu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/img_reservEnCours"
-        android:layout_below="@id/txtDu"
-        android:text=" Au "
-        android:layout_marginRight="8dp"
-        android:textColor="@color/black_color"/>
-       
-        <TextView android:id="@+id/dateFin_reserv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/txtAu"
-        android:layout_below="@id/dateDeb_reserv"
-        android:layout_marginRight="8dp"
-        android:textColor="@color/black_color"/>
-              
-       	<TextView android:id="@+id/id_vehicule"
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-	    android:visibility="gone"
-	    />
+        android:background="@drawable/counter_bg"
+        android:textColor="@color/counter_text_color"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/id_reservationEnCours"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/id_vehicule"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone" />
 
 </RelativeLayout>

@@ -9,7 +9,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:divider="#2D3E50"
-		android:dividerHeight="2dip" >
+		android:dividerHeight="0.5dip" >
         <!--  android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"--> 
     </ListView>

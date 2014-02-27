@@ -206,6 +206,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/date_depart_recup"
                         android:textColor="#2D3E50"
+                        android:layout_marginLeft="2dip"
                         android:textSize="18sp" />
                 </LinearLayout>
 
@@ -259,6 +260,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="@string/date_retour_recup"
+                        android:layout_marginLeft="2dip"
                         android:textColor="#2D3E50"
                         android:textSize="18sp" />
                 </LinearLayout>
