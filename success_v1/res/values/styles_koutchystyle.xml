@@ -17,7 +17,7 @@
      limitations under the License.
 -->
 
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="Theme.Koutchystyle" parent="@android:style/Theme.Holo.Light">
         <item name="android:actionBarItemBackground">@drawable/selectable_background_koutchystyle</item>
@@ -29,7 +29,7 @@
         <item name="android:actionModeBackground">@drawable/cab_background_top_koutchystyle</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_koutchystyle</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Koutchystyle</item>
-        
+                <item name="android:textColor">@color/white</item>
         
     </style>
 
@@ -38,43 +38,53 @@
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_koutchystyle</item>
         <item name="android:backgroundSplit">@drawable/ab_bottom_solid_koutchystyle</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Koutchystyle</item>
+                <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="ActionBar.Transparent.Koutchystyle" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">@drawable/ab_transparent_koutchystyle</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Koutchystyle</item>
+                <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="PopupMenu.Koutchystyle" parent="@android:style/Widget.Holo.Light.ListPopupWindow">
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_koutchystyle</item>	
+                <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="DropDownListView.Koutchystyle" parent="@android:style/Widget.Holo.Light.ListView.DropDown">
         <item name="android:listSelector">@drawable/selectable_background_koutchystyle</item>
+                <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="ActionBarTabStyle.Koutchystyle" parent="@android:style/Widget.Holo.Light.ActionBar.TabView">
         <item name="android:background">@drawable/tab_indicator_ab_koutchystyle</item>
+                <item name="android:textColor">@color/white</item>
+
     </style>
 
     <style name="DropDownNav.Koutchystyle" parent="@android:style/Widget.Holo.Light.Spinner">
         <item name="android:background">@drawable/spinner_background_ab_koutchystyle</item>
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_koutchystyle</item>
         <item name="android:dropDownSelector">@drawable/selectable_background_koutchystyle</item>
+                <item name="android:textColor">@color/white</item>
     </style>
     
     <style name="ProgressBar.Koutchystyle" parent="@android:style/Widget.Holo.Light.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_horizontal_koutchystyle</item>
+                <item name="android:textColor">@color/white</item>
     </style>
     
     <style name="ActionButton.CloseMode.Koutchystyle" parent="@android:style/Widget.Holo.Light.ActionButton.CloseMode">
         <item name="android:background">@drawable/btn_cab_done_koutchystyle</item>
+                <item name="android:textColor">@color/white</item>
     </style>
 
     <!-- this style is only referenced in a Light.DarkActionBar based theme -->
     <style name="Theme.Koutchystyle.Widget" parent="@android:style/Theme.Holo">
         <item name="android:popupMenuStyle">@style/PopupMenu.Koutchystyle</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Koutchystyle</item>
+                <item name="android:textColor">@color/white</item>
     </style>
 
 </resources>

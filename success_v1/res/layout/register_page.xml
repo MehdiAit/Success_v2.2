@@ -255,7 +255,10 @@
             android:hint="Confirmation du mot de passe"
             android:inputType="textPassword"
             android:textSize="17sp" />
-
+   		 <TextView
+       style="?android:listSeparatorTextViewStyle"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/txtNumPerm"
             android:layout_width="wrap_content"
@@ -338,6 +341,7 @@
             android:layout_marginTop="10dip"
             android:text="Code postal"
             android:textColor="#2D3E50"
+            android:visibility="gone"
             android:textSize="18sp" />
 
         <EditText
@@ -350,6 +354,7 @@
             android:layout_marginTop="10dip"
             android:background="@drawable/roundcorner"
             android:ems="10"
+            android:visibility="gone"
             android:gravity="center_horizontal"
             android:hint="Votre code postal"
             android:inputType="number"
@@ -362,6 +367,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dip"
             android:text="Ville"
+            android:visibility="gone"
             android:textColor="#2D3E50"
             android:textSize="18sp" />
 
@@ -375,6 +381,7 @@
             android:layout_marginTop="10dip"
             android:background="@drawable/roundcorner"
             android:ems="10"
+            android:visibility="gone"
             android:gravity="center_horizontal"
             android:hint="Votre ville"
             android:textSize="17sp" />

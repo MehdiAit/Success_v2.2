@@ -45,11 +45,12 @@ public class VehiculeSearch extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.search_vehicule_page);
-		getActionBar().setDisplayShowHomeEnabled(false);
+		/*getActionBar().setDisplayShowHomeEnabled(false);
 		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		getActionBar().setCustomView(R.layout.koutchy_actionbar);
 		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
-		titleActionBar.setText("Recherche");
+		titleActionBar.setText("Recherche");*/
+		getActionBar().setTitle("");
 
         autoMarqueSearch = (AutoCompleteTextView)findViewById(R.id.autoMarqueSearch);
         autoModeleSearch = (AutoCompleteTextView)findViewById(R.id.autoModeleSearch);

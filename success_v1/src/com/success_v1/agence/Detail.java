@@ -40,6 +40,7 @@ public class Detail extends Activity {
 	TextView desc_agence;
 	TextView latitude_agence;
 	TextView longitude_agence;
+	TextView adrArrive_agence;
 
 	Button btnAppeler_agence;
 	
@@ -83,6 +84,7 @@ public class Detail extends Activity {
 		id_agence = (TextView) findViewById(R.id.id_agence);
 		nom_agence = (TextView) findViewById(R.id.nom_agence);
 		adr_agence = (TextView) findViewById(R.id.adr_agence);
+		adrArrive_agence = (TextView) findViewById(R.id.adrArrive_agence);
 		tel_agence = (TextView) findViewById(R.id.tel_agence);
 		fax_agence = (TextView) findViewById(R.id.fax_agence);
 		mail_agence = (TextView) findViewById(R.id.mail_agence);
@@ -155,6 +157,7 @@ public class Detail extends Activity {
 				id_agence.setText(detail_tab.getString(TAG_ID));
 				nom_agence.setText(detail_tab.getString(TAG_NOM));
 				adr_agence.setText(detail_tab.getString(TAG_ADRESSE));
+				adrArrive_agence.setText(detail_tab.getString(TAG_ADRESSE));
 				tel_agence.setText(detail_tab.getString(TAG_TELEPHONE));
 				fax_agence.setText(detail_tab.getString(TAG_FAX));
 				mail_agence.setText(detail_tab.getString(TAG_MAIL));

@@ -2,17 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginBottom="10dip"
-        android:layout_marginLeft="12dip"
-        android:layout_marginRight="12dip"
-        android:layout_marginTop="5dip"
-        android:background="@drawable/round_corner_layout"
-        android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="#EDEDED" >
 
         <TextView
             android:id="@+id/txtMarqueSearch"
@@ -21,6 +12,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dip"
             android:text="Marque"
+            android:textColor="#2D3E50"
             android:textSize="18sp" />
 
         <AutoCompleteTextView
@@ -34,7 +26,7 @@
             android:background="@drawable/roundcorner"
             android:ems="10"
             android:gravity="center_horizontal"
-            android:text="autoMarqueSearch"
+            android:hint="Marque recherchée..."
             android:textSize="17sp" >
 
             <requestFocus />
@@ -47,6 +39,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dip"
             android:text="Modele"
+            android:textColor="#2D3E50"
             android:textSize="18sp" />
 
         <AutoCompleteTextView
@@ -60,7 +53,7 @@
             android:background="@drawable/roundcorner"
             android:ems="10"
             android:gravity="center_horizontal"
-            android:text="autoModeleSearch"
+            android:hint="Modele recherché..."
             android:textSize="17sp" />
 
         <TextView
@@ -70,6 +63,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dip"
             android:text="Couleur"
+            android:textColor="#2D3E50"
             android:textSize="18sp" />
 
         <Spinner
@@ -81,6 +75,7 @@
             android:layout_marginRight="10dip"
             android:layout_marginTop="10dip"
             android:background="@drawable/roundcorner"
+            android:hint="Couleur recherchée..."
             android:gravity="center_horizontal"
             android:textSize="17sp" />
 
@@ -91,12 +86,14 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dip"
             android:text="Motorisation"
+            android:textColor="#2D3E50"
             android:textSize="18sp" />
 
         <RadioGroup
             android:id="@+id/rdioMotorSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_gravity="center_horizontal" >
 
             <RadioButton
@@ -118,11 +115,10 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dip"
-            android:background="#94181A"
-            android:drawableEnd="@drawable/right_arrow"
+            android:background="@color/title_color"
+            android:drawableEnd="@drawable/next"
             android:text="Rechercher"
             android:textColor="@color/white"
             android:textSize="18sp" />
-    </LinearLayout>
 
 </LinearLayout>

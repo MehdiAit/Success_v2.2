@@ -18,6 +18,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.nfc.FormatException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -64,6 +65,8 @@ public class RegisterPage extends Activity{
 	private int yearNaissance;
 	private int monthNaissance;
 	private int dayNaissance;
+	
+	Date inputDatePermis;
 	
 	private int dayPermis;
 	private int yearPermis;
@@ -222,17 +225,32 @@ public class RegisterPage extends Activity{
 	   			/*************/
 	   			// Parse the input date
 	   			SimpleDateFormat fmtt = new SimpleDateFormat("dd-MM-yyyy");
-	   			Date inputDatePermis = null;
+	   			inputDatePermis = null;
 	   			try {
-	   				inputDatePermis = fmtt.parse(btnDatePerm.getText().toString());
+	   				if (btnDatePerm.getText().equals(""))
+	   				{
+	   					Log.d("Avertissement2","Je commence a putain de perdre patience!");
+	   				}
+	   				else
+	   				{
+	   					inputDatePermis = fmtt.parse(btnDatePerm.getText().toString());
+	   				}
+	   					
+	   				
 	   			} catch (ParseException e) {
 	   				// TODO Auto-generated catch block
 	   				e.printStackTrace();
 	   			}
 	   			// Create the MySQL datetime string
 	   			fmtt = new SimpleDateFormat("yyyy-MM-dd");
+	   			if(inputDatePermis == null)
+	   			{
+	   				Log.d("datePermis","je suis null");
+	   			}else
+	   			{
 	   			datePermis= fmtt.format(inputDatePermis);
 	   			Log.d("datePermis",datePermis);
+	   			}
 		    	  new AddUser().execute();
 			}
 		});
@@ -328,7 +346,15 @@ public class RegisterPage extends Activity{
             params.add(new BasicNameValuePair("dateNais_user", dateNaissance));
             params.add(new BasicNameValuePair("numPhone_user", editPhone.getText().toString()));
             params.add(new BasicNameValuePair("mail_user", editMailRegistration.getText().toString()));
-            params.add(new BasicNameValuePair("dateRetraitPermis_user",datePermis));
+            if (inputDatePermis == null)
+            {
+            	Log.d("Avertissement","Mehdi tu m'emmerde!");
+            }
+            else
+            {
+                params.add(new BasicNameValuePair("dateRetraitPermis_user",datePermis));
+            }
+
             // getting JSON Object
             // Note that create product url accepts POST method
             JSONObject json = jsonParser.makeHttpRequest(url_user, "POST", params);

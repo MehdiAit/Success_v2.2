@@ -2,79 +2,211 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EDEDED"
     android:orientation="vertical" >
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal" >
-
-    <Button
-        android:id="@+id/btnCall_agence"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Appeler" />
+        android:background="#EDEDED"
+        android:orientation="horizontal"
+        android:weightSum="100" >
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnCall_agence"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="4dip"
+            android:layout_weight="60"
+            android:background="@color/title_color"
+            android:drawableEnd="@android:drawable/ic_dialog_dialer"
+            android:text="Appeler"
+            android:textColor="@color/white" />
 
-    <TextView
-        android:id="@+id/id_agence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ID" />
+        <Button
+            android:id="@+id/btnItineraire_agence"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="40"
+            android:background="@color/title_color"
+            android:drawableEnd="@android:drawable/ic_menu_compass"
+            android:text="Itinéraire"
+            android:textColor="@color/white" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/nom_agence"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nom" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dip"
+        android:text="Nom"
+        android:textColor="@color/title_color"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EDEDED"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:background="#EDEDED"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtAdr_agence_depart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Agence de départ:" />
+
+            <TextView
+                android:id="@+id/adr_agence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Adresse" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:background="#EDEDED"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtAdr_agence_arrivee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Agence d&apos;arrivée:" />
+
+            <TextView
+                android:id="@+id/adrArrive_agence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Adresse" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EDEDED"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:background="#EDEDED"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtTel_agence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Numéro de téléphone:" />
+
+            <TextView
+                android:id="@+id/tel_agence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Telephone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:background="#EDEDED"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtFax_agence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Numéro de fax:" />
+
+            <TextView
+                android:id="@+id/fax_agence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Fax" />
+        </LinearLayout>
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/adr_agence"
+        android:id="@+id/txtMail_agence"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Adresse" />
-
-    <TextView
-        android:id="@+id/tel_agence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Telephone" />
-
-    <TextView
-        android:id="@+id/fax_agence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fax" />
+        android:layout_gravity="center_horizontal"
+        android:text="Adresse mail:" />
 
     <TextView
         android:id="@+id/mail_agence"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="Mail" />
+
+    <TextView
+        android:id="@+id/txtDesc_agence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Description:"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/desc_agence"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description" />
+        android:layout_gravity="center_horizontal"
+        android:text="Description"
+        android:visibility="gone" />
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip" />
 
     <TextView
         android:id="@+id/latitude_agence"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Latitude" />
+        android:text="Latitude"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/longitude_agence"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Longitude" />
-    
-     <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.MapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:text="Longitude"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/id_agence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID"
+        android:visibility="gone" />
 
 </LinearLayout>

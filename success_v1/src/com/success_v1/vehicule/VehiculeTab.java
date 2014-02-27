@@ -101,7 +101,7 @@ public class VehiculeTab extends FragmentActivity {
 	 
 	  /** Creating Android Tab */
 	  Tab tab = actionabar.newTab().setText("Tourisme").setTabListener(tabListener);
-	  
+	  		
 	        actionabar.addTab(tab);
 	        
 	        tab = actionabar.newTab().setText("Utilitaire").setTabListener(tabListener);                              
@@ -109,6 +109,7 @@ public class VehiculeTab extends FragmentActivity {
 	        
 	        tab = actionabar.newTab().setText("Luxe").setTabListener(tabListener);                              
 	        actionabar.addTab(tab);
+	        
 	        
 	 
 	 }

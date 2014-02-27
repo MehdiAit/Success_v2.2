@@ -25,6 +25,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -57,7 +58,7 @@ public class Detail extends Activity {
 
 	private TextView date_depart;
 	private TextView date_retour;
-
+	String date;
 	private SessionManager session;
 
 	private String pid;
@@ -72,12 +73,20 @@ public class Detail extends Activity {
 	// JSON parser class
 	private JSONParser jsonParser = new JSONParser();
 
-	private static SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+	private static SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 	private Integer numberDays;
 	private Integer carPrice;
 	private Date d1;
 	private Date d2;
 	Intent result;
+
+	
+	
+	public void ConvertDate(String format, TextView txtdate)
+	{
+		date = new SimpleDateFormat(format).format(new Date());
+		txtdate.setText(date);	
+	}
 
 	// JSON Node names
 	//private static String url_detail = "http://10.0.3.2/Success2i_V1/get_vehicule_detail.php";
@@ -161,7 +170,6 @@ public class Detail extends Activity {
 		nomUser.setText(user.get(SessionManager.KEY_NOM));
 		mailUser.setText(user.get(SessionManager.KEY_MAIL));
 		numeroUser.setText(user.get(SessionManager.KEY_NUM));
-		
 
 		findViewById(R.id.btntestreseravation).setOnClickListener(new View.OnClickListener(){
 			@Override
@@ -259,7 +267,8 @@ public class Detail extends Activity {
 				Picasso.with(getApplicationContext()).load(url_image).into(imageCaisse);
 				date_depart.setText(date_depart_intent);
 				date_retour.setText(date_retour_intent);  
-				
+				ConvertDate("dd-MM-yyyy", date_depart);
+				ConvertDate("dd-MM-yyyy", date_retour);
 				id_agence = detail_tab.getString(TAG_ID_Agence);
 				
 			} catch (JSONException e) {
