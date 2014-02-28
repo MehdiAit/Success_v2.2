@@ -31,7 +31,7 @@
 
         <RadioGroup
             android:id="@+id/rdioGenreRegister"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal" >
@@ -42,7 +42,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonClicked"
                 android:text="Monsieur"
-                android:textColor="#2D3E50" />
+                android:textColor="#2D3E50" 
+                android:layout_marginRight="20dp"/>
 
             <RadioButton
                 android:id="@+id/rdioMadameRegister"
@@ -50,7 +51,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonClicked"
                 android:textColor="#2D3E50"
-                android:text="Madame" />
+                android:text="Madame" 
+                android:layout_marginLeft="20dp"/>
         </RadioGroup>
 
         <TextView
@@ -137,7 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dip"
-            android:text="Téléphone"
+            android:text="Téléphone*"
             android:textColor="#2D3E50"
             android:textSize="18sp" />
 
@@ -187,7 +189,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dip"
-            android:text="Confirmez votre e-mail"
+            android:text="Confirmez votre e-mail*"
             android:textColor="#2D3E50"
             android:textSize="18sp" />
 
@@ -212,7 +214,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dip"
-            android:text="Mot de passe"
+            android:text="Mot de passe*"
             android:textColor="#2D3E50"
             android:textSize="18sp" />
 
@@ -237,7 +239,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dip"
-            android:text="Confirmez votre mot de passe"
+            android:text="Confirmez votre mot de passe*"
             android:textColor="#2D3E50"
             android:textSize="18sp" />
 
