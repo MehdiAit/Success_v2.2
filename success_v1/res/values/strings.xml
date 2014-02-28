@@ -44,7 +44,7 @@
     <string name="txtPrixVehiculeRecup">Prix : </string>
     <string name="btntestreseravation">Enregistrer ma réservation</string>
     <string name="txtCreationReserv">Création de la réservation</string>
-    <string name="txtLocalisationForm">Vous êtes actuellement à proximité de </string>
+    <string name="txtLocalisationForm">Vous êtes à proximité de </string>
     <string name="txtDateVilleDepart">Date et ville de départ:</string>
     <string name="btnVilleDepart1">Ville de départ</string>
     <string name="txtDateRetour">Date d\'arrivée:</string>

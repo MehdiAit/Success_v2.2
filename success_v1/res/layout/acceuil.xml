@@ -35,11 +35,12 @@
         <!-- conteneur texte -->
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="0dip"
             android:layout_weight="5"
             android:background="#E84C3D"
-            android:orientation="horizontal" >
+            android:orientation="horizontal" 
+            android:layout_gravity="center">
 
             <TextView
                 android:id="@+id/txtAProxim"
@@ -51,7 +52,7 @@
                 android:id="@+id/txtLocalMap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ben Aknoun, Alger" />
+                android:text=" Ben Aknoun, Alger" />
         </LinearLayout>
         <!-- conteneur texte -->
         <!-- conteneur Réserver un véhicule -->
