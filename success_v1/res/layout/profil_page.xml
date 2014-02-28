@@ -31,7 +31,7 @@
 
         <RadioGroup
             android:id="@+id/rdioGenreProfil"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal" >
@@ -42,7 +42,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonClickedProfil"
                 android:textColor="#2D3E50"
-                android:text="Monsieur" />
+                android:text="Monsieur" 
+                android:layout_marginRight="20dp"/>
 
             <RadioButton
                 android:id="@+id/rdioMadameProfil"
@@ -50,7 +51,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonClickedProfil"
                 android:textColor="#2D3E50"
-                android:text="Madame" />
+                android:text="Madame" 
+                android:layout_marginLeft="20dp"/>
         </RadioGroup>
             <TextView
                 android:id="@+id/txtPrenomProfil"
