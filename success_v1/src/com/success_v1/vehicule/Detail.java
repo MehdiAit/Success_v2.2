@@ -271,8 +271,6 @@ public class Detail extends Activity {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}                 
-			
-			Log.i("txt ",date_retour.getText().toString());
 			pDialog.dismiss();           
 		}
 	} 

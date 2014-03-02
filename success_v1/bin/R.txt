@@ -162,7 +162,6 @@ int id adr_agence 0x7f050015
 int id autoMarqueSearch 0x7f05009e
 int id autoModeleSearch 0x7f0500a0
 int id btnAdd 0x7f05000d
-int id btnAgences 0x7f050008
 int id btnAnnulerReservation 0x7f050085
 int id btnCall_agence 0x7f050011
 int id btnCompte 0x7f05000a
@@ -182,6 +181,7 @@ int id btnReservations 0x7f050009
 int id btnSearchCar 0x7f05009a
 int id btnVilleArrive1 0x7f050098
 int id btnVilleDepart1 0x7f050095
+int id btnsearch 0x7f050008
 int id btntestreseravation 0x7f0500c1
 int id checkBox1 0x7f050099
 int id dateDeb_reserv 0x7f05008b

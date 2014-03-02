@@ -329,7 +329,6 @@ containing a value of this type.
         public static final int autoMarqueSearch=0x7f05009e;
         public static final int autoModeleSearch=0x7f0500a0;
         public static final int btnAdd=0x7f05000d;
-        public static final int btnAgences=0x7f050008;
         public static final int btnAnnulerReservation=0x7f050085;
         public static final int btnCall_agence=0x7f050011;
         public static final int btnCompte=0x7f05000a;
@@ -349,6 +348,7 @@ containing a value of this type.
         public static final int btnSearchCar=0x7f05009a;
         public static final int btnVilleArrive1=0x7f050098;
         public static final int btnVilleDepart1=0x7f050095;
+        public static final int btnsearch=0x7f050008;
         public static final int btntestreseravation=0x7f0500c1;
         public static final int checkBox1=0x7f050099;
         public static final int dateDeb_reserv=0x7f05008b;

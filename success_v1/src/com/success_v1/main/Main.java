@@ -26,7 +26,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.success_v1.agence.ReservationStep1;
 import com.success_v1.location.GpsTrack;
 import com.success_v1.res.JSONParser;
 import com.success_v1.reservation.ReservationTab;
@@ -36,7 +35,7 @@ import com.success_v1.user.ProfilPage;
 import com.success_v1.user.SessionManager;
 
 public class Main extends Activity implements OnClickListener{
-	private Button btnAgences;
+	private Button btnsearch;
 	private Button btnReservation;
 	private Button btnCompte;
 	private TextView txtLocate;
@@ -76,12 +75,12 @@ public class Main extends Activity implements OnClickListener{
         	Log.d("wifi state","Deconnected");
         }
         
-		btnAgences = (Button)this.findViewById(R.id.btnAgences);
+		btnsearch = (Button)this.findViewById(R.id.btnsearch);
 		btnReservation= (Button)this.findViewById(R.id.btnReservations);
 		btnCompte = (Button)this.findViewById(R.id.btnCompte);
 		txtLocate = (TextView)findViewById(R.id.txtLocalMap);
 		
-		btnAgences.setOnClickListener(this);
+		btnsearch.setOnClickListener(this);
 		btnReservation.setOnClickListener(this);
 		btnCompte.setOnClickListener(this);
 		
@@ -92,7 +91,7 @@ public class Main extends Activity implements OnClickListener{
 		trans1.setStartOffset(600);
 		trans1.setFillAfter(true);
 		trans1.setDuration(800);
-		btnAgences.startAnimation(trans1);
+		btnsearch.startAnimation(trans1);
 		TranslateAnimation trans2 = new TranslateAnimation (320,0,0,0);
 		trans2.setStartOffset(320);
 		trans2.setFillAfter(true);
@@ -141,8 +140,10 @@ public class Main extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		switch (arg0.getId())
 		{
-		case R.id.btnAgences:
+		case R.id.btnsearch:
 			Intent agenceActivity= new Intent(this,ReservationStep1.class);
+			agenceActivity.putExtra("comune", comune);
+			agenceActivity.putExtra("ville", ville);
 			startActivity(agenceActivity);
 			break;
 		case R.id.btnReservations:

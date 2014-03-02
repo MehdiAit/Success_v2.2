@@ -1,4 +1,4 @@
-package com.success_v1.agence;
+package com.success_v1.main;
 
 
 import java.text.ParseException;
@@ -29,6 +29,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.success_v1.agence.List_Ville;
 import com.success_v1.successCar.R;
 
 public class ReservationStep1 extends Activity{
@@ -45,6 +46,7 @@ public class ReservationStep1 extends Activity{
 	private Button btnDateRetour;
 	private Button btnVilleDepart;
 	private Button btnSearchCar;
+	private TextView location;
 	
 	
 	private int yearDepart;
@@ -118,15 +120,21 @@ public class ReservationStep1 extends Activity{
 		year = c.get(Calendar.YEAR);
 		month = c.get(Calendar.MONTH);
 		day = c.get(Calendar.DAY_OF_MONTH);
+		
+		Intent intt = getIntent();
+		String comune_recupe = intt.getStringExtra("comune");
+		String ville_recupe = intt.getStringExtra("ville");
 
 		btnDateDepart = (Button) findViewById(R.id.btnDateDeb);
 		btnDateRetour = (Button) findViewById(R.id.btnDateRetour);
 		btnVilleDepart = (Button) findViewById(R.id.btnVilleDepart1);
 		btnSearchCar = (Button) findViewById(R.id.btnSearchCar);
+		location = (TextView) findViewById(R.id.txtLocalMap);
 		
 		wf = (ConnectivityManager)this.getSystemService(CONNECTIVITY_SERVICE);
 		info = wf.getActiveNetworkInfo();
-				
+		
+		location.setText(" "+comune_recupe+", "+ville_recupe);
 		ConvertDate("dd-MM-yyyy", btnDateDepart);
 		ConvertDate("dd-MM-yyyy", btnDateRetour);
 		
