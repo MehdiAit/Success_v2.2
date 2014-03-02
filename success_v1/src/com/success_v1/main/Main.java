@@ -1,13 +1,20 @@
 package com.success_v1.main;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.Activity;
-import android.content.Context;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.wifi.WifiManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -16,9 +23,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.success_v1.agence.ReservationStep1;
+import com.success_v1.location.GpsTrack;
+import com.success_v1.res.JSONParser;
 import com.success_v1.reservation.ReservationTab;
 import com.success_v1.successCar.R;
 import com.success_v1.user.LogPage;
@@ -29,11 +39,24 @@ public class Main extends Activity implements OnClickListener{
 	private Button btnAgences;
 	private Button btnReservation;
 	private Button btnCompte;
+	private TextView txtLocate;
     // Session Manager Class
-    SessionManager session;
-    HashMap<String, String> user;
-    ConnectivityManager wf;
-    NetworkInfo info;
+    private SessionManager session;
+    private HashMap<String, String> user;
+    private ConnectivityManager wf;
+    private NetworkInfo info;
+    
+    //Location
+	private ProgressDialog  pDialog;
+	private JSONParser jParser = new JSONParser();
+	private JSONArray results;
+	private GpsTrack gps;
+	
+	private static String jsonUrl_google_api = "http://maps.googleapis.com/maps/api/geocode/json?address=";
+	private static String jsonUrl_param = "&sensor=true&language=ar";
+	
+	private String comune = "";
+	private String ville = "";
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +79,14 @@ public class Main extends Activity implements OnClickListener{
 		btnAgences = (Button)this.findViewById(R.id.btnAgences);
 		btnReservation= (Button)this.findViewById(R.id.btnReservations);
 		btnCompte = (Button)this.findViewById(R.id.btnCompte);
+		txtLocate = (TextView)findViewById(R.id.txtLocalMap);
 		
 		btnAgences.setOnClickListener(this);
 		btnReservation.setOnClickListener(this);
 		btnCompte.setOnClickListener(this);
+		
+		gps = new GpsTrack(getApplicationContext());
+		new asyncRecup().execute();
 		
 		TranslateAnimation trans1 = new TranslateAnimation (0,0,800,0);
 		trans1.setStartOffset(600);
@@ -142,5 +169,49 @@ public class Main extends Activity implements OnClickListener{
 			break;
 		}
 		
+	}
+	
+	public class asyncRecup extends AsyncTask<String, String, String>
+	{
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(Main.this);
+            pDialog.setMessage("Localisation en cours, Patientez ...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+            pDialog.show();
+        }
+        
+		@Override
+		protected String doInBackground(String... params) {
+
+			Double a = gps.getLatitude();
+			Double b = gps.getLongitude();	
+			String url = jsonUrl_google_api+a.toString()+","+b.toString()+jsonUrl_param;
+			
+			List<NameValuePair> param = new ArrayList<NameValuePair>();
+			JSONObject json = jParser.makeHttpRequest(url, "GET", param);
+
+			try {
+				results = json.getJSONArray("results");
+				Log.i("JsonArray",results.toString());
+				comune = results.getJSONObject(1).getJSONArray("address_components").getJSONObject(0).getString("long_name").toString();
+				ville = results.getJSONObject(1).getJSONArray("address_components").getJSONObject(1).getString("long_name").toString();
+				
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			return null;
+		}
+		
+		protected void onPostExecute(String file_url) {
+			
+			txtLocate.setText(" "+comune+", "+ville);
+        	pDialog.dismiss();
+    }
+
 	}
 }
