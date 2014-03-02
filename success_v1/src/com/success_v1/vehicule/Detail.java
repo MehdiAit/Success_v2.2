@@ -73,11 +73,8 @@ public class Detail extends Activity {
 	// JSON parser class
 	private JSONParser jsonParser = new JSONParser();
 
-	private static SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 	private Integer numberDays;
 	private Integer carPrice;
-	private Date d1;
-	private Date d2;
 	Intent result;
 
 	
@@ -110,10 +107,6 @@ public class Detail extends Activity {
 	private JSONObject detail_tab = new JSONObject();
 	private HashMap<String, String> user = new HashMap<String, String>();
 
-	public static Date stringToDate(String sDate) throws ParseException {
-		return formatter.parse(sDate);
-	}
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -137,7 +130,9 @@ public class Detail extends Activity {
 		date_depart_intent = result.getStringExtra("date_depart");
 		date_retour_intent = result.getStringExtra("date_retour");
 		url_image = result.getStringExtra("url_image");
+		
 		Log.i("dt",date_depart_intent);
+		Log.i("dt_rt",date_retour_intent);
 		
 		DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd");
 		DateTime dt = formatter.parseDateTime(date_depart_intent);
@@ -266,13 +261,18 @@ public class Detail extends Activity {
 				Picasso.with(getApplicationContext()).load(url_image).into(imageCaisse);
 				date_depart.setText(date_depart_intent);
 				date_retour.setText(date_retour_intent);  
-				ConvertDate("dd-MM-yyyy", date_depart);
-				ConvertDate("dd-MM-yyyy", date_retour);
+				
+				/******* Convertisseur a revoire ***********/
+				//ConvertDate("dd-MM-yyyy", date_depart);
+				//ConvertDate("dd-MM-yyyy", date_retour);
+				
 				id_agence = detail_tab.getString(TAG_ID_Agence);
 				
 			} catch (JSONException e) {
 				e.printStackTrace();
-			}                      
+			}                 
+			
+			Log.i("txt ",date_retour.getText().toString());
 			pDialog.dismiss();           
 		}
 	} 

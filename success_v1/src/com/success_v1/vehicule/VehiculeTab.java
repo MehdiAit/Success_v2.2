@@ -10,6 +10,7 @@ import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -101,7 +102,6 @@ public class VehiculeTab extends FragmentActivity {
 	 
 	  /** Creating Android Tab */
 	  Tab tab = actionabar.newTab().setText("Tourisme").setTabListener(tabListener);
-	  		
 	        actionabar.addTab(tab);
 	        
 	        tab = actionabar.newTab().setText("Utilitaire").setTabListener(tabListener);                              
