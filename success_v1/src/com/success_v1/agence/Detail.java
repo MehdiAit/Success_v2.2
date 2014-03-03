@@ -192,7 +192,7 @@ public class Detail extends Activity {
         	double longitude = Double.valueOf(b);
         	
         	LatLng ln = new LatLng(latitude, longitude);
-        	googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ln, 10));
+        	googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ln, 13));
         	
         	MarkerOptions marker = new MarkerOptions().position(new LatLng(latitude, longitude)).title("Hello Maps ");
         	googleMap.addMarker(marker);

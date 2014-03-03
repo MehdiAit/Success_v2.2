@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">SuccessCars</string>
+    <string name="app_name">Koutchi</string>
     <string name="home_sub1">Déconnexion</string>
     <string name="home_sub2">Notez nous!</string>
     <string name="home_sub3">A propos!</string>

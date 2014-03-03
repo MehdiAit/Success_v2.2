@@ -16,6 +16,6 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:contentDescription="Image de lancement"
-        android:src="@drawable/logo_koutchi" />
+        android:src="@drawable/koutchi" />
 
 </RelativeLayout>
