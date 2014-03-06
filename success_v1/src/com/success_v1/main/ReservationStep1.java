@@ -175,9 +175,9 @@ public class ReservationStep1 extends Activity{
 				
 				today = getZeroTimeDate(today);
 				
-				if((inputDate.compareTo(inputDate2) == 1) || (inputDate.compareTo(today) == -1))
+				if((inputDate.compareTo(inputDate2) == 1) || (inputDate.compareTo(today) == -1) || (btnVilleDepart.getText().toString().equals("Ville de départ")))
 				{
-					toast("Dates incohérentes", Toast.LENGTH_LONG);				
+					toast("Dates incohérentes ou Ville non selectioné !", Toast.LENGTH_LONG);				
 				}
 				else
 				{
