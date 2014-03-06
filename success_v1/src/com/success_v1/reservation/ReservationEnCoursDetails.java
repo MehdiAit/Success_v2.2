@@ -153,7 +153,7 @@ public class ReservationEnCoursDetails extends Activity {
     	AlertDialog.Builder confirm = new AlertDialog.Builder(this);
     	confirm.setIcon(android.R.drawable.ic_dialog_alert);
     	confirm.setTitle("Delete");
-    	confirm.setMessage("Voulez vous vraiment anuler votre reservation ?");
+    	confirm.setMessage("Voulez vous vraiment annuler votre reservation ?");
     	
     	confirm.setPositiveButton("Oui", new OnClickListener() {
 			
@@ -165,7 +165,7 @@ public class ReservationEnCoursDetails extends Activity {
 			}
 		});
     	
-    	confirm.setNegativeButton("Anuler", new OnClickListener() {
+    	confirm.setNegativeButton("Non", new OnClickListener() {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
