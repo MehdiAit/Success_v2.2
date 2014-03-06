@@ -10,14 +10,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,6 +23,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.success_v1.res.JSONParser;
+import com.success_v1.res.config;
 import com.success_v1.successCar.R;
 import com.success_v1.user.SessionManager;
 
@@ -64,15 +63,14 @@ public class ReservationValideDetails extends Activity{
  
     // JSON Node names
     //private static String url_detail = "http://10.0.3.2/Success2i_V1/get_reservation_encours_detail.php";
-    private static String url_detail = "http://192.168.1.74/Success2i_V1/get_reservation_valide_detail.php";
-    private static String url_deleteReservation = "http://192.168.1.74/Success2i_V1/delete_reservation.php";
+    private static String url_detail = config.getURL()+"get_reservation_valide_detail.php";
 	private static final String TAG_SUCCESS = "success";
     private static final String TAG_TAB = "tab_detailReservation";
     private static final String TAG_ID = "id";
-    private static final String TAG_DATERESERV = "date_reservation";
+    //private static final String TAG_DATERESERV = "date_reservation";
     private static final String TAG_DEBRESERV ="debut_reservation";
     private static final String TAG_FINRESERV = "fin_reservation";
-    private static final String TAG_ETATRESERV = "etat_reservation";
+    //private static final String TAG_ETATRESERV = "etat_reservation";
     private static final String TAG_MARKRESERV = "marque_vehicule";
     private static final String TAG_MODELERESERV = "modele_vehicule";
     private static final String TAG_PRIXRESERV = "prix_total";

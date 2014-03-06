@@ -9,7 +9,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -22,6 +21,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.success_v1.res.JSONParser;
+import com.success_v1.res.config;
 import com.success_v1.successCar.R;
 
 public class LogPage extends Activity{
@@ -39,8 +39,7 @@ public class LogPage extends Activity{
 	JSONParser jParser = new JSONParser();
 
 	// JSON Node names
-	//private static String url_authentification = "http://10.0.3.2/Success2i_V1/auth_user.php";
-	private static String url_authentification = "http://192.168.1.74/Success2i_V1/auth_user.php";
+	private static String url_authentification = config.getURL()+"auth_user.php";
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_TAB = "user_tab";
 	private static final String TAG_ID = "id";

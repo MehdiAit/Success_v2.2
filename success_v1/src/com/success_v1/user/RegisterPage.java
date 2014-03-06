@@ -34,6 +34,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.success_v1.res.JSONParser;
+import com.success_v1.res.config;
 import com.success_v1.successCar.R;
 
 public class RegisterPage extends Activity{
@@ -85,8 +86,7 @@ public class RegisterPage extends Activity{
  
     // JSON Node names
    	private static final String TAG_SUCCESS = "success";
-    //private static String url_user = "http://10.0.3.2/Success2i_V1/add_user.php";
-	private static String url_user = "http://192.168.1.74/Success2i_V1/add_users.php";
+	private static String url_user = config.getURL()+"add_users.php";
     JSONObject registration_tab = new JSONObject();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

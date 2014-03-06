@@ -36,6 +36,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 
 
 import com.success_v1.res.JSONParser;
+import com.success_v1.res.config;
 import com.success_v1.successCar.R;
 import com.success_v1.user.RegisterPage.AddUser;
 
@@ -91,8 +92,7 @@ public class ProfilPage extends Activity{
 
 	// JSON Node names
 	private static final String TAG_SUCCESS = "success";
-	//private static String url_edituser = "http://10.0.3.2/Success2i_V1/edit_user.php";
-	private static String url_edituser = "http://192.168.1.74/Success2i_V1/edit_user.php";
+	private static String url_edituser = config.getURL()+"edit_user.php";
 
 	JSONObject editUser_tab = new JSONObject();
 	@Override

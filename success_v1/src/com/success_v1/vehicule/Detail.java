@@ -1,6 +1,5 @@
 package com.success_v1.vehicule;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,6 +30,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.success_v1.res.JSONParser;
+import com.success_v1.res.config;
 import com.success_v1.successCar.R;
 import com.success_v1.user.SessionManager;
 
@@ -50,9 +50,9 @@ public class Detail extends Activity {
 	private TextView nomUser;
 	private TextView mailUser;
 	private TextView numeroUser;
-	private TextView titleActionBar;
+	//private TextView titleActionBar;
 	private ImageView imageCaisse;
-	private ImageView logoEtape;
+	//private ImageView logoEtape;
 	private TextView nbre_jours_reserv;
 
 
@@ -85,12 +85,8 @@ public class Detail extends Activity {
 		txtdate.setText(date);	
 	}
 
-	// JSON Node names
-	//private static String url_detail = "http://10.0.3.2/Success2i_V1/get_vehicule_detail.php";
-	//private static String url_reservation = "http://10.0.3.2/Success2i_V1/add_reservation.php";
-
-	private static String url_detail = "http://192.168.1.74/Success2i_V1/get_vehicule_detail.php";
-	private static String url_reservation = "http://192.168.1.74/Success2i_V1/add_reservation.php";
+	private static String url_detail = config.getURL()+"get_vehicule_detail.php";
+	private static String url_reservation = config.getURL()+"add_reservation.php";
 	// JSON Node names
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_TAB = "vehicule_tab";

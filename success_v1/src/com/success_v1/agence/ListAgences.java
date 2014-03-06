@@ -21,6 +21,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.success_v1.res.JSONParser;
+import com.success_v1.res.config;
 import com.success_v1.successCar.R;
 
 public class ListAgences extends Activity {
@@ -33,7 +34,7 @@ public class ListAgences extends Activity {
 		
 	private ListView lv;
 	
-	private static String url_all = "http://192.168.1.74/Success2i_V1/get_agence.php";
+	private static String url_all = config.getURL()+"get_agence.php";
 	private static final String TAG_SUCCESS = "success";
     private static final String TAG_TAB = "tab_agence";
     private static final String TAG_ID = "id";

@@ -24,6 +24,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.success_v1.res.JSONParser;
+import com.success_v1.res.config;
 import com.success_v1.successCar.R;
 
 public class VehiculeListe extends Activity {
@@ -45,9 +46,7 @@ public class VehiculeListe extends Activity {
 	private ListView lv;
 	private AdapterVehicule ad;
 
-
-	//private static String url_all = "http://10.0.3.2/Success2i_V1/get_vehicule.php";
-	private static String url_all = "http://192.168.1.74/Success2i_V1/get_vehicule.php";
+	private static String url_all = config.getURL()+"get_vehicule.php";
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_TAB = "tab_vehicule";
 	private static final String TAG_ID = "id";
