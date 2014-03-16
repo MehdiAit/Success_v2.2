@@ -25,11 +25,11 @@ import com.success_v1.res.config;
 import com.success_v1.successCar.R;
 
 public class ListAgences extends Activity {
-	
-	private ProgressDialog pDialog;
-	
-	JSONParser jParser = new JSONParser();		
+			
     ArrayList<Agence> agencelist;
+    
+    private ProgressDialog pDialog;
+    JSONParser jParser = new JSONParser();
     JSONArray jsonTab = null;
 		
 	private ListView lv;

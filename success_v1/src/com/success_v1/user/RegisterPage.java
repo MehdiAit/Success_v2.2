@@ -346,6 +346,7 @@ public class RegisterPage extends Activity{
             params.add(new BasicNameValuePair("dateNais_user", dateNaissance));
             params.add(new BasicNameValuePair("numPhone_user", editPhone.getText().toString()));
             params.add(new BasicNameValuePair("mail_user", editMailRegistration.getText().toString()));
+            
             if (inputDatePermis == null)
             {
             	Log.d("Avertissement","Mehdi tu m'emmerde!");
