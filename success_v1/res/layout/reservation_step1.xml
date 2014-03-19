@@ -82,7 +82,7 @@
                 android:layout_marginTop="10dip"
                 android:background="@drawable/roundcorner"
                 android:text="@string/date_depart_recup"
-                android:textColor="#D6DADB" />
+                android:textColor="@color/black_color" />
 
             <Button
                 android:id="@+id/btnVilleDepart1"
