@@ -62,7 +62,7 @@ public class Main extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.acceuil);
 		
-		//getActionBar().setTitle(null);
+		getActionBar().setTitle(null);
 		//getActionBar().setDisplayShowHomeEnabled(false);
 
         session = new SessionManager(getApplicationContext());
