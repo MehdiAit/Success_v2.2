@@ -77,22 +77,22 @@
             <Button
                 android:id="@+id/btnDateDeb"
                 android:layout_width="180dip"
-                android:layout_height="30dip"
+                android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dip"
-                android:background="@drawable/roundcorner"
+                android:background="@drawable/main_btn_disconnect_bg"
                 android:text="@string/date_depart_recup"
                 android:textColor="@color/black_color" />
 
             <Button
                 android:id="@+id/btnVilleDepart1"
                 android:layout_width="160dip"
-                android:layout_height="30dip"
+                android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dip"
-                android:background="@drawable/roundcorner"
+                android:background="@drawable/main_btn_disconnect_bg"
                 android:text="@string/btnVilleDepart1"
-                android:textColor="#D6DADB" />
+                android:textColor="@color/black_color" />
 
             <TextView
                 android:id="@+id/txtDateRetour"
@@ -107,22 +107,22 @@
             <Button
                 android:id="@+id/btnDateRetour"
                 android:layout_width="180dip"
-                android:layout_height="30dip"
+                android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dip"
-                android:background="@drawable/roundcorner"
+                android:background="@drawable/main_btn_disconnect_bg"
                 android:text="@string/btnDateRetour"
-                android:textColor="#D6DADB" />
+                android:textColor="@color/black_color" />
 
             <Button
                 android:id="@+id/btnVilleArrive1"
                 android:layout_width="160dip"
-                android:layout_height="30dip"
+                android:layout_height="40dip"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dip"
-                android:background="@drawable/roundcorner"
+                android:background="@drawable/main_btn_disconnect_bg"
                 android:text="@string/btnVilleArrive1"
-                android:textColor="#D6CDC6"
+                android:textColor="@color/black_color"
                 android:visibility="gone" />
 
             <CheckBox
