@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,6 +31,7 @@ public class VehiculeTab extends FragmentActivity {
 	 private ViewPager viewpager;
 	 private TextView titleActionBar;
 	 private ImageView logoEtape;
+	 private LayoutInflater inflater;
 	    // Session Manager Class
 	    SessionManager session;
 	 
@@ -37,6 +39,9 @@ public class VehiculeTab extends FragmentActivity {
 	 protected void onCreate(Bundle savedInstanceState) {
 	  super.onCreate(savedInstanceState);
 	  setContentView(R.layout.vehicule_tab);
+	  
+	  inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+	  
 	        actionabar = getActionBar(); 
 	        //actionabar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 	        actionabar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -60,7 +65,9 @@ public class VehiculeTab extends FragmentActivity {
 			getActionBar().setCustomView(R.layout.koutchy_actionbar);
 			titleActionBar = (TextView)findViewById(R.id.titleActionBar);
 			titleActionBar.setText("Création de la réservation (2/3)");*/
+			
 	        viewpager = (ViewPager) findViewById(R.id.pager);
+	        //viewpager.setb
 	        FragmentManager fm = getSupportFragmentManager();
 	         
 	        /** Defining a listener for pageChange */

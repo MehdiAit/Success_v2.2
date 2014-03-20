@@ -24,6 +24,7 @@
         <item name="android:popupMenuStyle">@style/PopupMenu.Koutchystyle</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Koutchystyle</item>
         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Koutchystyle</item>
+        <item name="android:actionBarTabTextStyle">@style/tabtextcolor</item>
         <item name="android:actionDropDownStyle">@style/DropDownNav.Koutchystyle</item>
         <item name="android:actionBarStyle">@style/ActionBar.Solid.Koutchystyle</item>
         <item name="android:actionModeBackground">@drawable/cab_background_top_koutchystyle</item>
@@ -32,18 +33,24 @@
                  
         
     </style>
+    
+    <style name="tabtextcolor" parent="@android:style/Widget.Holo.Light.ActionBar.TabText">
+    <item name="android:textColor">@android:color/white</item>
+	</style>
 
     <style name="ActionBar.Solid.Koutchystyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
         <item name="android:background">@drawable/ab_solid_koutchystyle</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_koutchystyle</item>
         <item name="android:backgroundSplit">@drawable/ab_bottom_solid_koutchystyle</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Koutchystyle</item>
+        
                  
     </style>
 
     <style name="ActionBar.Transparent.Koutchystyle" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">@drawable/ab_transparent_koutchystyle</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Koutchystyle</item>
+        
                  
     </style>
 
@@ -57,9 +64,10 @@
                  
     </style>
 
+    <!--  Ca c'est le style de le peite barre en desous de tabBarre -->
     <style name="ActionBarTabStyle.Koutchystyle" parent="@android:style/Widget.Holo.Light.ActionBar.TabView">
-        <item name="android:background">@drawable/tab_indicator_ab_koutchystyle</item>
-                 
+       <item name="android:background">@drawable/tab_indicator_ab_koutchystyle</item>
+       <!--<item name="android:background">@android:color/holo_green_dark</item>-->
 
     </style>
 

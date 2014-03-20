@@ -716,10 +716,13 @@ containing a value of this type.
         public static final int ville_depart=0x7f06003d;
     }
     public static final class style {
-        public static final int ActionBar_Solid_Koutchystyle=0x7f0a0005;
-        public static final int ActionBar_Transparent_Koutchystyle=0x7f0a0006;
-        public static final int ActionBarTabStyle_Koutchystyle=0x7f0a0009;
-        public static final int ActionButton_CloseMode_Koutchystyle=0x7f0a000c;
+        public static final int ActionBar_Solid_Koutchystyle=0x7f0a0006;
+        public static final int ActionBar_Transparent_Koutchystyle=0x7f0a0007;
+        /**   Ca c'est le style de le peite barre en desous de tabBarre 
+<item name="android:background">@android:color/holo_green_dark</item>
+         */
+        public static final int ActionBarTabStyle_Koutchystyle=0x7f0a000a;
+        public static final int ActionButton_CloseMode_Koutchystyle=0x7f0a000d;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -745,16 +748,17 @@ containing a value of this type.
         /**  Application theme. 
          */
         public static final int AppTheme=0x7f0a0001;
-        public static final int DropDownListView_Koutchystyle=0x7f0a0008;
-        public static final int DropDownNav_Koutchystyle=0x7f0a000a;
+        public static final int DropDownListView_Koutchystyle=0x7f0a0009;
+        public static final int DropDownNav_Koutchystyle=0x7f0a000b;
         public static final int FindMyTrain_ActionBar_Tab=0x7f0a0002;
         public static final int MyActionBarTabStyle=0x7f0a0003;
-        public static final int PopupMenu_Koutchystyle=0x7f0a0007;
-        public static final int ProgressBar_Koutchystyle=0x7f0a000b;
+        public static final int PopupMenu_Koutchystyle=0x7f0a0008;
+        public static final int ProgressBar_Koutchystyle=0x7f0a000c;
         public static final int Theme_Koutchystyle=0x7f0a0004;
         /**  this style is only referenced in a Light.DarkActionBar based theme 
          */
-        public static final int Theme_Koutchystyle_Widget=0x7f0a000d;
+        public static final int Theme_Koutchystyle_Widget=0x7f0a000e;
+        public static final int tabtextcolor=0x7f0a0005;
     }
     public static final class styleable {
         /** Attributes that can be used with a AdsAttrs.
