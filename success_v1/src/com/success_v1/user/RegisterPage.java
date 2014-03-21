@@ -85,7 +85,7 @@ public class RegisterPage extends Activity{
  
     // JSON Node names
    	private static final String TAG_SUCCESS = "success";
-	private static String url_user = config.getURL()+"add_user.php";
+	private static String url_user = config.getURL()+"add_users.php";
     JSONObject registration_tab = new JSONObject();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -190,17 +190,31 @@ public class RegisterPage extends Activity{
 	   			SimpleDateFormat fmt = new SimpleDateFormat("dd-MM-yyyy");
 	   			Date inputDate = null;
 	   			try {
-	   				inputDate = fmt.parse(btnDateNais.getText().toString());
+	   				if (btnDateNais.getText().equals(""))
+	   				{
+	   					Log.d("Avertissement2","Je commence a putain de perdre patience!");
+	   				}
+	   				else
+	   				{
+	   					inputDate = fmt.parse(btnDateNais.getText().toString());
+	   				}	   				
 	   			} catch (ParseException e) {
-	   				// TODO Auto-generated catch block
 	   				e.printStackTrace();
 	   			}
-	   			// Create the MySQL datetime string
+	   			
 	   			fmt = new SimpleDateFormat("yyyy-MM-dd");
+	   			if(inputDate == null)
+	   			{
+	   				Log.d("datePermis","je suis null");
+	   			}else
+	   			{
 	   			dateNaissance = fmt.format(inputDate);
-	   			Log.d("dateNaissance",dateNaissance);
+	   			}
+	   			
 	   			/*************/
-	   			// Parse the input date
+	   			
+	   			/*************/
+	   			//DatePermis
 	   			SimpleDateFormat fmtt = new SimpleDateFormat("dd-MM-yyyy");
 	   			inputDatePermis = null;
 	   			try {
@@ -215,10 +229,8 @@ public class RegisterPage extends Activity{
 	   					
 	   				
 	   			} catch (ParseException e) {
-	   				// TODO Auto-generated catch block
 	   				e.printStackTrace();
 	   			}
-	   			// Create the MySQL datetime string
 	   			fmtt = new SimpleDateFormat("yyyy-MM-dd");
 	   			if(inputDatePermis == null)
 	   			{
@@ -228,6 +240,8 @@ public class RegisterPage extends Activity{
 	   			datePermis= fmtt.format(inputDatePermis);
 	   			Log.d("datePermis",datePermis);
 	   			}
+	   			
+	   			/********************* Add user to the data base **************/
 		    	  new AddUser().execute();
 			}
 		});
@@ -371,6 +385,8 @@ public class RegisterPage extends Activity{
             pDialog.dismiss();
             if(success == -1){
             	Toast.makeText(getApplicationContext(), "Cette adresse mail est deja utilisée !", Toast.LENGTH_LONG).show();
+            }else if(success == 0){
+            	Toast.makeText(getApplicationContext(), "Vous devez replire les champs obligatoires!", Toast.LENGTH_LONG).show();
             }
         }
  
