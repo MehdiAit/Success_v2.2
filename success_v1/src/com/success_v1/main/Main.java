@@ -52,7 +52,7 @@ public class Main extends Activity implements OnClickListener{
 	private GpsTrack gps;
 	
 	private static String jsonUrl_google_api = "http://maps.googleapis.com/maps/api/geocode/json?address=";
-	private static String jsonUrl_param = "&sensor=true&language=ar";
+	private static String jsonUrl_param = "&sensor=true&language=fr";
 	
 	private String comune = "";
 	private String ville = "";

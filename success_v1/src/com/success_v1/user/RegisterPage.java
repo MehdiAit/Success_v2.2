@@ -12,19 +12,16 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.nfc.FormatException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -32,6 +29,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.success_v1.res.JSONParser;
 import com.success_v1.res.config;
@@ -83,10 +81,11 @@ public class RegisterPage extends Activity{
     // JSON parser class
     JSONParser jsonParser = new JSONParser();
     JSONParser jParser = new JSONParser();
+    int success;
  
     // JSON Node names
    	private static final String TAG_SUCCESS = "success";
-	private static String url_user = config.getURL()+"add_users.php";
+	private static String url_user = config.getURL()+"add_user.php";
     JSONObject registration_tab = new JSONObject();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -99,27 +98,6 @@ public class RegisterPage extends Activity{
 		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
 		titleActionBar.setText("Inscription");*/
 		getActionBar().setTitle("");
-		/*rdioGenre = (RadioGroup)findViewById(R.id.rdioGenreRegister);
-		rdioMonsieurRegister = (RadioButton)findViewById(R.id.rdioMonsieurRegister);
-		rdioMonsieurRegister.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				 genreSelected = "Monsieur";
-                 Log.d("TestGenre",genreSelected);
-			}
-		});
-		rdioMadameRegister = (RadioButton)findViewById(R.id.rdioMadameRegister);
-		rdioMadameRegister.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-            	genreSelected = "Madame";
-            	Log.d("TestGenre",genreSelected);
-			}
-		});*/
 
 		editPrenom = (EditText)findViewById(R.id.editPrenom);
 		editNom = (EditText)findViewById(R.id.editNom);
@@ -130,7 +108,6 @@ public class RegisterPage extends Activity{
 			
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
-				// TODO Auto-generated method stub
 				// TODO Auto-generated method stub
 				Log.d("mail1",editMailRegistration.getText().toString());
 				Log.d("mail2",editCnfirmMail.getText().toString());
@@ -361,11 +338,11 @@ public class RegisterPage extends Activity{
             JSONObject json = jsonParser.makeHttpRequest(url_user, "POST", params);
  
             // check log cat fro response
-            Log.d("Test user", json.toString());
+            Log.i("Test user", json.toString());
  
             // check for success tag
             try {
-                int success = json.getInt(TAG_SUCCESS);
+                success = json.getInt(TAG_SUCCESS);
  
                 if (success == 1) {
                 	
@@ -374,8 +351,10 @@ public class RegisterPage extends Activity{
         	        setResult(RESULT_OK, result);
         	        finish();
         	        
-                } else {
-                    // failed to create product
+                } else if(success == -1){
+                	// boite dejat utilisé
+                }else{
+                	// Erreur lors de l'inscription 
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -390,6 +369,9 @@ public class RegisterPage extends Activity{
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once done
             pDialog.dismiss();
+            if(success == -1){
+            	Toast.makeText(getApplicationContext(), "Cette adresse mail est deja utilisée !", Toast.LENGTH_LONG).show();
+            }
         }
  
     }

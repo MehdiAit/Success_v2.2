@@ -51,8 +51,7 @@
             <TextView
                 android:id="@+id/txtLocalMap"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Ben Aknoun, Alger" />
+                android:layout_height="wrap_content"/>
         </LinearLayout>
         <!-- conteneur texte -->
         <!-- conteneur Réserver un véhicule -->

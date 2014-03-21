@@ -177,7 +177,7 @@ public class ReservationStep1 extends Activity{
 				
 				if((inputDate.compareTo(inputDate2) == 1) || (inputDate.compareTo(today) == -1) || (btnVilleDepart.getText().toString().equals("Ville de départ")))
 				{
-					toast("Dates incohérentes ou Ville non selectioné !", Toast.LENGTH_LONG);				
+					toast("Dates incohérentes ou Ville non selectionnée !", Toast.LENGTH_LONG);				
 				}
 				else
 				{
@@ -191,7 +191,7 @@ public class ReservationStep1 extends Activity{
 						startActivity(listCarActivity);
 					}else
 					{
-						Toast.makeText(getApplicationContext(), "Vous devez etre connectés >.<", Toast.LENGTH_LONG).show();
+						Toast.makeText(getApplicationContext(), "Vous devez être connecté >.<", Toast.LENGTH_LONG).show();
 						Log.d("wifi state","Deconnected");
 					}					
 				}

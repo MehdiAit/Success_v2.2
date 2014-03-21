@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.success_v1.res.JSONParser;
 import com.success_v1.res.config;
@@ -95,7 +96,7 @@ public class LogPage extends Activity{
 			@Override
 			public void onClick(View v) {
 				Intent Registration = new Intent(getBaseContext(), RegisterPage.class);     
-				startActivity(Registration);
+				startActivityForResult(Registration, 10);
 			}
 		});
 	}
@@ -104,6 +105,20 @@ public class LogPage extends Activity{
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		if(requestCode == 10)
+		{
+			if(resultCode == RESULT_OK)
+			{
+				Toast.makeText(getApplicationContext(), "Votre inscription c'est déroulé avec succée", Toast.LENGTH_LONG).show();
+			}
+		}
+		
 	}
 	class UserAuthentification extends AsyncTask<String, String, String> {
 
