@@ -603,7 +603,9 @@ containing a value of this type.
         public static final int btnReservations=0x7f060023;
         public static final int btnVilleArrive1=0x7f06004a;
         public static final int btnVilleDepart1=0x7f060047;
+        public static final int btn_reserv_step1=0x7f060050;
         public static final int btntestreseravation=0x7f060043;
+        public static final int check_box_step1=0x7f06004f;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
@@ -692,7 +694,9 @@ containing a value of this type.
         public static final int motorVehicule=0x7f060038;
         public static final int nomAgenceResume=0x7f060039;
         public static final int nom_vehicule_recup=0x7f060037;
-        public static final int title_activity_splash=0x7f06004d;
+        public static final int prix_debut=0x7f06004d;
+        public static final int prix_debut_cat=0x7f06004e;
+        public static final int title_activity_splash=0x7f060051;
         public static final int txtAProxim=0x7f060021;
         public static final int txtCreationReserv=0x7f060044;
         public static final int txtDateRetour=0x7f060048;

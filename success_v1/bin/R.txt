@@ -411,7 +411,9 @@ int string btnRegister 0x7f06002d
 int string btnReservations 0x7f060023
 int string btnVilleArrive1 0x7f06004a
 int string btnVilleDepart1 0x7f060047
+int string btn_reserv_step1 0x7f060050
 int string btntestreseravation 0x7f060043
+int string check_box_step1 0x7f06004f
 int string common_google_play_services_enable_button 0x7f060006
 int string common_google_play_services_enable_text 0x7f060005
 int string common_google_play_services_enable_title 0x7f060004
@@ -449,7 +451,9 @@ int string marqueVehicule 0x7f060036
 int string motorVehicule 0x7f060038
 int string nomAgenceResume 0x7f060039
 int string nom_vehicule_recup 0x7f060037
-int string title_activity_splash 0x7f06004d
+int string prix_debut 0x7f06004d
+int string prix_debut_cat 0x7f06004e
+int string title_activity_splash 0x7f060051
 int string txtAProxim 0x7f060021
 int string txtCreationReserv 0x7f060044
 int string txtDateRetour 0x7f060048

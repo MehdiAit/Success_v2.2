@@ -131,7 +131,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dip"
                 android:button="@drawable/chekbox_selector"
-                android:text="  Trouver une agence à proximité"
+                android:text="@string/check_box_step1"
                 android:textColor="#2D3E50" />
                 <RelativeLayout
                 android:layout_width="fill_parent"
@@ -145,7 +145,7 @@
                     android:background="@color/title_color"
                     android:textColor="@color/white"
                     android:layout_alignParentBottom="true"
-                    android:text="Lancer une réservation" />
+                    android:text="@string/btn_reserv_step1" />
             </RelativeLayout>
         </LinearLayout>
         <!-- conteneur formulaire -->

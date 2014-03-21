@@ -52,6 +52,10 @@
     <string name="btnVilleArrive1">Ville d\'arrivée</string>
     <string name="txtTypeVehicule">Type du véhicule</string>
     <string name="action_search">Recherche</string>
+    <string name="prix_debut">A partir de </string>
+    <string name="prix_debut_cat">2500DA</string>
+    <string name="check_box_step1">  Trouver une agence à proximité</string>
+    <string name="btn_reserv_step1">Lancer une réservation</string>
 
     <string-array name="gender_array">
         <item>Madame</item>

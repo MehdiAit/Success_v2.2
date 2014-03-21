@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@id/img_categorie"
-        android:text="A partir de "
+        android:text="@string/prix_debut"
         android:textColor="#2D3E50"
         android:textSize="16sp" />
 
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/txtAPartir_categorie"
         android:layout_alignParentBottom="true"
-        android:text="2500da"
+        android:text="@string/prix_debut_cat"
         android:textColor="@color/title_color"
         android:textSize="18sp" />
 
