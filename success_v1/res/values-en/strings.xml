@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="lang">Eng</string>
+    <string name="app_name">Koutchi</string>
+    <string name="home_sub1">Deconnexion</string>
+    <string name="home_sub2">Mark us!</string>
+    <string name="home_sub3">About!</string>
+    <string name="action_settings">Menu</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="logo_koutchi">logo koutchi</string>
+    <string name="txtAProxim">A proximité de </string>
+    <string name="btnAgences">Réserver un véhicule </string>
+    <string name="btnReservations">My reservation</string>
+    <string name="btnCompte">My compte</string>
+    <string name="txtLogPage">Connexion</string>
+    <string name="txtMail">Adresse mail:</string>
+    <string name="editMail">example@example.com</string>
+    <string name="txtMdp">Mot de passe</string>
+    <string name="editMdp">Votre mot de passe</string>
+    <string name="btnConnect">Se connecter</string>
+    <string name="txtPaInscrit">Vous n\'êtes pas inscrits?</string>
+    <string name="txtOrdre">Inscrivez vous dès maintenant!</string>
+    <string name="btnRegister">S\'inscrire!</string>
+    <string name="logo_user">Logo utilisateur</string>
+    <string name="txtGenreResume">Monsieur </string>
+    <string name="txtNomResume">Nom </string>
+    <string name="txtPrenomResume">Prenom </string>
+    <string name="txtMailResume">Adresse mail</string>
+    <string name="txtPhoneResume">N° de téléphone</string>
+    <string name="txtTitreResume">Résumé</string>
+    <string name="imgLogoCar">Image voiture</string>
+    <string name="marqueVehicule">Marque </string>
+    <string name="nom_vehicule_recup">Modele  </string>
+    <string name="motorVehicule">Motorisation </string>
+    <string name="nomAgenceResume">Nom de l\'agence </string>
+    <string name="txtDepartLe">Départ le </string>
+    <string name="date_depart_recup">Date de départ</string>
+    <string name="deVille">De </string>
+    <string name="ville_depart">Alger</string>
+    <string name="le_arrive">Arrivée le </string>
+    <string name="date_retour_recup">Date d\'arrivée</string>
+    <string name="aVille">A </string>
+    <string name="villeRetour">Oran</string>
+    <string name="txtPrixVehiculeRecup">Prix : </string>
+    <string name="btntestreseravation">Enregistrer ma réservation</string>
+    <string name="txtCreationReserv">Création de la réservation</string>
+    <string name="txtLocalisationForm">Vous êtes à proximité de </string>
+    <string name="txtDateVilleDepart">Date and city of start:</string>
+    <string name="btnVilleDepart1">Ville de départ</string>
+    <string name="txtDateRetour">Date d\'arrivée:</string>
+    <string name="btnDateRetour">Date d\'arrivée</string>
+    <string name="btnVilleArrive1">Ville d\'arrivée</string>
+    <string name="txtTypeVehicule">Type du véhicule</string>
+    <string name="action_search">Recherche</string>
+    <string name="prix_debut">A partir de </string>
+    <string name="prix_debut_cat">2500DA</string>
+    <string name="check_box_step1">  Trouver une agence à proximité</string>
+    <string name="btn_reserv_step1">Lancer une réservation</string>
+
+    <string-array name="gender_array">
+        <item>Madame</item>
+        <item>Monsieur</item>
+    </string-array>
+    <string-array name="color_array">
+        <item>Noir</item>
+        <item>Rouge</item>
+        <item>Bleu</item>
+        <item>Blanc</item>
+        <item>Gris métalisé</item>
+        <item>Gris souris</item>
+    </string-array>
+
+    <string name="title_activity_splash">SplashActivity</string>
+
+</resources>

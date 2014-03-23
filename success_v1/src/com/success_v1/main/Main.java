@@ -3,6 +3,7 @@ package com.success_v1.main;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.http.NameValuePair;
 import org.json.JSONArray;
@@ -11,7 +12,10 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -19,6 +23,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.TranslateAnimation;
@@ -121,7 +126,18 @@ public class Main extends Activity implements OnClickListener{
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		//getMenuInflater().inflate(R.menu.main, menu);
+		
+		SubMenu m = menu.addSubMenu(0,0,0,this.getResources().getString(R.string.lang));
+		m.add(0,2,0,"Fr");
+		m.add(0,1,0,"Eng");
+		m.add(0,3,0,"Chinois(Simple)");
+		m.add(0,4,0,"Arabic");
+		
+		menu.add(0,10,0,getResources().getString(R.string.home_sub1));
+		menu.add(0,11,0,getResources().getString(R.string.home_sub2));
+		menu.add(0,12,0,getResources().getString(R.string.home_sub3));
+		
 		return true;
 	}
 	
@@ -130,12 +146,37 @@ public class Main extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		switch(item.getItemId())
 		{
-		case R.id.SubMenuLogOut: session.logoutUser();Toast.makeText(getApplicationContext(), "Deconnexion", Toast.LENGTH_SHORT).show();break;
-		case R.id.SubMenuNote:Toast.makeText(this, "Notez nous", Toast.LENGTH_SHORT).show();
-		case R.id.SubMenuAbout:Toast.makeText(this, "Qui suis-je?", Toast.LENGTH_SHORT).show();
+		case 10: session.logoutUser();Toast.makeText(getApplicationContext(), "Deconnexion", Toast.LENGTH_SHORT).show();break;
+		case 11:Toast.makeText(this, "Notez nous", Toast.LENGTH_SHORT).show();break;
+		case 12:Toast.makeText(this, "Qui suis-je?", Toast.LENGTH_SHORT).show();break;
+		case 1:setLocal(Locale.ENGLISH);break;
+		case 2:setLocal(Locale.FRENCH);break;
+		case 3:setLocal(Locale.SIMPLIFIED_CHINESE);break;
+		case 4:setLocal(Locale.GERMANY);break; // just for the moment  
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	public void setLocal(Locale loc)
+	{
+		Resources res = getResources();
+		Configuration cnf = res.getConfiguration();
+		
+		cnf.locale = loc;
+		
+		res.updateConfiguration(cnf, res.getDisplayMetrics());
+		try {
+			Context ctx = this.createPackageContext(this.getPackageName(), CONTEXT_INCLUDE_CODE);
+			Intent restart = new Intent(ctx, Main.class);
+			startActivity(restart);
+			finish();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+	
 	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub

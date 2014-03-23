@@ -198,15 +198,21 @@ containing a value of this type.
         public static final int valid_color=0x7f040019;
         public static final int white=0x7f040014;
         /**  Recently added 
+ Recently added 
+ Recently added 
+ Recently added 
          */
         public static final int yellow_theme=0x7f040013;
     }
     public static final class dimen {
-        /**  Default screen margins, per the Android Design guidelines. 
-
+        /** 
          Customize dimensions originally defined in res/values/dimens.xml (such as
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
+ Default screen margins, per the Android Design guidelines. 
+ Default screen margins, per the Android Design guidelines. 
+ Default screen margins, per the Android Design guidelines. 
+ Default screen margins, per the Android Design guidelines. 
          */
         public static final int activity_horizontal_margin=0x7f080000;
         public static final int activity_vertical_margin=0x7f080001;
@@ -568,10 +574,10 @@ containing a value of this type.
         public static final int splash=0x7f0b0001;
     }
     public static final class string {
-        public static final int aVille=0x7f060040;
-        public static final int action_search=0x7f06004c;
-        public static final int action_settings=0x7f06001e;
-        public static final int app_name=0x7f06001a;
+        public static final int aVille=0x7f060041;
+        public static final int action_search=0x7f06004d;
+        public static final int action_settings=0x7f06001f;
+        public static final int app_name=0x7f06001b;
         /**   Title for notification shown when GooglePlayServices needs to be
         enabled for a application to work. [CHAR LIMIT=70] 
          */
@@ -595,17 +601,17 @@ containing a value of this type.
         [CHAR LIMIT=70] 
          */
         public static final int auth_client_using_bad_version_title=0x7f060014;
-        public static final int btnAgences=0x7f060022;
-        public static final int btnCompte=0x7f060024;
-        public static final int btnConnect=0x7f06002a;
-        public static final int btnDateRetour=0x7f060049;
-        public static final int btnRegister=0x7f06002d;
-        public static final int btnReservations=0x7f060023;
-        public static final int btnVilleArrive1=0x7f06004a;
-        public static final int btnVilleDepart1=0x7f060047;
-        public static final int btn_reserv_step1=0x7f060050;
-        public static final int btntestreseravation=0x7f060043;
-        public static final int check_box_step1=0x7f06004f;
+        public static final int btnAgences=0x7f060023;
+        public static final int btnCompte=0x7f060025;
+        public static final int btnConnect=0x7f06002b;
+        public static final int btnDateRetour=0x7f06004a;
+        public static final int btnRegister=0x7f06002e;
+        public static final int btnReservations=0x7f060024;
+        public static final int btnVilleArrive1=0x7f06004b;
+        public static final int btnVilleDepart1=0x7f060048;
+        public static final int btn_reserv_step1=0x7f060051;
+        public static final int btntestreseravation=0x7f060044;
+        public static final int check_box_step1=0x7f060050;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
@@ -677,66 +683,64 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f060013;
-        public static final int date_depart_recup=0x7f06003b;
-        public static final int date_retour_recup=0x7f06003f;
-        public static final int deVille=0x7f06003c;
-        public static final int editMail=0x7f060027;
-        public static final int editMdp=0x7f060029;
-        public static final int hello_world=0x7f06001f;
-        public static final int home_sub1=0x7f06001b;
-        public static final int home_sub2=0x7f06001c;
-        public static final int home_sub3=0x7f06001d;
-        public static final int imgLogoCar=0x7f060035;
-        public static final int le_arrive=0x7f06003e;
-        public static final int logo_koutchi=0x7f060020;
-        public static final int logo_user=0x7f06002e;
-        public static final int marqueVehicule=0x7f060036;
-        public static final int motorVehicule=0x7f060038;
-        public static final int nomAgenceResume=0x7f060039;
-        public static final int nom_vehicule_recup=0x7f060037;
-        public static final int prix_debut=0x7f06004d;
-        public static final int prix_debut_cat=0x7f06004e;
-        public static final int title_activity_splash=0x7f060051;
-        public static final int txtAProxim=0x7f060021;
-        public static final int txtCreationReserv=0x7f060044;
-        public static final int txtDateRetour=0x7f060048;
-        public static final int txtDateVilleDepart=0x7f060046;
-        public static final int txtDepartLe=0x7f06003a;
-        public static final int txtGenreResume=0x7f06002f;
-        public static final int txtLocalisationForm=0x7f060045;
-        public static final int txtLogPage=0x7f060025;
-        public static final int txtMail=0x7f060026;
-        public static final int txtMailResume=0x7f060032;
-        public static final int txtMdp=0x7f060028;
-        public static final int txtNomResume=0x7f060030;
-        public static final int txtOrdre=0x7f06002c;
-        public static final int txtPaInscrit=0x7f06002b;
-        public static final int txtPhoneResume=0x7f060033;
-        public static final int txtPrenomResume=0x7f060031;
-        public static final int txtPrixVehiculeRecup=0x7f060042;
-        public static final int txtTitreResume=0x7f060034;
-        public static final int txtTypeVehicule=0x7f06004b;
-        public static final int villeRetour=0x7f060041;
-        public static final int ville_depart=0x7f06003d;
+        public static final int date_depart_recup=0x7f06003c;
+        public static final int date_retour_recup=0x7f060040;
+        public static final int deVille=0x7f06003d;
+        public static final int editMail=0x7f060028;
+        public static final int editMdp=0x7f06002a;
+        public static final int hello_world=0x7f060020;
+        public static final int home_sub1=0x7f06001c;
+        public static final int home_sub2=0x7f06001d;
+        public static final int home_sub3=0x7f06001e;
+        public static final int imgLogoCar=0x7f060036;
+        public static final int lang=0x7f06001a;
+        public static final int le_arrive=0x7f06003f;
+        public static final int logo_koutchi=0x7f060021;
+        public static final int logo_user=0x7f06002f;
+        public static final int marqueVehicule=0x7f060037;
+        public static final int motorVehicule=0x7f060039;
+        public static final int nomAgenceResume=0x7f06003a;
+        public static final int nom_vehicule_recup=0x7f060038;
+        public static final int prix_debut=0x7f06004e;
+        public static final int prix_debut_cat=0x7f06004f;
+        public static final int title_activity_splash=0x7f060052;
+        public static final int txtAProxim=0x7f060022;
+        public static final int txtCreationReserv=0x7f060045;
+        public static final int txtDateRetour=0x7f060049;
+        public static final int txtDateVilleDepart=0x7f060047;
+        public static final int txtDepartLe=0x7f06003b;
+        public static final int txtGenreResume=0x7f060030;
+        public static final int txtLocalisationForm=0x7f060046;
+        public static final int txtLogPage=0x7f060026;
+        public static final int txtMail=0x7f060027;
+        public static final int txtMailResume=0x7f060033;
+        public static final int txtMdp=0x7f060029;
+        public static final int txtNomResume=0x7f060031;
+        public static final int txtOrdre=0x7f06002d;
+        public static final int txtPaInscrit=0x7f06002c;
+        public static final int txtPhoneResume=0x7f060034;
+        public static final int txtPrenomResume=0x7f060032;
+        public static final int txtPrixVehiculeRecup=0x7f060043;
+        public static final int txtTitreResume=0x7f060035;
+        public static final int txtTypeVehicule=0x7f06004c;
+        public static final int villeRetour=0x7f060042;
+        public static final int ville_depart=0x7f06003e;
     }
     public static final class style {
         public static final int ActionBar_Solid_Koutchystyle=0x7f0a0006;
         public static final int ActionBar_Transparent_Koutchystyle=0x7f0a0007;
         /**   Ca c'est le style de le peite barre en desous de tabBarre 
 <item name="android:background">@android:color/holo_green_dark</item>
+  Ca c'est le style de le peite barre en desous de tabBarre 
+<item name="android:background">@android:color/holo_green_dark</item>
+  Ca c'est le style de le peite barre en desous de tabBarre 
+<item name="android:background">@android:color/holo_green_dark</item>
+  Ca c'est le style de le peite barre en desous de tabBarre 
+<item name="android:background">@android:color/holo_green_dark</item>
          */
         public static final int ActionBarTabStyle_Koutchystyle=0x7f0a000a;
         public static final int ActionButton_CloseMode_Koutchystyle=0x7f0a000d;
         /** 
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     
@@ -747,9 +751,48 @@ containing a value of this type.
         res/values-v11/styles.xml on API 14+ devices.
     
  API 14 theme customizations can go here. 
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
          */
         public static final int AppBaseTheme=0x7f0a0000;
         /**  Application theme. 
+ Application theme. 
+ Application theme. 
+ Application theme. 
          */
         public static final int AppTheme=0x7f0a0001;
         public static final int DropDownListView_Koutchystyle=0x7f0a0009;
@@ -760,6 +803,9 @@ containing a value of this type.
         public static final int ProgressBar_Koutchystyle=0x7f0a000c;
         public static final int Theme_Koutchystyle=0x7f0a0004;
         /**  this style is only referenced in a Light.DarkActionBar based theme 
+ this style is only referenced in a Light.DarkActionBar based theme 
+ this style is only referenced in a Light.DarkActionBar based theme 
+ this style is only referenced in a Light.DarkActionBar based theme 
          */
         public static final int Theme_Koutchystyle_Widget=0x7f0a000e;
         public static final int tabtextcolor=0x7f0a0005;

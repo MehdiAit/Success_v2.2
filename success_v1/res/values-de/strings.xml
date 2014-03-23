@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="lang">اللغة</string>
+    <string name="app_name">الكوتشي</string>
+    <string name="home_sub1">تسجيل الخروج</string>
+    <string name="home_sub2">ملاحظة بنا</string>
+    <string name="home_sub3">حول</string>
+    <string name="action_settings">قائمة</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="logo_koutchi">logo koutchi</string>
+    <string name="txtAProxim">قريب عن </string>
+    <string name="btnAgences">حجز السيارة </string>
+    <string name="btnReservations">الحجز الخاص بي</string>
+    <string name="btnCompte">حسابي</string>
+    <string name="txtLogPage">دخول</string>
+    <string name="txtMail">عنوان البريد الإلكتروني:</string>
+    <string name="editMail">example@example.com</string>
+    <string name="txtMdp">كلمة السر</string>
+    <string name="editMdp">كلمة السر</string>
+    <string name="btnConnect">دخول</string>
+    <string name="txtPaInscrit">كنت غير مسجل؟</string>
+    <string name="txtOrdre">اشترك الآن!</string>
+    <string name="btnRegister">التوقيع!</string>
+    <string name="logo_user">Logo utilisateur</string>
+    <string name="txtGenreResume">سيد </string>
+    <string name="txtNomResume">اسم </string>
+    <string name="txtPrenomResume">لقب </string>
+    <string name="txtMailResume">عنوان البريد الإلكتروني</string>
+    <string name="txtPhoneResume">رقم الهاتف</string>
+    <string name="txtTitreResume">ملخص</string>
+    <string name="imgLogoCar">Image voiture</string>
+    <string name="marqueVehicule">Marque </string>
+    <string name="nom_vehicule_recup">Modele  </string>
+    <string name="motorVehicule">Motorisation </string>
+    <string name="nomAgenceResume">اسم الوكالة </string>
+    <string name="txtDepartLe">إبحار </string>
+    <string name="date_depart_recup">تاريخ المغادرة</string>
+    <string name="deVille">من </string>
+    <string name="ville_depart">Alger</string>
+    <string name="le_arrive">قادمة </string>
+    <string name="date_retour_recup">وصول</string>
+    <string name="aVille">الى </string>
+    <string name="villeRetour">Oran</string>
+    <string name="txtPrixVehiculeRecup">السعر: </string>
+    <string name="btntestreseravation">حفظ الحجز الخاص بي</string>
+    <string name="txtCreationReserv">إنشاء التحفظ</string>
+    <string name="txtLocalisationForm">قريب عن </string>
+    <string name="txtDateVilleDepart">تاريخ ومكان الوصول:</string>
+    <string name="btnVilleDepart1">Ville de départ</string>
+    <string name="txtDateRetour">تاريخ الوصول:</string>
+    <string name="btnDateRetour">تاريخ الوصول</string>
+    <string name="btnVilleArrive1">مدينة الوصول</string>
+    <string name="txtTypeVehicule">نوع السيارة</string>
+    <string name="action_search">بحث</string>
+    <string name="prix_debut">من </string>
+    <string name="prix_debut_cat">2500دج</string>
+    <string name="check_box_step1">  العثور على وكالة القريب</string>
+    <string name="btn_reserv_step1">بدء الحجز</string>
+
+    <string-array name="gender_array">
+        <item>سيدتي</item>
+        <item>سيد</item>
+    </string-array>
+    <string-array name="color_array">
+        <item>Noir</item>
+        <item>Rouge</item>
+        <item>Bleu</item>
+        <item>Blanc</item>
+        <item>Gris métalisé</item>
+        <item>Gris souris</item>
+    </string-array>
+
+    <string name="title_activity_splash">SplashActivity</string>
+
+</resources>
