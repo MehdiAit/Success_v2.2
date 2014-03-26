@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="lang">Eng</string>
+    <string name="lang">English</string>
     <string name="app_name">Koutchi</string>
-    <string name="home_sub1">Deconnexion</string>
+    <string name="home_sub1">Log out</string>
     <string name="home_sub2">Mark us!</string>
     <string name="home_sub3">About!</string>
     <string name="action_settings">Menu</string>
     <string name="hello_world">Hello world!</string>
     <string name="logo_koutchi">logo koutchi</string>
-    <string name="txtAProxim">A proximité de </string>
-    <string name="btnAgences">Réserver un véhicule </string>
+    <string name="txtAProxim">Near </string>
+    <string name="btnAgences">Rate a car </string>
     <string name="btnReservations">My reservation</string>
     <string name="btnCompte">My compte</string>
     <string name="txtLogPage">Connexion</string>

@@ -146,7 +146,7 @@ public class Main extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		switch(item.getItemId())
 		{
-		case 10: session.logoutUser();Toast.makeText(getApplicationContext(), "Deconnexion", Toast.LENGTH_SHORT).show();break;
+		case 10: session.logoutUser();finish();Toast.makeText(getApplicationContext(), "Deconnexion", Toast.LENGTH_SHORT).show();break;
 		case 11:Toast.makeText(this, "Notez nous", Toast.LENGTH_SHORT).show();break;
 		case 12:Toast.makeText(this, "Qui suis-je?", Toast.LENGTH_SHORT).show();break;
 		case 1:setLocal(Locale.ENGLISH);break;
