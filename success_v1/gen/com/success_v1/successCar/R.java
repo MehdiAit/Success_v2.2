@@ -325,14 +325,15 @@ containing a value of this type.
         public static final int tab_unselected_pressed_koutchystyle=0x7f020068;
     }
     public static final class id {
-        public static final int SubMenuAbout=0x7f0500d1;
-        public static final int SubMenuLogOut=0x7f0500cf;
-        public static final int SubMenuNote=0x7f0500d0;
+        public static final int SubMenuAbout=0x7f0500d6;
+        public static final int SubMenuLogOut=0x7f0500d4;
+        public static final int SubMenuNote=0x7f0500d5;
         public static final int aVille=0x7f0500bd;
         public static final int action_search=0x7f0500cd;
         public static final int action_settings=0x7f0500ce;
         public static final int adrArrive_agence=0x7f050017;
         public static final int adr_agence=0x7f050015;
+        public static final int ar=0x7f0500d3;
         public static final int autoMarqueSearch=0x7f05009e;
         public static final int autoModeleSearch=0x7f0500a0;
         public static final int btnAdd=0x7f05000d;
@@ -357,6 +358,7 @@ containing a value of this type.
         public static final int btnVilleDepart1=0x7f050095;
         public static final int btnsearch=0x7f050008;
         public static final int btntestreseravation=0x7f0500c1;
+        public static final int ch=0x7f0500d2;
         public static final int checkBox1=0x7f050099;
         public static final int dateDeb_reserv=0x7f05008b;
         public static final int dateFin_reserv=0x7f05008f;
@@ -392,7 +394,9 @@ containing a value of this type.
         public static final int editPrenomProfil=0x7f05003c;
         public static final int editVille=0x7f050071;
         public static final int editVilleProfil=0x7f05004e;
+        public static final int eng=0x7f0500d0;
         public static final int fax_agence=0x7f05001b;
+        public static final int fr=0x7f0500d1;
         public static final int hybrid=0x7f050004;
         public static final int id_agence=0x7f050022;
         public static final int id_list_categorie=0x7f05002c;
@@ -414,6 +418,7 @@ containing a value of this type.
         public static final int listVehicule=0x7f0500c2;
         public static final int listView1=0x7f05000e;
         public static final int listVille=0x7f0500ca;
+        public static final int lng=0x7f0500cf;
         public static final int longitude_agence=0x7f050021;
         public static final int lstReservationEnCours=0x7f050086;
         public static final int lstReservationValide=0x7f05009c;

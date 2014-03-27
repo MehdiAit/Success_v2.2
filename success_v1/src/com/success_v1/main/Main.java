@@ -126,18 +126,7 @@ public class Main extends Activity implements OnClickListener{
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		//getMenuInflater().inflate(R.menu.main, menu);
-		
-		SubMenu m = menu.addSubMenu(0,0,0,this.getResources().getString(R.string.lang));
-		m.add(0,2,0,"Fr");
-		m.add(0,1,0,"Eng");
-		m.add(0,3,0,"Chinois(Simple)");
-		m.add(0,4,0,"Arabic");
-		
-		menu.add(0,10,0,getResources().getString(R.string.home_sub1));
-		menu.add(0,11,0,getResources().getString(R.string.home_sub2));
-		menu.add(0,12,0,getResources().getString(R.string.home_sub3));
-		
+		getMenuInflater().inflate(R.menu.main, menu);		
 		return true;
 	}
 	
@@ -146,17 +135,19 @@ public class Main extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		switch(item.getItemId())
 		{
-		case 10: session.logoutUser();finish();Toast.makeText(getApplicationContext(), "Deconnexion", Toast.LENGTH_SHORT).show();break;
-		case 11:Toast.makeText(this, "Notez nous", Toast.LENGTH_SHORT).show();break;
-		case 12:Toast.makeText(this, "Qui suis-je?", Toast.LENGTH_SHORT).show();break;
-		case 1:setLocal(Locale.ENGLISH);break;
-		case 2:setLocal(Locale.FRENCH);break;
-		case 3:setLocal(Locale.SIMPLIFIED_CHINESE);break;
-		case 4:setLocal(Locale.GERMANY);break; // just for the moment  
+		case R.id.SubMenuLogOut: session.logoutUser();finish();Toast.makeText(getApplicationContext(), "Deconnexion", Toast.LENGTH_SHORT).show();break;
+		case R.id.SubMenuNote:Toast.makeText(this, "Notez nous", Toast.LENGTH_SHORT).show();break;
+		case R.id.SubMenuAbout:Toast.makeText(this, "Qui somme-nous?", Toast.LENGTH_SHORT).show();break;
+		case R.id.eng:setLocal(Locale.ENGLISH);break;
+		case R.id.fr:setLocal(Locale.FRENCH);break;
+		case R.id.ch:setLocal(Locale.SIMPLIFIED_CHINESE);break;
+		case R.id.ar:setLocal(Locale.GERMANY);break; // just for the moment  
 		}
 		return super.onOptionsItemSelected(item);
 	}
 	
+	
+	/************ Internationalisation *******************/
 	public void setLocal(Locale loc)
 	{
 		Resources res = getResources();
@@ -176,7 +167,7 @@ public class Main extends Activity implements OnClickListener{
 		}
 	}
 	
-	
+	/*************************************************************************/
 	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub

@@ -9,13 +9,31 @@
     </item>
     <item
         android:id="@+id/action_settings"
-        android:icon="@drawable/settings_red"
+        android:icon="@android:drawable/ic_menu_info_details"
         android:orderInCategory="100"
         android:showAsAction="ifRoom"
         android:title="@string/action_settings">
 
         <!-- "file" submenu -->
         <menu>
+            <item
+                android:id="@+id/lng"
+                android:title="@string/lang">
+                <menu>
+                    <item
+                android:id="@+id/eng"
+                android:title="Anglais"/>
+                <item
+                android:id="@+id/fr"
+                android:title="Français"/>
+                <item
+                android:id="@+id/ch"
+                android:title="Chinois(Simple)"/>
+                <item
+                android:id="@+id/ar"
+                android:title="Arabe"/>
+                </menu>
+            </item>
             <item
                 android:id="@+id/SubMenuLogOut"
                 android:title="@string/home_sub1"/>

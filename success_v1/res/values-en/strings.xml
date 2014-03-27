@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="lang">English</string>
+    <string name="lang">Language</string>
     <string name="app_name">Koutchi</string>
     <string name="home_sub1">Log out</string>
     <string name="home_sub2">Mark us!</string>
@@ -10,7 +10,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="logo_koutchi">logo koutchi</string>
     <string name="txtAProxim">Near </string>
-    <string name="btnAgences">Rate a car </string>
+    <string name="btnAgences">Rente a car </string>
     <string name="btnReservations">My reservation</string>
     <string name="btnCompte">My compte</string>
     <string name="txtLogPage">Connexion</string>

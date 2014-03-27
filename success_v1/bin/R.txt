@@ -152,14 +152,15 @@ int drawable tab_selected_pressed_koutchystyle 0x7f020065
 int drawable tab_unselected_focused_koutchystyle 0x7f020066
 int drawable tab_unselected_koutchystyle 0x7f020067
 int drawable tab_unselected_pressed_koutchystyle 0x7f020068
-int id SubMenuAbout 0x7f0500d1
-int id SubMenuLogOut 0x7f0500cf
-int id SubMenuNote 0x7f0500d0
+int id SubMenuAbout 0x7f0500d6
+int id SubMenuLogOut 0x7f0500d4
+int id SubMenuNote 0x7f0500d5
 int id aVille 0x7f0500bd
 int id action_search 0x7f0500cd
 int id action_settings 0x7f0500ce
 int id adrArrive_agence 0x7f050017
 int id adr_agence 0x7f050015
+int id ar 0x7f0500d3
 int id autoMarqueSearch 0x7f05009e
 int id autoModeleSearch 0x7f0500a0
 int id btnAdd 0x7f05000d
@@ -184,6 +185,7 @@ int id btnVilleArrive1 0x7f050098
 int id btnVilleDepart1 0x7f050095
 int id btnsearch 0x7f050008
 int id btntestreseravation 0x7f0500c1
+int id ch 0x7f0500d2
 int id checkBox1 0x7f050099
 int id dateDeb_reserv 0x7f05008b
 int id dateFin_reserv 0x7f05008f
@@ -219,7 +221,9 @@ int id editPrenom 0x7f050059
 int id editPrenomProfil 0x7f05003c
 int id editVille 0x7f050071
 int id editVilleProfil 0x7f05004e
+int id eng 0x7f0500d0
 int id fax_agence 0x7f05001b
+int id fr 0x7f0500d1
 int id hybrid 0x7f050004
 int id id_agence 0x7f050022
 int id id_list_categorie 0x7f05002c
@@ -241,6 +245,7 @@ int id listCategorie 0x7f050024
 int id listVehicule 0x7f0500c2
 int id listView1 0x7f05000e
 int id listVille 0x7f0500ca
+int id lng 0x7f0500cf
 int id longitude_agence 0x7f050021
 int id lstReservationEnCours 0x7f050086
 int id lstReservationValide 0x7f05009c
