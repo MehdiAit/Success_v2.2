@@ -350,8 +350,6 @@ public class RegisterPage extends Activity{
             // getting JSON Object
             // Note that create product url accepts POST method
             JSONObject json = jsonParser.makeHttpRequest(url_user, "POST", params);
- 
-            // check log cat fro response
             Log.i("Test user", json.toString());
  
             // check for success tag
