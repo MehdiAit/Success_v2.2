@@ -1,5 +1,6 @@
 package com.success_v1.res;
 
+
 public class config {
 	
 	private static final String IP_SERVER = "http://54.217.205.27/";
