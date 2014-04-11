@@ -35,7 +35,7 @@ public class ReservationStep1 extends Activity{
 	private int year;
 	private int month;
 	private int day;
-	private boolean locationActived = false;
+	public static boolean locationActived = false;
 
 	private String dateDepart;
 	private String dateRetour;

@@ -23,6 +23,7 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
+import com.success_v1.main.ReservationStep1;
 import com.success_v1.res.JSONParser;
 import com.success_v1.res.config;
 import com.success_v1.successCar.R;
@@ -47,6 +48,8 @@ public class VehiculeListe extends Activity {
 	private AdapterVehicule ad;
 
 	private static String url_all = config.getURL()+"get_vehicule.php";
+	private static String url_all_location = config.getURL()+"get_vehicule_near.php";
+	
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_TAB = "tab_vehicule";
 	private static final String TAG_ID = "id";
@@ -65,14 +68,23 @@ public class VehiculeListe extends Activity {
 		Intent result = getIntent();
 		dateDepart = result.getStringExtra("dateDepart");
 		dateRetour=result.getStringExtra("dateRetour");
+		
+		if(!ReservationStep1.locationActived)
+		{
 		ville =result.getStringExtra("ville");
+		}
+		else
+		{
+			
+		}
+		
+		
 		cat = result.getStringExtra("nom_cat");
 		getActionBar().setTitle("");
 
 		Log.i("Date depart", dateDepart);
 		Log.i("Date retour", dateRetour);
 		Log.i("cat",cat);
-		Log.i("ville",ville);
 
 		vehiculelist = new ArrayList<Vehicule>();	
 		new LoadAll().execute();
@@ -127,13 +139,22 @@ public class VehiculeListe extends Activity {
 		protected String doInBackground(String... args) {
 			int success;
 			try {
-
+				
+				JSONObject json = new JSONObject();
 				List<NameValuePair> params = new ArrayList<NameValuePair>();
 				params.add(new BasicNameValuePair("cat_vehicule", cat));
 				params.add(new BasicNameValuePair(TAG_ville_param, ville));
 				params.add(new BasicNameValuePair("dateDebLoc_reservation", dateDepart));
 				params.add(new BasicNameValuePair("dateFinLoc_reservation", dateRetour));
-				JSONObject json = jsonParser.makeHttpRequest(url_all, "GET", params);
+				
+				if(!ReservationStep1.locationActived)
+				{
+				json = jsonParser.makeHttpRequest(url_all, "GET", params);
+				}
+				else
+				{
+				json = jsonParser.makeHttpRequest(url_all_location, "GET", params);
+				}
 
 				Log.d("Vehicules", json.toString() + idAgence);
 
