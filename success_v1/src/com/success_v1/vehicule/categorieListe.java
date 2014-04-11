@@ -44,6 +44,8 @@ public class categorieListe extends Fragment {
 	private String dateDepart;
 	private String dateRetour;
 	private String ville;
+	private String latitude;
+	private String longitude;
 	
 	
 	private ListView lv;
@@ -69,7 +71,11 @@ public class categorieListe extends Fragment {
 		Intent result = getActivity().getIntent();
 		dateDepart = result.getStringExtra("dateDepart");
 		dateRetour=result.getStringExtra("dateRetour");
+		
+		
 		ville =result.getStringExtra("ville");
+		latitude =result.getStringExtra("latitude");
+		longitude =result.getStringExtra("longitude");
 
 		
 		Log.i("Date depart", dateDepart);
@@ -95,10 +101,12 @@ public class categorieListe extends Fragment {
 				intent.putExtra("id_agence", idAgence);
 				intent.putExtra("dateDepart", dateDepart);
 				intent.putExtra("dateRetour", dateRetour);
-				intent.putExtra("ville", ville);
 				
-				//intent.putExtra("url_image", idtest.getUrlImage().toString());
-				//Log.i("name",nom);
+				/********* it depande , if approximate agence location is checked then ville param's dosn't existe ********/
+				intent.putExtra("ville", ville);
+				intent.putExtra("latitude", latitude);
+				intent.putExtra("longitude", longitude);
+				
 				
 				startActivityForResult(intent,1);				
 				

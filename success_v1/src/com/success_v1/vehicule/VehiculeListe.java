@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,9 +20,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.success_v1.main.ReservationStep1;
 import com.success_v1.res.JSONParser;
@@ -38,10 +39,16 @@ public class VehiculeListe extends Activity {
 
 	//mettre un acc/mut pour la variable cat
 	String cat;
+	String test;
 	private String idAgence;
 	private String dateDepart;
 	private String dateRetour;
 	private String ville;
+	private String latitude;
+	private String longitude;
+
+	private Location loc_current;
+	private Location loc_i;
 
 
 	private ListView lv;
@@ -49,7 +56,7 @@ public class VehiculeListe extends Activity {
 
 	private static String url_all = config.getURL()+"get_vehicule.php";
 	private static String url_all_location = config.getURL()+"get_vehicule_near.php";
-	
+
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_TAB = "tab_vehicule";
 	private static final String TAG_ID = "id";
@@ -59,6 +66,8 @@ public class VehiculeListe extends Activity {
 	private static final String TAG_TARIF = "tarifJour";
 	private static final String TAG_IMG = "imageVehicule";
 	private static final String TAG_ville_param = "ville_agence";
+	private static final String TAG_LATITUDE = "latitude";
+	private static final String TAG_LONGITUDE = "longitude";
 	//private static final String TAG_IMG = "imageVehicule";
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -68,17 +77,21 @@ public class VehiculeListe extends Activity {
 		Intent result = getIntent();
 		dateDepart = result.getStringExtra("dateDepart");
 		dateRetour=result.getStringExtra("dateRetour");
-		
+
 		if(!ReservationStep1.locationActived)
 		{
-		ville =result.getStringExtra("ville");
+			ville =result.getStringExtra("ville");
 		}
 		else
 		{
-			
+			latitude =result.getStringExtra("latitude");
+			longitude =result.getStringExtra("longitude");
+
+			loc_current = new Location("");
+			loc_current.setLatitude(Double.valueOf(latitude));
+			loc_current.setLatitude(Double.valueOf(longitude));
 		}
-		
-		
+
 		cat = result.getStringExtra("nom_cat");
 		getActionBar().setTitle("");
 
@@ -88,6 +101,8 @@ public class VehiculeListe extends Activity {
 
 		vehiculelist = new ArrayList<Vehicule>();	
 		new LoadAll().execute();
+
+
 
 		lv = (ListView)findViewById(R.id.listVehicule);
 		lv.setOnItemClickListener(new OnItemClickListener() {
@@ -139,21 +154,21 @@ public class VehiculeListe extends Activity {
 		protected String doInBackground(String... args) {
 			int success;
 			try {
-				
+
 				JSONObject json = new JSONObject();
 				List<NameValuePair> params = new ArrayList<NameValuePair>();
 				params.add(new BasicNameValuePair("cat_vehicule", cat));
 				params.add(new BasicNameValuePair(TAG_ville_param, ville));
 				params.add(new BasicNameValuePair("dateDebLoc_reservation", dateDepart));
 				params.add(new BasicNameValuePair("dateFinLoc_reservation", dateRetour));
-				
+
 				if(!ReservationStep1.locationActived)
 				{
-				json = jsonParser.makeHttpRequest(url_all, "GET", params);
+					json = jsonParser.makeHttpRequest(url_all, "GET", params);
 				}
 				else
 				{
-				json = jsonParser.makeHttpRequest(url_all_location, "GET", params);
+					json = jsonParser.makeHttpRequest(url_all_location, "GET", params);
 				}
 
 				Log.d("Vehicules", json.toString() + idAgence);
@@ -171,10 +186,39 @@ public class VehiculeListe extends Activity {
 						String motor = c.getString(TAG_MOTORISATION);
 						String tarif = c.getString(TAG_TARIF);
 						String image = c.getString(TAG_IMG);
-						Vehicule vehicule = new Vehicule(id,mark,model,motor,tarif,image);
-						//Log.i("mark",vehicule.);
 
-						vehiculelist.add(vehicule);
+						if(ReservationStep1.locationActived)
+						{
+							String latitude_i = c.getString(TAG_LATITUDE);
+							String longitude_i = c.getString(TAG_LONGITUDE);
+
+							test = latitude_i;
+							loc_i = new Location("");
+							loc_i.setLatitude(Double.valueOf(latitude_i));
+							loc_i.setLongitude(Double.valueOf(longitude_i));
+						}
+
+						Vehicule vehicule = new Vehicule(id,mark,model,motor,tarif,image);
+
+
+						if(ReservationStep1.locationActived)
+						{	
+							Float a = loc_current.distanceTo(loc_i);
+							Log.i("dst",a.toString());
+							/********** 3 741 108.3 represente approximativement 12KM **************/
+							if(loc_current.distanceTo(loc_i) < 3900000)
+							{
+								vehiculelist.add(vehicule);	
+							}else
+							{
+								
+							}
+								
+						}else
+						{
+							vehiculelist.add(vehicule);
+						}
+
 					}
 				}else{
 					// Resultat de requete vide
@@ -196,26 +240,26 @@ public class VehiculeListe extends Activity {
 		}
 
 	}
-	 @Override
-	 public boolean onCreateOptionsMenu(Menu menu) {
-	  // Inflate the menu; this adds items to the action bar if it is present.
-	  getMenuInflater().inflate(R.menu.main, menu);
-	  menu.findItem(R.id.action_search).setVisible(true);
-	  return true;
-	 }
-		@Override
-		public boolean onOptionsItemSelected(MenuItem item) {
-			// TODO Auto-generated method stub
-			switch(item.getItemId())
-			{
-			//case R.id.SubMenuLogOut: session.logoutUser();Toast.makeText(getApplicationContext(), "Deconnexion", Toast.LENGTH_SHORT).show();break;
-			case R.id.SubMenuNote:Toast.makeText(this, "Notez nous", Toast.LENGTH_SHORT).show();
-			case R.id.SubMenuAbout:Toast.makeText(this, "Qui suis-je?", Toast.LENGTH_SHORT).show();
-			case R.id.action_search:
-				Intent searchActivity= new Intent(this,VehiculeSearch.class);
-				startActivity(searchActivity);
-				break;
-			}
-			return super.onOptionsItemSelected(item);
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		menu.findItem(R.id.action_search).setVisible(true);
+		return true;
+	}
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		switch(item.getItemId())
+		{
+		//case R.id.SubMenuLogOut: session.logoutUser();Toast.makeText(getApplicationContext(), "Deconnexion", Toast.LENGTH_SHORT).show();break;
+		case R.id.SubMenuNote:Toast.makeText(this, "Notez nous", Toast.LENGTH_SHORT).show();
+		case R.id.SubMenuAbout:Toast.makeText(this, "Qui suis-je?", Toast.LENGTH_SHORT).show();
+		case R.id.action_search:
+			Intent searchActivity= new Intent(this,VehiculeSearch.class);
+			startActivity(searchActivity);
+			break;
 		}
+		return super.onOptionsItemSelected(item);
+	}
 }

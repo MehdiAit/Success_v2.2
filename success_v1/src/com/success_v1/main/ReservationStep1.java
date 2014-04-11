@@ -41,6 +41,8 @@ public class ReservationStep1 extends Activity{
 	private String dateRetour;
 	private String date;
 	private String ville;
+	private String latitude_recupe;
+	private String longitude_recupe;
 
 	private Button btnDateDepart;
 	private Button btnDateRetour;
@@ -57,15 +59,16 @@ public class ReservationStep1 extends Activity{
 	private int monthRetour;
 	private int dayDepart;
 	private int nbBtn;
-	private TextView titleActionBar;
-	private ImageView logoEtape;
+	
+	//private TextView titleActionBar;
+	//private ImageView logoEtape;
 
 	static final int DATE_DIALOG_DEPART = 999;
 	static final int DATE_DIALOG_RETOUR = 899;
 
-	JSONObject detail_tab = new JSONObject();
-	ConnectivityManager wf;
-	NetworkInfo info;
+	private JSONObject detail_tab = new JSONObject();
+	private ConnectivityManager wf;
+	private NetworkInfo info;
 
 
 	public void ConvertDate(String format, Button btndate)
@@ -125,6 +128,8 @@ public class ReservationStep1 extends Activity{
 		Intent intt = getIntent();
 		String comune_recupe = intt.getStringExtra("comune");
 		String ville_recupe = intt.getStringExtra("ville");
+		latitude_recupe = intt.getStringExtra("latitude");
+		longitude_recupe = intt.getStringExtra("longitude");		
 
 		btnDateDepart = (Button) findViewById(R.id.btnDateDeb);
 		btnDateRetour = (Button) findViewById(R.id.btnDateRetour);
@@ -210,7 +215,8 @@ public class ReservationStep1 extends Activity{
 					/***** ici mettre la condition pour envoyer comme parametre sois la ville sois la location ******/
 					if(locationActived)
 					{
-						listCarActivity.putExtra("lat_log", "");
+						listCarActivity.putExtra("latitude", latitude_recupe.toString());
+						listCarActivity.putExtra("longitude", longitude_recupe.toString());
 
 					}else
 					{

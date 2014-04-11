@@ -61,6 +61,8 @@ public class Main extends Activity implements OnClickListener{
 	
 	private String comune = "";
 	private String ville = "";
+	private Double latitude;
+	private Double longitude;
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -177,6 +179,8 @@ public class Main extends Activity implements OnClickListener{
 			Intent agenceActivity= new Intent(this,ReservationStep1.class);
 			agenceActivity.putExtra("comune", comune);
 			agenceActivity.putExtra("ville", ville);
+			agenceActivity.putExtra("latitude", latitude.toString());
+			agenceActivity.putExtra("longitude", longitude.toString());
 			startActivity(agenceActivity);
 			break;
 		case R.id.btnReservations:
@@ -220,9 +224,9 @@ public class Main extends Activity implements OnClickListener{
 		@Override
 		protected String doInBackground(String... params) {
 
-			Double a = gps.getLatitude();
-			Double b = gps.getLongitude();	
-			String url = jsonUrl_google_api+a.toString()+","+b.toString()+jsonUrl_param;
+			latitude = gps.getLatitude();
+			longitude = gps.getLongitude();	
+			String url = jsonUrl_google_api+latitude.toString()+","+longitude.toString()+jsonUrl_param;
 			
 			List<NameValuePair> param = new ArrayList<NameValuePair>();
 			JSONObject json = jParser.makeHttpRequest(url, "GET", param);
