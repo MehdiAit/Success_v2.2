@@ -186,11 +186,12 @@ public class VehiculeListe extends Activity {
 						String motor = c.getString(TAG_MOTORISATION);
 						String tarif = c.getString(TAG_TARIF);
 						String image = c.getString(TAG_IMG);
-
+						String latitude_i = "";
+						String longitude_i= "";
 						if(ReservationStep1.locationActived)
 						{
-							String latitude_i = c.getString(TAG_LATITUDE);
-							String longitude_i = c.getString(TAG_LONGITUDE);
+							latitude_i = c.getString(TAG_LATITUDE);
+							longitude_i = c.getString(TAG_LONGITUDE);
 
 							test = latitude_i;
 							loc_i = new Location("");
@@ -203,16 +204,21 @@ public class VehiculeListe extends Activity {
 
 						if(ReservationStep1.locationActived)
 						{	
-							Float a = loc_current.distanceTo(loc_i);
-							Log.i("dst",a.toString());
-							/********** 3 741 108.3 represente approximativement 12KM **************/
-							if(loc_current.distanceTo(loc_i) < 3900000)
+							
+							float distance;
+							distance = (float) (Math.acos(Math.sin(Double.valueOf(latitude)) * Math.sin(Double.valueOf(latitude_i)) + Math.cos(Double.valueOf(latitude)) * Math.cos(Double.valueOf(latitude_i)) * Math.cos((Double.valueOf(longitude_i)) - (Double.valueOf(longitude_i)))) * 6371);
+							distance = distance / 10;
+							Log.i("dst",String.valueOf(distance));
+							/********** 20 KM **************/
+							if((int)distance < 20)
 							{
 								vehiculelist.add(vehicule);	
 							}else
 							{
 								
 							}
+							
+							
 								
 						}else
 						{
