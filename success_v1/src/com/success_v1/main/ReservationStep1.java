@@ -21,8 +21,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.Switch;
@@ -36,19 +35,21 @@ public class ReservationStep1 extends Activity{
 	private int year;
 	private int month;
 	private int day;
-	
+	private boolean locationActived = false;
+
 	private String dateDepart;
 	private String dateRetour;
 	private String date;
 	private String ville;
-	
+
 	private Button btnDateDepart;
 	private Button btnDateRetour;
 	private Button btnVilleDepart;
 	private Button btnSearchCar;
 	private TextView location;
-	
-	
+	private CheckBox checkLocation;
+
+
 	private int yearDepart;
 	private int monthDepart;
 	private int dayRetour;
@@ -84,25 +85,25 @@ public class ReservationStep1 extends Activity{
 		}		
 		return inputDate;
 	}
-	
+
 	public void toast(String txt, int leng)
 	{
 		Toast.makeText(this, txt, leng).show();
 	}
-	
+
 	public static Date getZeroTimeDate(Date dateinsert) {
-	    Date res = dateinsert;
-	    Calendar calendar = Calendar.getInstance();
+		Date res = dateinsert;
+		Calendar calendar = Calendar.getInstance();
 
-	    calendar.setTime( dateinsert );
-	    calendar.set(Calendar.HOUR_OF_DAY, 0);
-	    calendar.set(Calendar.MINUTE, 0);
-	    calendar.set(Calendar.SECOND, 0);
-	    calendar.set(Calendar.MILLISECOND, 0);
+		calendar.setTime( dateinsert );
+		calendar.set(Calendar.HOUR_OF_DAY, 0);
+		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.SECOND, 0);
+		calendar.set(Calendar.MILLISECOND, 0);
 
-	    res = calendar.getTime();
+		res = calendar.getTime();
 
-	    return res;
+		return res;
 	}
 
 	protected void onCreate(Bundle savedInstanceState) {
@@ -120,7 +121,7 @@ public class ReservationStep1 extends Activity{
 		year = c.get(Calendar.YEAR);
 		month = c.get(Calendar.MONTH);
 		day = c.get(Calendar.DAY_OF_MONTH);
-		
+
 		Intent intt = getIntent();
 		String comune_recupe = intt.getStringExtra("comune");
 		String ville_recupe = intt.getStringExtra("ville");
@@ -129,15 +130,37 @@ public class ReservationStep1 extends Activity{
 		btnDateRetour = (Button) findViewById(R.id.btnDateRetour);
 		btnVilleDepart = (Button) findViewById(R.id.btnVilleDepart1);
 		btnSearchCar = (Button) findViewById(R.id.btnSearchCar);
+
 		location = (TextView) findViewById(R.id.txtLocalMap);
-		
+		checkLocation = (CheckBox)findViewById(R.id.checkBox1);
+
+		checkLocation.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				if(!locationActived)
+				{
+					btnVilleDepart.setEnabled(false);
+					btnVilleDepart.setBackground(getResources().getDrawable(R.color.white));
+					locationActived = true;
+				}else
+				{
+					btnVilleDepart.setEnabled(true);
+					btnVilleDepart.setBackground(getResources().getDrawable(R.drawable.main_btn_disconnect_bg));
+					locationActived = false;
+				}
+
+			}
+		});
+
 		wf = (ConnectivityManager)this.getSystemService(CONNECTIVITY_SERVICE);
 		info = wf.getActiveNetworkInfo();
-		
+
 		location.setText(" "+comune_recupe+", "+ville_recupe);
 		ConvertDate("dd-MM-yyyy", btnDateDepart);
 		ConvertDate("dd-MM-yyyy", btnDateRetour);
-		
+
 		btnDateDepart.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -169,13 +192,13 @@ public class ReservationStep1 extends Activity{
 				dateRetour= fmtt.format(inputDate2);
 
 				Date today = new Date();
-				
+
 				Integer a = inputDate.compareTo(inputDate2);
 				Integer b = today.compareTo(inputDate);
-				
+
 				today = getZeroTimeDate(today);
-				
-				if((inputDate.compareTo(inputDate2) == 1) || (inputDate.compareTo(today) == -1) || (btnVilleDepart.getText().toString().equals("Ville de départ")))
+
+				if((inputDate.compareTo(inputDate2) == 1) || (inputDate.compareTo(today) == -1) || (btnVilleDepart.getText().toString().equals("Ville de départ") && locationActived == false))
 				{
 					toast("Dates incohérentes ou Ville non selectionnée !", Toast.LENGTH_LONG);				
 				}
@@ -183,15 +206,24 @@ public class ReservationStep1 extends Activity{
 				{
 					listCarActivity.putExtra("dateDepart", dateDepart);
 					listCarActivity.putExtra("dateRetour", dateRetour);
-					listCarActivity.putExtra("ville", ville);
-					
+
+					/***** ici mettre la condition pour envoyer comme parametre sois la ville sois la location ******/
+					if(locationActived)
+					{
+						listCarActivity.putExtra("lat_log", "");
+
+					}else
+					{
+						listCarActivity.putExtra("ville", ville);
+					}
+
 					if(info != null)
 					{
 						Log.d("wifi state","Connected");
 						startActivity(listCarActivity);
 					}else
 					{
-						Toast.makeText(getApplicationContext(), "Vous devez être connecté >.<", Toast.LENGTH_LONG).show();
+						Toast.makeText(getApplicationContext(), "Vous devez être connecté ", Toast.LENGTH_LONG).show();
 						Log.d("wifi state","Deconnected");
 					}					
 				}
@@ -199,8 +231,8 @@ public class ReservationStep1 extends Activity{
 
 			}
 		});	
-		
-		
+
+
 		btnVilleDepart.setOnClickListener(new OnClickListener() {			
 			@Override
 			public void onClick(View v) {
@@ -209,20 +241,20 @@ public class ReservationStep1 extends Activity{
 			}
 		});
 	}
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == 1) {
-	        if (resultCode == RESULT_OK) {	        		        	
-	        	btnVilleDepart.setText(data.getCharSequenceExtra("nomVille"));
-	        	ville = btnVilleDepart.getText().toString();
-	        }
-	    }
+			if (resultCode == RESULT_OK) {	        		        	
+				btnVilleDepart.setText(data.getCharSequenceExtra("nomVille"));
+				ville = btnVilleDepart.getText().toString();
+			}
+		}
 
 	}
-	
-	
-	
+
+
+
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {
