@@ -70,7 +70,8 @@ public class Main extends Activity implements OnClickListener{
 		setContentView(R.layout.acceuil);
 		
 		getActionBar().setTitle(null);
-		//getActionBar().setDisplayShowHomeEnabled(false);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         session = new SessionManager(getApplicationContext());
 		wf = (ConnectivityManager)this.getSystemService(CONNECTIVITY_SERVICE);
