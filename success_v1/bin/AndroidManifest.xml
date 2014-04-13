@@ -50,7 +50,8 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.success_v1.main.ReservationStep1"         
+            android:name="com.success_v1.main.ReservationStep1"
+            android:parentActivityName="com.success_v1.main.Main"       
             android:label="@string/app_name" 
             android:screenOrientation="portrait">
         </activity>

@@ -113,8 +113,8 @@ public class ReservationStep1 extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.reservation_step1);
-		/*getActionBar().setDisplayShowHomeEnabled(false);
-		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+		getActionBar().setDisplayShowHomeEnabled(true);
+		/*getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		getActionBar().setCustomView(R.layout.koutchy_actionbar);
 		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
 		logoEtape = (ImageView)findViewById(R.id.logoEtape1);
@@ -139,6 +139,19 @@ public class ReservationStep1 extends Activity{
 
 		location = (TextView) findViewById(R.id.txtLocalMap);
 		checkLocation = (CheckBox)findViewById(R.id.checkBox1);
+		
+		if(locationActived)
+		{
+			btnVilleDepart.setEnabled(false);
+			btnVilleDepart.setBackground(getResources().getDrawable(R.color.white));
+			
+			checkLocation.setChecked(true);
+			Toast.makeText(this, "Je suis activé", Toast.LENGTH_LONG).show();
+		}
+		else
+		{
+			
+		}
 
 		checkLocation.setOnClickListener(new OnClickListener() {
 
