@@ -152,6 +152,13 @@ public class ReservationStep1 extends Activity{
 		{
 			
 		}
+		
+		if(latitude_recupe.equals("null") || longitude_recupe.equals("null"))
+		{
+			checkLocation.setEnabled(false);
+			checkLocation.setBackgroundColor(getResources().getColor(R.color.transparent));
+			Toast.makeText(this, "Impossible de vous géolocaliser", Toast.LENGTH_LONG).show();
+		}
 
 		checkLocation.setOnClickListener(new OnClickListener() {
 

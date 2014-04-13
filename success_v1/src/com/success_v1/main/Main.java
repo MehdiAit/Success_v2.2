@@ -44,58 +44,60 @@ public class Main extends Activity implements OnClickListener{
 	private Button btnReservation;
 	private Button btnCompte;
 	private TextView txtLocate;
-    // Session Manager Class
-    private SessionManager session;
-    private HashMap<String, String> user;
-    private ConnectivityManager wf;
-    private NetworkInfo info;
-    
-    //Location
+	// Session Manager Class
+	private SessionManager session;
+	private HashMap<String, String> user;
+	private ConnectivityManager wf;
+	private NetworkInfo info;
+
+	//Location
 	private ProgressDialog  pDialog;
 	private JSONParser jParser = new JSONParser();
 	private JSONArray results;
 	private GpsTrack gps;
-	
+
 	private static String jsonUrl_google_api = "http://maps.googleapis.com/maps/api/geocode/json?address=";
 	private static String jsonUrl_param = "&sensor=true&language=fr";
-	
+
 	private String comune = "";
 	private String ville = "";
 	private Double latitude;
 	private Double longitude;
-    
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.acceuil);
-		
+
 		getActionBar().setTitle(null);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        session = new SessionManager(getApplicationContext());
+		session = new SessionManager(getApplicationContext());
 		wf = (ConnectivityManager)this.getSystemService(CONNECTIVITY_SERVICE);
-        info = wf.getActiveNetworkInfo();
-        if(info != null)
-        {
-        	Log.d("wifi state","Connected");
-        }else
-        {
-        	Log.d("wifi state","Deconnected");
-        }
-        
+		info = wf.getActiveNetworkInfo();
+
+
 		btnsearch = (Button)this.findViewById(R.id.btnsearch);
 		btnReservation= (Button)this.findViewById(R.id.btnReservations);
 		btnCompte = (Button)this.findViewById(R.id.btnCompte);
 		txtLocate = (TextView)findViewById(R.id.txtLocalMap);
-		
+
 		btnsearch.setOnClickListener(this);
 		btnReservation.setOnClickListener(this);
 		btnCompte.setOnClickListener(this);
-		
+
 		gps = new GpsTrack(getApplicationContext());
-		new asyncRecup().execute();
-		
+		if(info != null)
+		{
+			Log.d("wifi state","Connected");
+			new asyncRecup().execute();
+		}else
+		{
+			Log.d("wifi state","Deconnected");
+		}
+
+
 		TranslateAnimation trans1 = new TranslateAnimation (0,0,800,0);
 		trans1.setStartOffset(600);
 		trans1.setFillAfter(true);
@@ -112,7 +114,7 @@ public class Main extends Activity implements OnClickListener{
 		trans3.setDuration(800);
 		btnCompte.startAnimation(trans3);
 	}
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if(requestCode == 1)
@@ -124,15 +126,15 @@ public class Main extends Activity implements OnClickListener{
 			}
 		}
 	}
-	
-	
+
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);		
 		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub
@@ -148,28 +150,28 @@ public class Main extends Activity implements OnClickListener{
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
-	
+
+
 	/************ Internationalisation *******************/
 	public void setLocal(Locale loc)
 	{
 		Resources res = getResources();
 		Configuration cnf = res.getConfiguration();
-		
+
 		cnf.locale = loc;
-		
+
 		res.updateConfiguration(cnf, res.getDisplayMetrics());
 		try {
 			Context ctx = this.createPackageContext(this.getPackageName(), CONTEXT_INCLUDE_CODE);
 			Intent restart = new Intent(ctx, Main.class);
 			startActivity(restart);
 			finish();
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 	}
-	
+
 	/*************************************************************************/
 	@Override
 	public void onClick(View arg0) {
@@ -180,19 +182,35 @@ public class Main extends Activity implements OnClickListener{
 			Intent agenceActivity= new Intent(this,ReservationStep1.class);
 			agenceActivity.putExtra("comune", comune);
 			agenceActivity.putExtra("ville", ville);
-			agenceActivity.putExtra("latitude", latitude.toString());
-			agenceActivity.putExtra("longitude", longitude.toString());
+			if(info != null)
+			{
+				agenceActivity.putExtra("latitude", latitude.toString());
+				agenceActivity.putExtra("longitude", longitude.toString());
+			}else
+			{
+				agenceActivity.putExtra("latitude", "null");
+				agenceActivity.putExtra("longitude", "null");
+			}
+
 			startActivity(agenceActivity);
 			break;
 		case R.id.btnReservations:
-			if(session.isLoggedIn())
+			if(info != null)
 			{
-			startActivity(new Intent(this, ReservationTab.class));
+				if(session.isLoggedIn())
+				{
+					startActivity(new Intent(this, ReservationTab.class));
+				}else
+				{
+					Intent compteActivity = new Intent(this,LogPage.class);
+					startActivityForResult(compteActivity,1);
+				}
+
 			}else
 			{
-				Intent compteActivity = new Intent(this,LogPage.class);
-				startActivityForResult(compteActivity,1);
+				Toast.makeText(this, "Acune connexion détecté", Toast.LENGTH_LONG).show();
 			}
+
 			break;
 		case R.id.btnCompte:			
 			if(session.isLoggedIn())
@@ -204,31 +222,31 @@ public class Main extends Activity implements OnClickListener{
 				Intent compteActivity = new Intent(this,LogPage.class);
 				startActivityForResult(compteActivity,1);
 			}
-			
+
 			break;
 		}
-		
+
 	}
-	
+
 	public class asyncRecup extends AsyncTask<String, String, String>
 	{
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pDialog = new ProgressDialog(Main.this);
-            pDialog.setMessage("Localisation en cours, Patientez ...");
-            pDialog.setIndeterminate(false);
-            pDialog.setCancelable(false);
-            pDialog.show();
-        }
-        
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			pDialog = new ProgressDialog(Main.this);
+			pDialog.setMessage("Localisation en cours, Patientez ...");
+			pDialog.setIndeterminate(false);
+			pDialog.setCancelable(false);
+			pDialog.show();
+		}
+
 		@Override
 		protected String doInBackground(String... params) {
 
 			latitude = gps.getLatitude();
 			longitude = gps.getLongitude();	
 			String url = jsonUrl_google_api+latitude.toString()+","+longitude.toString()+jsonUrl_param;
-			
+
 			List<NameValuePair> param = new ArrayList<NameValuePair>();
 			JSONObject json = jParser.makeHttpRequest(url, "GET", param);
 
@@ -237,7 +255,7 @@ public class Main extends Activity implements OnClickListener{
 				Log.i("JsonArray",results.toString());
 				comune = results.getJSONObject(1).getJSONArray("address_components").getJSONObject(0).getString("long_name").toString();
 				ville = results.getJSONObject(1).getJSONArray("address_components").getJSONObject(1).getString("long_name").toString();
-				
+
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -245,12 +263,12 @@ public class Main extends Activity implements OnClickListener{
 
 			return null;
 		}
-		
+
 		protected void onPostExecute(String file_url) {
-			
+
 			txtLocate.setText(" "+comune+", "+ville);
-        	pDialog.dismiss();
-    }
+			pDialog.dismiss();
+		}
 
 	}
 }
