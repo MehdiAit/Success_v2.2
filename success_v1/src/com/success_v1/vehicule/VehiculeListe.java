@@ -109,18 +109,6 @@ public class VehiculeListe extends Activity {
 
 		vehiculelist = new ArrayList<Vehicule>();	
 		new LoadAll().execute();
-		
-		
-		
-		/*if (trans_vehicule.getText().equals("automatique"))
-		{
-			imgTrans_vehicule.setBackground(getResources().getDrawable(R.drawable.boite_auto));
-		}
-		else
-		{
-			imgTrans_vehicule.setBackground(getResources().getDrawable(R.drawable.boite_man));
-		}
-*/
 
 		lv = (ListView)findViewById(R.id.listVehicule);
 		lv.setOnItemClickListener(new OnItemClickListener() {
@@ -237,9 +225,7 @@ public class VehiculeListe extends Activity {
 							}else
 							{
 								
-							}
-							
-							
+							}														
 								
 						}else
 						{
