@@ -58,6 +58,8 @@ public class categorieListe extends Fragment {
 	private static final String TAG_ID = "id";
 	private static final String TAG_NOM = "nom";
 	private static final String TAG_DESCRIPTION = "description";
+	private static final String TAG_TARIF = "prix";
+	private static final String TAG_IMG = "image";
 	//private static final String TAG_TYPE = "type";
 	
 	//private static final String TAG_IMG = "imageVehicule";
@@ -138,7 +140,7 @@ public class categorieListe extends Fragment {
 		protected void onPreExecute() {
 			super.onPreExecute();
 			pDialog = new ProgressDialog(getActivity());
-			pDialog.setMessage("Loading .Please wait...");
+			pDialog.setMessage("Chargement...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(false);
 			pDialog.show();
@@ -163,11 +165,9 @@ public class categorieListe extends Fragment {
 						String id = c.getString(TAG_ID);
 						String mark = c.getString(TAG_NOM);
 						String model = c.getString(TAG_DESCRIPTION);
-						//String motor = c.getString(TAG_TYPE);
-
-						//String image = c.getString(TAG_IMG);
-						CategorieVehicule categorie = new CategorieVehicule(id,mark,model);
-						//Log.i("mark",vehicule.);
+						String price = c.getString(TAG_TARIF);
+						String image = c.getString(TAG_IMG);
+						CategorieVehicule categorie = new CategorieVehicule(id,mark,model,image,price);
 
 						cat_vehiculelist.add(categorie);
 					}

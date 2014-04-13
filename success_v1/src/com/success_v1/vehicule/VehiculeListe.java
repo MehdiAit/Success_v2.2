@@ -21,7 +21,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.success_v1.main.ReservationStep1;
@@ -50,7 +52,8 @@ public class VehiculeListe extends Activity {
 	private Location loc_current;
 	private Location loc_i;
 
-
+	private TextView trans_vehicule;
+	private ImageView imgTrans_vehicule;
 	private ListView lv;
 	private AdapterVehicule ad;
 
@@ -66,6 +69,9 @@ public class VehiculeListe extends Activity {
 	private static final String TAG_TARIF = "tarifJour";
 	private static final String TAG_IMG = "imageVehicule";
 	private static final String TAG_ville_param = "ville_agence";
+	private static final String TAG_trans = "transmission";
+	private static final String TAG_porte = "nbportes";
+	private static final String TAG_climatisation = "climatisation";
 	private static final String TAG_LATITUDE = "latitude";
 	private static final String TAG_LONGITUDE = "longitude";
 	//private static final String TAG_IMG = "imageVehicule";
@@ -73,6 +79,8 @@ public class VehiculeListe extends Activity {
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.vehicule_list);
+		trans_vehicule = (TextView) findViewById(R.id.trans_vehicule);
+		imgTrans_vehicule = (ImageView) findViewById(R.id.img_trans);
 
 		Intent result = getIntent();
 		dateDepart = result.getStringExtra("dateDepart");
@@ -101,8 +109,18 @@ public class VehiculeListe extends Activity {
 
 		vehiculelist = new ArrayList<Vehicule>();	
 		new LoadAll().execute();
-
-
+		
+		
+		
+		/*if (trans_vehicule.getText().equals("automatique"))
+		{
+			imgTrans_vehicule.setBackground(getResources().getDrawable(R.drawable.boite_auto));
+		}
+		else
+		{
+			imgTrans_vehicule.setBackground(getResources().getDrawable(R.drawable.boite_man));
+		}
+*/
 
 		lv = (ListView)findViewById(R.id.listVehicule);
 		lv.setOnItemClickListener(new OnItemClickListener() {
@@ -146,7 +164,7 @@ public class VehiculeListe extends Activity {
 		protected void onPreExecute() {
 			super.onPreExecute();
 			pDialog = new ProgressDialog(VehiculeListe.this);
-			pDialog.setMessage("Loading .Please wait...");
+			pDialog.setMessage("Chargement...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(false);
 			pDialog.show();
@@ -186,6 +204,9 @@ public class VehiculeListe extends Activity {
 						String motor = c.getString(TAG_MOTORISATION);
 						String tarif = c.getString(TAG_TARIF);
 						String image = c.getString(TAG_IMG);
+						String trans = c.getString(TAG_trans);
+						String porte= c.getString(TAG_porte);
+						String clim = c.getString(TAG_climatisation);
 						String latitude_i = "";
 						String longitude_i= "";
 						if(ReservationStep1.locationActived)
@@ -199,7 +220,7 @@ public class VehiculeListe extends Activity {
 							loc_i.setLongitude(Double.valueOf(longitude_i));
 						}
 
-						Vehicule vehicule = new Vehicule(id,mark,model,motor,tarif,image);
+						Vehicule vehicule = new Vehicule(id,mark,model,motor,tarif,image,clim, porte, trans);
 
 
 						if(ReservationStep1.locationActived)

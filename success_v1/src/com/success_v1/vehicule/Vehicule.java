@@ -7,8 +7,12 @@ public class Vehicule {
 	private String motorisation;
 	private String prix;
 	private String urlImage;
+	private String aclim;
+	private String nbportes;
+	private String boite;
 	
-	public Vehicule(String identif, String mark, String mod, String motor, String price, String urlPic)
+	
+	public Vehicule(String identif, String mark, String mod, String motor, String price, String urlPic, String aclim, String nbportes, String boite)
 	{
 		setId(identif);
 		setMarque(mark);
@@ -16,10 +20,31 @@ public class Vehicule {
 		setMotorisation(motor);
 		setPrix(price);
 		setUrlImage(urlPic);
+		setAclim(aclim);
+		setNbportes(nbportes);
+		setBoite(boite);
 	}
 	public Vehicule()
 	{
 		
+	}
+	public String getBoite() {
+		return boite;
+	}
+	public void setBoite(String boite) {
+		this.boite = boite;
+	}
+	public String getNbportes() {
+		return nbportes;
+	}
+	public void setNbportes(String nbportes) {
+		this.nbportes = nbportes;
+	}
+	public String getAclim() {
+		return aclim;
+	}
+	public void setAclim(String aclim) {
+		this.aclim = aclim;
 	}
 	public String getUrlImage() {
 		return urlImage;

@@ -48,6 +48,10 @@ public class AdapterVehicule extends BaseAdapter {
 		TextView motorisation_vehicule;
 		TextView tarifJour_vehicule;
 		TextView photo_vehicule;
+		TextView porte_vehicule;
+		TextView clim_vehicule;
+		TextView trans_vehicule;
+		ImageView img_clim_vehicule;
 		ImageView image_vehicule;
 	}
 
@@ -68,6 +72,10 @@ public class AdapterVehicule extends BaseAdapter {
 			holder.tarifJour_vehicule = (TextView)arg1.findViewById(R.id.tarifJour_vehicule);
 			holder.photo_vehicule = (TextView)arg1.findViewById(R.id.photo_vehicule);
 			holder.image_vehicule = (ImageView)arg1.findViewById(R.id.img_vehicule);
+			holder.img_clim_vehicule = (ImageView)arg1.findViewById(R.id.img_clim);
+			holder.porte_vehicule = (TextView)arg1.findViewById(R.id.porte_vehicule);
+			holder.trans_vehicule = (TextView)arg1.findViewById(R.id.trans_vehicule);
+			
 			arg1.setTag(holder);
 		}else
 		{
@@ -79,7 +87,10 @@ public class AdapterVehicule extends BaseAdapter {
 		holder.modele_vehicule.setText(vehicule.get(arg0).getModele());
 		holder.motorisation_vehicule.setText(vehicule.get(arg0).getMotorisation());
 		holder.tarifJour_vehicule.setText(vehicule.get(arg0).getPrix());
+		holder.porte_vehicule.setText(vehicule.get(arg0).getNbportes());
 		holder.photo_vehicule.setText(vehicule.get(arg0).getUrlImage());
+		holder.trans_vehicule.setText(vehicule.get(arg0).getBoite());
+		
 		Picasso.with(arg1.getContext()).load(holder.photo_vehicule.getText().toString()).into(holder.image_vehicule);
 		//holder.image_vehicule.setImageBitmap((new ImageVehicule().execute(holder.photo_vehicule.getText().toString())));
 		return arg1;

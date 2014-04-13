@@ -3,7 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="110dp"
     android:background="@drawable/list_selector" >
-
+<TextView
+        android:id="@+id/photo_categorie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/counter_bg"
+        android:textColor="@color/counter_text_color"
+        android:visibility="gone" />
     <ImageView
         android:id="@+id/img_categorie"
         android:layout_width="130dip"
@@ -52,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@id/img_categorie"
-        android:text="@string/prix_debut"
+        android:text="A partir de "
         android:textColor="#2D3E50"
         android:textSize="16sp" />
 
@@ -62,7 +71,17 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/txtAPartir_categorie"
         android:layout_alignParentBottom="true"
-        android:text="@string/prix_debut_cat"
+        android:text=" 2500"
+        android:textColor="@color/title_color"
+        android:textSize="18sp" />
+    
+            <TextView
+        android:id="@+id/deviseTarif_categorie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tarifAPartir_categorie"
+        android:layout_alignParentBottom="true"
+        android:text=" Da"
         android:textColor="@color/title_color"
         android:textSize="18sp" />
 

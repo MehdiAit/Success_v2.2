@@ -7,7 +7,7 @@
     <ImageView
         android:id="@+id/img_vehicule"
         android:layout_width="130dip"
-        android:layout_height="110dip"
+        android:layout_height="100dip"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginBottom="5dip"
@@ -26,32 +26,99 @@
         android:layout_centerVertical="true"
         android:background="@drawable/next" />
 
-    <TextView
-        android:id="@+id/motorisation_vehicule"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+    <LinearLayout
+        android:id="@+id/layout_centered"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/img_vehicule"
-        android:paddingRight="5dp"
-        android:textColor="#2D3E50" />
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/img_motorisation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gas" />
+
+            <TextView
+                android:id="@+id/motorisation_vehicule"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/img_motorisation"
+                android:paddingRight="5dp"
+                android:textColor="#2D3E50" />
+            <TextView
+                android:id="@+id/trans_vehicule"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/img_motorisation"
+                android:paddingRight="5dp"
+                android:visibility="gone"
+                android:textColor="#2D3E50" />
+            <ImageView
+                android:id="@+id/img_trans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_motorisation"
+                android:background="@drawable/boite_auto" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/img_porte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/porte" />
+
+            <TextView
+                android:id="@+id/porte_vehicule"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/img_porte"
+                android:paddingRight="5dp"
+                android:text="5"
+                android:textColor="#2D3E50" />
+
+            <ImageView
+                android:id="@+id/img_clim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_porte"
+                android:background="@drawable/aclim" />
+        </RelativeLayout>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/marque_vehicule"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_alignTop="@id/motorisation_vehicule"
+        android:layout_alignTop="@id/layout_centered"
         android:layout_marginRight="2dip"
         android:layout_toRightOf="@id/img_vehicule"
         android:textColor="#2D3E50"
         android:textSize="15sp" />
+
     <TextView
         android:id="@+id/modele_vehicule"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_toRightOf="@id/marque_vehicule"
+        android:paddingRight="5dp"
         android:textColor="#2D3E50"
-		android:textSize="15sp"
-        android:paddingRight="5dp"/>
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/txtAPartir_vehicule"
@@ -67,8 +134,18 @@
         android:id="@+id/tarifJour_vehicule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/txtAPartir_vehicule"
         android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/txtAPartir_vehicule"
+        android:textColor="@color/title_color"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/deviseTarif_vehicule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/tarifJour_vehicule"
+        android:text=" Da"
         android:textColor="@color/title_color"
         android:textSize="18sp" />
 
