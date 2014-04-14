@@ -7,7 +7,7 @@
     <ImageView
         android:id="@+id/img_vehicule"
         android:layout_width="130dip"
-        android:layout_height="100dip"
+        android:layout_height="110dip"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginBottom="5dip"

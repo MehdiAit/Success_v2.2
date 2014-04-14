@@ -2,9 +2,9 @@ package com.success_v1.reservation;
 
 import java.util.ArrayList;
 
-import com.squareup.picasso.Picasso;
-import com.success_v1.successCar.R;
-
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,16 +14,23 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+import com.success_v1.successCar.R;
+
 public class Adapter extends BaseAdapter {
 	
 	private ArrayList<Reservation> reservation;
 	private LayoutInflater fl;
+	private DateTime dtreserv;
+	private DateTime dtfin;
+	private DateTime dtdeb;
 	
 	public Adapter(Context context, ArrayList<Reservation> reserv)
 	{
 		fl = LayoutInflater.from(context);
 		reservation = reserv;
 	}
+	
 
 	@Override
 	public int getCount() {
@@ -76,9 +83,13 @@ public class Adapter extends BaseAdapter {
 		}
 		
 		holder.id_reservation.setText(reservation.get(arg0).id);
-		holder.date_reservation.setText(reservation.get(arg0).date);
-		holder.date_Debreservation.setText(reservation.get(arg0).dateDeb);
-		holder.date_Finreservation.setText(reservation.get(arg0).dateFin);
+		DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd");
+		dtreserv = formatter.parseDateTime(reservation.get(arg0).date);
+		dtdeb = formatter.parseDateTime(reservation.get(arg0).dateDeb);
+		dtfin = formatter.parseDateTime(reservation.get(arg0).dateFin);
+		holder.date_reservation.setText(dtreserv.toString("dd-MM-yyyy"));
+		holder.date_Debreservation.setText(dtdeb.toString("dd-MM-yyyy"));
+		holder.date_Finreservation.setText(dtdeb.toString("dd-MM-yyyy"));
 		holder.photo_vehicule.setText(reservation.get(arg0).image);
 		holder.price.setText(reservation.get(arg0).prix);
 		Picasso.with(arg1.getContext()).load(holder.photo_vehicule.getText().toString()).into(holder.image_vehicule);

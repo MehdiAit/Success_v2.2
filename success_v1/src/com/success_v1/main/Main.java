@@ -268,6 +268,7 @@ public class Main extends Activity implements OnClickListener{
 					ville = "null";
 					latitude = null;
 					longitude = null;
+					
 				}else
 				{
 					comune = results.getJSONObject(1).getJSONArray("address_components").getJSONObject(0).getString("long_name").toString();

@@ -9,7 +9,7 @@
     </item>
     <item
         android:id="@+id/action_settings"
-        android:icon="@android:drawable/ic_menu_info_details"
+        android:icon="@drawable/info_5"
         android:orderInCategory="100"
         android:showAsAction="ifRoom"
         android:title="@string/action_settings">

@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -99,7 +100,9 @@ public class Detail extends Activity {
 		btnAppeler_agence.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				/****** Mettre la fonction d'appel en reprenant le numéro de téléphone de l'agence*********/
+				String num = "tel:"+tel_agence.getText().toString();
+				Intent call = new Intent(Intent.ACTION_CALL, Uri.parse(num));
+				startActivity(call);
 			}
 		});
 		

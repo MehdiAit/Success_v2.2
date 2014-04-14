@@ -47,7 +47,7 @@
     <string name="txtCreationReserv">إنشاء التحفظ</string>
     <string name="txtLocalisationForm">قريب عن </string>
     <string name="txtDateVilleDepart">تاريخ ومكان الوصول:</string>
-    <string name="btnVilleDepart1">Ville de départ</string>
+    <string name="btnVilleDepart1">من</string>
     <string name="txtDateRetour">تاريخ الوصول:</string>
     <string name="btnDateRetour">تاريخ الوصول</string>
     <string name="btnVilleArrive1">مدينة الوصول</string>

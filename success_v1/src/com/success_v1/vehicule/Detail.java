@@ -75,6 +75,8 @@ public class Detail extends Activity {
 
 	private Integer numberDays;
 	private Integer carPrice;
+	private DateTime dt;
+	private DateTime dt2;
 	Intent result;
 
 	
@@ -131,10 +133,10 @@ public class Detail extends Activity {
 		Log.i("dt_rt",date_retour_intent);
 		
 		DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd");
-		DateTime dt = formatter.parseDateTime(date_depart_intent);
+		dt = formatter.parseDateTime(date_depart_intent);
 		
 		DateTimeFormatter formatter2 = DateTimeFormat.forPattern("yyyy-MM-dd");
-		DateTime dt2 = formatter2.parseDateTime(date_retour_intent);
+		dt2 = formatter2.parseDateTime(date_retour_intent);
 		
 		Log.i("aze",dt.toString());
 
@@ -249,8 +251,8 @@ public class Detail extends Activity {
 
 				prix_vehicule.setText(carPrice.toString());
 				Picasso.with(getApplicationContext()).load(url_image).into(imageCaisse);
-				date_depart.setText(date_depart_intent);
-				date_retour.setText(date_retour_intent);  
+				date_depart.setText(dt.toString("dd-MM-yyyy"));
+				date_retour.setText(dt2.toString("dd-MM-yyyy"));  
 				
 				/******* Convertisseur a revoire ***********/
 				//ConvertDate("dd-MM-yyyy", date_depart);

@@ -15,9 +15,9 @@ import android.widget.TextView;
 
 public class ReservationTab extends FragmentActivity {
 
-	ActionBar actionabar;
-	ViewPager viewpager;
-	TextView titleActionBar;
+	private ActionBar actionabar;
+	private ViewPager viewpager;
+	private TextView titleActionBar;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

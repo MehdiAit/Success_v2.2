@@ -111,8 +111,8 @@
                 android:layout_marginTop="10dip"
                 android:text="@string/txtTitreResume"
                 android:textColor="@color/white"
-                android:visibility="gone"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -127,8 +127,8 @@
                     android:layout_width="200dip"
                     android:layout_height="150dip"
                     android:layout_gravity="center_horizontal"
-                    android:adjustViewBounds="true"
                     android:layout_marginTop="5dip"
+                    android:adjustViewBounds="true"
                     android:background="@drawable/default_car_large"
                     android:contentDescription="@string/imgLogoCar"
                     android:scaleType="fitCenter" />
@@ -156,8 +156,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginRight="5dip"
-                        android:textColor="#2D3E50"
                         android:text="@string/nom_vehicule_recup"
+                        android:textColor="#2D3E50"
                         android:textSize="18sp" />
 
                     <TextView
@@ -166,8 +166,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginRight="5dip"
-                        android:textColor="#2D3E50"
                         android:text="@string/motorVehicule"
+                        android:textColor="#2D3E50"
                         android:textSize="18sp" />
                 </LinearLayout>
 
@@ -178,15 +178,14 @@
                     android:layout_gravity="center_horizontal"
                     android:text="@string/nomAgenceResume"
                     android:textColor="#2D3E50"
-                    android:visibility="gone"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:visibility="gone" />
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
-                    
                     android:orientation="horizontal" >
 
                     <TextView
@@ -194,9 +193,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
+                        android:layout_marginRight="2dip"
                         android:text="@string/txtDepartLe"
                         android:textColor="#2D3E50"
-                        android:layout_marginRight="2dip"
                         android:textSize="18sp" />
 
                     <TextView
@@ -204,9 +203,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="2dip"
                         android:text="@string/date_depart_recup"
                         android:textColor="#2D3E50"
-                        android:layout_marginLeft="2dip"
                         android:textSize="18sp" />
                 </LinearLayout>
 
@@ -222,9 +221,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
+                        android:layout_marginRight="2dip"
                         android:text="@string/deVille"
                         android:textColor="#2D3E50"
-                        android:layout_marginRight="2dip"
                         android:textSize="14sp" />
 
                     <TextView
@@ -249,9 +248,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
+                        android:layout_marginRight="2dip"
                         android:text="@string/le_arrive"
                         android:textColor="#2D3E50"
-                        android:layout_marginRight="2dip"
                         android:textSize="18sp" />
 
                     <TextView
@@ -259,12 +258,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="@string/date_retour_recup"
                         android:layout_marginLeft="2dip"
+                        android:text="@string/date_retour_recup"
                         android:textColor="#2D3E50"
                         android:textSize="18sp" />
                 </LinearLayout>
-                                <LinearLayout
+
+                <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -276,8 +276,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:textColor="#2D3E50"
                         android:text="Nombre de jours: "
+                        android:textColor="#2D3E50"
                         android:textSize="18sp" />
 
                     <TextView
@@ -303,8 +303,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:textColor="#2D3E50"
                         android:text="@string/aVille"
+                        android:textColor="#2D3E50"
                         android:textSize="14sp" />
 
                     <TextView
@@ -312,8 +312,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:textColor="#2D3E50"
                         android:text="@string/villeRetour"
+                        android:textColor="#2D3E50"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -321,7 +321,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    
                     android:gravity="center_horizontal"
                     android:orientation="horizontal" >
 
@@ -341,24 +340,36 @@
                         android:layout_gravity="center_horizontal"
                         android:textColor="#E84C3D"
                         android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/devisePrixVehicule"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text=" Da"
+                        android:textColor="#E84C3D"
+                        android:textSize="25sp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-       <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="vertical" >
-                <Button
-                    android:id="@+id/btntestreseravation"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginTop="10dip"
-                    android:background="@color/title_color"
-                    android:drawableRight="@drawable/confirmation"
-                    android:text="@string/btntestreseravation"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
-            </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btntestreseravation"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dip"
+            android:background="@color/title_color"
+            android:drawableRight="@drawable/confirmation"
+            android:text="@string/btntestreseravation"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
 </LinearLayout>

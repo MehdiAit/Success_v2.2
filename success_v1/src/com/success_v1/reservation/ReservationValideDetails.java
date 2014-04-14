@@ -6,6 +6,9 @@ import java.util.List;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,31 +32,34 @@ import com.success_v1.user.SessionManager;
 
 public class ReservationValideDetails extends Activity{
 	
-    TextView txtNumReservation;
-    TextView txtDatReservation;
-    TextView txtDebutReservation;
-    TextView txtFinReservation;
-    TextView txtMarqueReservation;
-    TextView txtModelReservation;
-    TextView txtCategorieReservation;
-    TextView txtNomAgenceReservation;
-    TextView txtEtatReservation;
-    TextView txtPrixReservation;
-    TextView txtMotorReservation;
-    TextView txtNbreJour;
-    Button btnAnnulerReservation;
-    TextView genreUser;
-    TextView prenomUser;
-    TextView nomUser;
-    TextView mailUser;
-    TextView numeroUser;
-    TextView titleActionBar;
-    ImageView imgLogoCar;
-    SessionManager session;
+    private TextView txtNumReservation;
+    private TextView txtDatReservation;
+    private TextView txtDebutReservation;
+    private TextView txtFinReservation;
+    private TextView txtMarqueReservation;
+    private TextView txtModelReservation;
+    private TextView txtCategorieReservation;
+    private TextView txtNomAgenceReservation;
+    private TextView txtEtatReservation;
+    private TextView txtPrixReservation;
+    private TextView txtMotorReservation;
+    private TextView txtNbreJour;
+    private Button btnAnnulerReservation;
+    private TextView genreUser;
+    private TextView prenomUser;
+    private TextView nomUser;
+    private TextView mailUser;
+    private TextView numeroUser;
+    private TextView titleActionBar;
+    private ImageView imgLogoCar;
+    private SessionManager session;
     
-    String pid_user;
-    String url_imageReserv;
-    String pid;
+	private DateTime dtfin;
+	private DateTime dtdeb;
+	
+    private String pid_user;
+    private String url_imageReserv;
+    private String pid;
     // Progress Dialog
     private ProgressDialog pDialog;
  
@@ -170,8 +176,11 @@ public class ReservationValideDetails extends Activity{
             	Picasso.with(getApplicationContext()).load(url_imageReserv).into(imgLogoCar);
 	            txtNumReservation.setText(detail_tab.getString(TAG_ID));
 	            //txtDatReservation.setText(detail_tab.getString(TAG_DATERESERV));
-	            txtDebutReservation.setText(detail_tab.getString(TAG_DEBRESERV));
-	            txtFinReservation.setText(detail_tab.getString(TAG_FINRESERV));
+	            DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd");
+	            dtdeb = formatter.parseDateTime(detail_tab.getString(TAG_DEBRESERV));
+	    		dtfin = formatter.parseDateTime(detail_tab.getString(TAG_FINRESERV));
+	            txtDebutReservation.setText(dtdeb.toString("dd-MM-yyyy"));
+	            txtFinReservation.setText(dtfin.toString("dd-MM-yyyy"));
 	            //txtEtatReservation.setText(detail_tab.getString(TAG_ETATRESERV));
 	            txtMarqueReservation.setText(detail_tab.getString(TAG_MARKRESERV));
 	            txtModelReservation.setText(detail_tab.getString(TAG_MODELERESERV));
