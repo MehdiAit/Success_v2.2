@@ -47,7 +47,7 @@ public class Main extends Activity implements OnClickListener{
 	// Session Manager Class
 	private SessionManager session;
 	private HashMap<String, String> user;
-	
+
 	private ConnectivityManager wf;
 	private NetworkInfo info;
 
@@ -185,8 +185,15 @@ public class Main extends Activity implements OnClickListener{
 			agenceActivity.putExtra("ville", ville);
 			if(info != null)
 			{
-				agenceActivity.putExtra("latitude", latitude.toString());
-				agenceActivity.putExtra("longitude", longitude.toString());
+				if(latitude == null || longitude == null)
+				{
+					agenceActivity.putExtra("latitude", "null");
+					agenceActivity.putExtra("longitude", "null");
+				}else
+				{
+					agenceActivity.putExtra("latitude", latitude.toString());
+					agenceActivity.putExtra("longitude", longitude.toString());
+				}
 			}else
 			{
 				agenceActivity.putExtra("latitude", "null");
@@ -250,14 +257,22 @@ public class Main extends Activity implements OnClickListener{
 
 			List<NameValuePair> param = new ArrayList<NameValuePair>();
 			JSONObject json = jParser.makeHttpRequest(url, "GET", param);
-			
+
 			try {
-				
+
 				results = json.getJSONArray("results");
 				Log.i("JsonArray",results.toString());
-				comune = results.getJSONObject(1).getJSONArray("address_components").getJSONObject(0).getString("long_name").toString();
-				ville = results.getJSONObject(1).getJSONArray("address_components").getJSONObject(1).getString("long_name").toString();
-
+				if(results.isNull(0))
+				{
+					comune = "null";
+					ville = "null";
+					latitude = null;
+					longitude = null;
+				}else
+				{
+					comune = results.getJSONObject(1).getJSONArray("address_components").getJSONObject(0).getString("long_name").toString();
+					ville = results.getJSONObject(1).getJSONArray("address_components").getJSONObject(1).getString("long_name").toString();
+				}
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
