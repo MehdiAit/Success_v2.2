@@ -94,7 +94,7 @@ public class ListAgences extends Activity {
             List<NameValuePair> params = new ArrayList<NameValuePair>();
 
             JSONObject json = jParser.makeHttpRequest(url_all, "GET", params);
-            Log.d("Tab resultat", json.toString()); 
+            //Log.d("Tab resultat", json.toString()); 
             try {
                 int success = json.getInt(TAG_SUCCESS);
                 if (success == 1) {
@@ -109,7 +109,6 @@ public class ListAgences extends Activity {
                         
                         
                         Agence agence = new Agence(id,name,adress);
-                        Log.i("nom",agence.nom);
  
                         agencelist.add(agence);
                     }

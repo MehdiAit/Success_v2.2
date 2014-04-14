@@ -246,12 +246,12 @@ public class ReservationStep1 extends Activity{
 
 					if(info != null)
 					{
-						Log.d("wifi state","Connected");
+						//Log.d("wifi state","Connected");
 						startActivity(listCarActivity);
 					}else
 					{
 						Toast.makeText(getApplicationContext(), "Vous devez être connecté ", Toast.LENGTH_LONG).show();
-						Log.d("wifi state","Deconnected");
+						//Log.d("wifi state","Deconnected");
 					}					
 				}
 

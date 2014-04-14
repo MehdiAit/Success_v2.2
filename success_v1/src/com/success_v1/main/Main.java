@@ -91,11 +91,11 @@ public class Main extends Activity implements OnClickListener{
 		gps = new GpsTrack(getApplicationContext());
 		if(info != null && info.isConnectedOrConnecting())
 		{
-			Log.d("wifi state","Connected");
+			//Log.d("wifi state","Connected");
 			new asyncRecup().execute();
 		}else
 		{
-			Log.d("wifi state","Deconnected");
+			//Log.d("wifi state","Deconnected");
 		}
 
 
@@ -261,7 +261,7 @@ public class Main extends Activity implements OnClickListener{
 			try {
 
 				results = json.getJSONArray("results");
-				Log.i("JsonArray",results.toString());
+				//Log.i("JsonArray",results.toString());
 				if(results.isNull(0))
 				{
 					comune = "null";

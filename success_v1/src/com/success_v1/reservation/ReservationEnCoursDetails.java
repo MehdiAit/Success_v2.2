@@ -210,7 +210,7 @@ public class ReservationEnCoursDetails extends Activity {
             JSONObject json = jsonParser.makeHttpRequest(url_deleteReservation, "POST", params);
  
             // check log cat fro response
-            Log.d("Test reservation", json.toString());
+            //Log.d("Test reservation", json.toString());
  
             // check for success tag
             try {
@@ -265,7 +265,7 @@ public class ReservationEnCoursDetails extends Activity {
                         params.add(new BasicNameValuePair("id_reservation", pid));
                         params.add(new BasicNameValuePair("id_user",session.getIdUser()));
                         JSONObject json = jsonParser.makeHttpRequest(url_detail, "GET", params);
-                        Log.d("Detail", json.toString() + pid);
+                        //Log.d("Detail", json.toString() + pid);
  
                         success = json.getInt(TAG_SUCCESS);
                         if (success == 1) {
@@ -282,7 +282,7 @@ public class ReservationEnCoursDetails extends Activity {
         }
         protected void onPostExecute(String file_url) {
             try {           		           
-            	Log.d("Url image", url_imageReserv);
+            	//Log.d("Url image", url_imageReserv);
             	Picasso.with(getApplicationContext()).load(url_imageReserv).into(imgLogoCar);
 	            txtNumReservation.setText(detail_tab.getString(TAG_ID));
 	            //txtDatReservation.setText(detail_tab.getString(TAG_DATERESERV));

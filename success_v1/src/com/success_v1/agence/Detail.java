@@ -140,7 +140,7 @@ public class Detail extends Activity {
 				params.add(new BasicNameValuePair("id_get_agence", pid));
 				JSONObject json = jsonParser.makeHttpRequest(url_detail, "GET", params);
 
-				Log.d("Detail", json.toString() + pid);
+				
 
 				success = json.getInt(TAG_SUCCESS);
 				if (success == 1) {
