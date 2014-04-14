@@ -47,6 +47,7 @@ public class Main extends Activity implements OnClickListener{
 	// Session Manager Class
 	private SessionManager session;
 	private HashMap<String, String> user;
+	
 	private ConnectivityManager wf;
 	private NetworkInfo info;
 
@@ -88,7 +89,7 @@ public class Main extends Activity implements OnClickListener{
 		btnCompte.setOnClickListener(this);
 
 		gps = new GpsTrack(getApplicationContext());
-		if(info != null)
+		if(info != null && info.isConnectedOrConnecting())
 		{
 			Log.d("wifi state","Connected");
 			new asyncRecup().execute();
@@ -249,8 +250,9 @@ public class Main extends Activity implements OnClickListener{
 
 			List<NameValuePair> param = new ArrayList<NameValuePair>();
 			JSONObject json = jParser.makeHttpRequest(url, "GET", param);
-
+			
 			try {
+				
 				results = json.getJSONArray("results");
 				Log.i("JsonArray",results.toString());
 				comune = results.getJSONObject(1).getJSONArray("address_components").getJSONObject(0).getString("long_name").toString();

@@ -17,6 +17,8 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -64,39 +66,37 @@ public class RegisterPage extends Activity{
 	private int yearNaissance;
 	private int monthNaissance;
 	private int dayNaissance;
-	
+
 	Date inputDatePermis;
-	
+
 	private int dayPermis;
 	private int yearPermis;
 	private int monthPermis;
-	
+
 	private String dateNaissance;
 	private String datePermis;
 	private String genreSelected="Madame";
 
 	/****************************************/
-    // Progress Dialog
-    private ProgressDialog pDialog;
-    // JSON parser class
-    JSONParser jsonParser = new JSONParser();
-    JSONParser jParser = new JSONParser();
-    int success;
- 
-    // JSON Node names
-   	private static final String TAG_SUCCESS = "success";
+	// Progress Dialog
+	private ProgressDialog pDialog;
+	// JSON parser class
+	private JSONParser jsonParser = new JSONParser();
+	private JSONParser jParser = new JSONParser();
+
+	private ConnectivityManager wf;
+	private NetworkInfo info;
+	int success;
+
+	// JSON Node names
+	private static final String TAG_SUCCESS = "success";
 	private static String url_user = config.getURL()+"add_users.php";
-    JSONObject registration_tab = new JSONObject();
+	JSONObject registration_tab = new JSONObject();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.register_page);
-		/*getActionBar().setDisplayShowHomeEnabled(false);
-		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-		getActionBar().setCustomView(R.layout.koutchy_actionbar);
-		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
-		titleActionBar.setText("Inscription");*/
 		getActionBar().setTitle("");
 
 		editPrenom = (EditText)findViewById(R.id.editPrenom);
@@ -104,8 +104,12 @@ public class RegisterPage extends Activity{
 		editMailRegistration = (EditText)findViewById(R.id.editMailRegistration);
 		editMdpRegistration = (EditText)findViewById(R.id.editMdpRegistration);
 		editCnfirmMail = (EditText)findViewById(R.id.editCnfirmMail);
+
+		wf = (ConnectivityManager)this.getSystemService(CONNECTIVITY_SERVICE);
+		info = wf.getActiveNetworkInfo();
+
 		editMdpRegistration.setOnFocusChangeListener(new OnFocusChangeListener() {
-			
+
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
 				// TODO Auto-generated method stub
@@ -127,15 +131,15 @@ public class RegisterPage extends Activity{
 		/*editMdpRegistration.setOnClickListener(new OnClickListener() {			
 			@Override
 			public void onClick(View v) {
-				
+
 			}
 		});*/
-		
-		
+
+
 		editCnfirmMdp = (EditText)findViewById(R.id.editCnfirmMdp);
 		editNumPerm = (EditText)findViewById(R.id.editNumPerm);
 		editNumPerm.setOnFocusChangeListener(new OnFocusChangeListener() {
-			
+
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
 				// TODO Auto-generated method stub
@@ -172,113 +176,119 @@ public class RegisterPage extends Activity{
 		btnDateNais.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
-	   	    	nbBtn=1;
-	   	    	showDialog(DATE_DIALOG_NAISSANCE);
+				nbBtn=1;
+				showDialog(DATE_DIALOG_NAISSANCE);
 			}
 		});
 		btnDatePerm.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
-	   	    	nbBtn =2;
-	   	    	showDialog(DATE_DIALOG_PERMIS);
+				nbBtn =2;
+				showDialog(DATE_DIALOG_PERMIS);
 			}
 		});
 		btnCreateCount.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
 				// Parse the input date
-	   			SimpleDateFormat fmt = new SimpleDateFormat("dd-MM-yyyy");
-	   			Date inputDate = null;
-	   			try {
-	   				if (btnDateNais.getText().equals(""))
-	   				{
-	   					Log.d("Avertissement2","Je commence a putain de perdre patience!");
-	   				}
-	   				else
-	   				{
-	   					inputDate = fmt.parse(btnDateNais.getText().toString());
-	   				}	   				
-	   			} catch (ParseException e) {
-	   				e.printStackTrace();
-	   			}
-	   			
-	   			fmt = new SimpleDateFormat("yyyy-MM-dd");
-	   			if(inputDate == null)
-	   			{
-	   				Log.d("datePermis","je suis null");
-	   			}else
-	   			{
-	   			dateNaissance = fmt.format(inputDate);
-	   			}
-	   			
-	   			/*************/
-	   			
-	   			/*************/
-	   			//DatePermis
-	   			SimpleDateFormat fmtt = new SimpleDateFormat("dd-MM-yyyy");
-	   			inputDatePermis = null;
-	   			try {
-	   				if (btnDatePerm.getText().equals(""))
-	   				{
-	   					Log.d("Avertissement2","Je commence a putain de perdre patience!");
-	   				}
-	   				else
-	   				{
-	   					inputDatePermis = fmtt.parse(btnDatePerm.getText().toString());
-	   				}
-	   					
-	   				
-	   			} catch (ParseException e) {
-	   				e.printStackTrace();
-	   			}
-	   			fmtt = new SimpleDateFormat("yyyy-MM-dd");
-	   			if(inputDatePermis == null)
-	   			{
-	   				Log.d("datePermis","je suis null");
-	   			}else
-	   			{
-	   			datePermis= fmtt.format(inputDatePermis);
-	   			Log.d("datePermis",datePermis);
-	   			}
-	   			
-	   			/********************* Add user to the data base **************/
-		    	  new AddUser().execute();
+				SimpleDateFormat fmt = new SimpleDateFormat("dd-MM-yyyy");
+				Date inputDate = null;
+				try {
+					if (btnDateNais.getText().equals(""))
+					{
+						Log.d("Avertissement2","Je commence a putain de perdre patience!");
+					}
+					else
+					{
+						inputDate = fmt.parse(btnDateNais.getText().toString());
+					}	   				
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+
+				fmt = new SimpleDateFormat("yyyy-MM-dd");
+				if(inputDate == null)
+				{
+					Log.d("datePermis","je suis null");
+				}else
+				{
+					dateNaissance = fmt.format(inputDate);
+				}
+
+				/*************/
+
+				/*************/
+				//DatePermis
+				SimpleDateFormat fmtt = new SimpleDateFormat("dd-MM-yyyy");
+				inputDatePermis = null;
+				try {
+					if (btnDatePerm.getText().equals(""))
+					{
+						Log.d("Avertissement2","Je commence a putain de perdre patience!");
+					}
+					else
+					{
+						inputDatePermis = fmtt.parse(btnDatePerm.getText().toString());
+					}
+
+
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				fmtt = new SimpleDateFormat("yyyy-MM-dd");
+				if(inputDatePermis == null)
+				{
+					Log.d("datePermis","je suis null");
+				}else
+				{
+					datePermis= fmtt.format(inputDatePermis);
+					Log.d("datePermis",datePermis);
+				}
+
+				/********************* Add user to the data base **************/
+				if(info != null && info.isConnectedOrConnecting())
+				{
+					new AddUser().execute();
+				}else
+				{
+					Toast.makeText(RegisterPage.this, "Connextion non détécté", Toast.LENGTH_LONG).show();
+				}
 			}
 		});
 	}
 	public void onRadioButtonClicked(View view) {
-	    // Is the button now checked?
-	    boolean checked = ((RadioButton) view).isChecked();
-	    
-	    // Check which radio button was clicked
-	    switch(view.getId()) {
-	        case R.id.rdioMonsieurRegister:
-	            if (checked)
-	                genreSelected="Monsieur";
-	            break;
-	        case R.id.rdioMadameRegister:
-	            if (checked)
-	            	genreSelected="Madame";
-	            break;
-	    }
+		// Is the button now checked?
+		boolean checked = ((RadioButton) view).isChecked();
+
+		// Check which radio button was clicked
+		switch(view.getId()) {
+		case R.id.rdioMonsieurRegister:
+			if (checked)
+				genreSelected="Monsieur";
+			break;
+		case R.id.rdioMadameRegister:
+			if (checked)
+				genreSelected="Madame";
+			break;
+		}
 	}
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {
 		case DATE_DIALOG_NAISSANCE:
-		   // set date picker as current date
-		   return new DatePickerDialog(this, datePickerListener, year, month,day);
+			// set date picker as current date
+			return new DatePickerDialog(this, datePickerListener, year, month,day);
 		case DATE_DIALOG_PERMIS:
-			   // set date picker as current date
-			   return new DatePickerDialog(this, datePickerListener, year, month,day);
+			// set date picker as current date
+			return new DatePickerDialog(this, datePickerListener, year, month,day);
 		}
-		
+
 		return null;
 	}
- 
+
 	private DatePickerDialog.OnDateSetListener datePickerListener 
-                = new DatePickerDialog.OnDateSetListener() {
- 
+	= new DatePickerDialog.OnDateSetListener() {
+
 		// when dialog box is closed, below method will be called.
 		public void onDateSet(DatePicker view, int selectedYear,
 				int selectedMonth, int selectedDay) {
@@ -289,99 +299,99 @@ public class RegisterPage extends Activity{
 				monthNaissance = selectedMonth;
 				dayNaissance = selectedDay;
 				// set selected date into textview
-							btnDateNais.setText(new StringBuilder().append(dayNaissance).append("-").append(monthNaissance + 1).append("-").append(yearNaissance).append(" "));
+				btnDateNais.setText(new StringBuilder().append(dayNaissance).append("-").append(monthNaissance + 1).append("-").append(yearNaissance).append(" "));
 				break;
 			case 2:
 				yearPermis = selectedYear;
 				monthPermis = selectedMonth;
 				dayPermis = selectedDay;
 				// set selected date into textview
-							btnDatePerm.setText(new StringBuilder().append(dayPermis).append("-").append(monthPermis + 1).append("-").append(yearPermis).append(" "));
+				btnDatePerm.setText(new StringBuilder().append(dayPermis).append("-").append(monthPermis + 1).append("-").append(yearPermis).append(" "));
 				break;
 			}
 		}
 	};
 
-    class AddUser extends AsyncTask<String, String, String> {
-      	 
-        /**
-         * Before starting background thread Show Progress Dialog
-         * */
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pDialog = new ProgressDialog(RegisterPage.this);
-            pDialog.setMessage("Inscription en cours ...");
-            pDialog.setIndeterminate(false);
-            pDialog.setCancelable(true);
-            pDialog.show();
-        }
- 
-        /**
-         * Creating product
-         * */
-        protected String doInBackground(String... args) { 
-            // Building Parameters
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("genre_user", genreSelected));
-            params.add(new BasicNameValuePair("nom_user", editNom.getText().toString()));
-            params.add(new BasicNameValuePair("prenom_user", editPrenom.getText().toString()));
-            params.add(new BasicNameValuePair("mdp_user", editMdpRegistration.getText().toString()));
-            params.add(new BasicNameValuePair("adr_user", editAdress.getText().toString()));
-            params.add(new BasicNameValuePair("numPermis_user", editNumPerm.getText().toString()));
-            params.add(new BasicNameValuePair("dateNais_user", dateNaissance));
-            params.add(new BasicNameValuePair("numPhone_user", editPhone.getText().toString()));
-            params.add(new BasicNameValuePair("mail_user", editMailRegistration.getText().toString()));
-            
-            if (inputDatePermis == null)
-            {
-            	Log.d("Avertissement","Mehdi tu m'emmerde!");
-            }
-            else
-            {
-                params.add(new BasicNameValuePair("dateRetraitPermis_user",datePermis));
-            }
+	class AddUser extends AsyncTask<String, String, String> {
 
-            // getting JSON Object
-            // Note that create product url accepts POST method
-            JSONObject json = jsonParser.makeHttpRequest(url_user, "POST", params);
-            Log.i("Test user", json.toString());
- 
-            // check for success tag
-            try {
-                success = json.getInt(TAG_SUCCESS);
- 
-                if (success == 1) {
-                	
-                    // successfully created product
-        	    	Intent result = getIntent();
-        	        setResult(RESULT_OK, result);
-        	        finish();
-        	        
-                } else if(success == -1){
-                	// boite dejat utilisé
-                }else{
-                	// Erreur lors de l'inscription 
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
- 
-            return null;
-        }
- 
-        /**
-         * After completing background task Dismiss the progress dialog
-         * **/
-        protected void onPostExecute(String file_url) {
-            // dismiss the dialog once done
-            pDialog.dismiss();
-            if(success == -1){
-            	Toast.makeText(getApplicationContext(), "Cette adresse mail est deja utilisée !", Toast.LENGTH_LONG).show();
-            }else if(success == 0){
-            	Toast.makeText(getApplicationContext(), "Vous devez replire les champs obligatoires!", Toast.LENGTH_LONG).show();
-            }
-        }
- 
-    }
+		/**
+		 * Before starting background thread Show Progress Dialog
+		 * */
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			pDialog = new ProgressDialog(RegisterPage.this);
+			pDialog.setMessage("Inscription en cours ...");
+			pDialog.setIndeterminate(false);
+			pDialog.setCancelable(true);
+			pDialog.show();
+		}
+
+		/**
+		 * Creating product
+		 * */
+		protected String doInBackground(String... args) { 
+			// Building Parameters
+			List<NameValuePair> params = new ArrayList<NameValuePair>();
+			params.add(new BasicNameValuePair("genre_user", genreSelected));
+			params.add(new BasicNameValuePair("nom_user", editNom.getText().toString()));
+			params.add(new BasicNameValuePair("prenom_user", editPrenom.getText().toString()));
+			params.add(new BasicNameValuePair("mdp_user", editMdpRegistration.getText().toString()));
+			params.add(new BasicNameValuePair("adr_user", editAdress.getText().toString()));
+			params.add(new BasicNameValuePair("numPermis_user", editNumPerm.getText().toString()));
+			params.add(new BasicNameValuePair("dateNais_user", dateNaissance));
+			params.add(new BasicNameValuePair("numPhone_user", editPhone.getText().toString()));
+			params.add(new BasicNameValuePair("mail_user", editMailRegistration.getText().toString()));
+
+			if (inputDatePermis == null)
+			{
+				Log.d("Avertissement","Mehdi tu m'emmerde!");
+			}
+			else
+			{
+				params.add(new BasicNameValuePair("dateRetraitPermis_user",datePermis));
+			}
+
+			// getting JSON Object
+			// Note that create product url accepts POST method
+			JSONObject json = jsonParser.makeHttpRequest(url_user, "POST", params);
+			Log.i("Test user", json.toString());
+
+			// check for success tag
+			try {
+				success = json.getInt(TAG_SUCCESS);
+
+				if (success == 1) {
+
+					// successfully created product
+					Intent result = getIntent();
+					setResult(RESULT_OK, result);
+					finish();
+
+				} else if(success == -1){
+					// boite dejat utilisé
+				}else{
+					// Erreur lors de l'inscription 
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+
+			return null;
+		}
+
+		/**
+		 * After completing background task Dismiss the progress dialog
+		 * **/
+		protected void onPostExecute(String file_url) {
+			// dismiss the dialog once done
+			pDialog.dismiss();
+			if(success == -1){
+				Toast.makeText(getApplicationContext(), "Cette adresse mail est deja utilisée !", Toast.LENGTH_LONG).show();
+			}else if(success == 0){
+				Toast.makeText(getApplicationContext(), "Vous devez replire les champs obligatoires!", Toast.LENGTH_LONG).show();
+			}
+		}
+
+	}
 }

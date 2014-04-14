@@ -12,6 +12,8 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -57,6 +59,9 @@ public class LogPage extends Activity{
 	private static final String TAG_PAYS = "pays";
 	private static final String TAG_TELEPHONE = "num";
 	private static final String TAG_MAIL = "mail";
+	
+	private ConnectivityManager wf;
+	private NetworkInfo info;
 
 
 	JSONObject user_tab = new JSONObject();
@@ -69,15 +74,12 @@ public class LogPage extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.log_page);
 		
-		/*getActionBar().setDisplayShowHomeEnabled(false);
-		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-		getActionBar().setCustomView(R.layout.koutchy_actionbar);
-		
-		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
-		titleActionBar.setText("Connexion");*/
 		getActionBar().setTitle("");
 		
 		session= new SessionManager(getApplicationContext());
+		wf = (ConnectivityManager)this.getSystemService(CONNECTIVITY_SERVICE);
+		info = wf.getActiveNetworkInfo();
+		
 		editMail = (EditText)this.findViewById(R.id.editMail);
 		
 		editMdp = (EditText)this.findViewById(R.id.editMdp);
@@ -87,8 +89,14 @@ public class LogPage extends Activity{
 		btnConnect.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
-
+				
+				if(info != null && info.isConnectedOrConnecting())
+				{
 				new UserAuthentification().execute();
+				}else
+				{
+					Toast.makeText(LogPage.this, "Connexion non détécté", Toast.LENGTH_LONG).show();
+				}
 
 			}
 		});

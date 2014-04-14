@@ -12,33 +12,29 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.RadioGroup.OnCheckedChangeListener;
 
 
 import com.success_v1.res.JSONParser;
 import com.success_v1.res.config;
 import com.success_v1.successCar.R;
-import com.success_v1.user.RegisterPage.AddUser;
 
 public class ProfilPage extends Activity{
 	RadioGroup rdioGenre;
@@ -82,7 +78,9 @@ public class ProfilPage extends Activity{
 
 	/****************************************/
 	// Session Manager Class
-	SessionManager session;
+	private SessionManager session;
+	private ConnectivityManager wf;
+	private NetworkInfo info;
 	/****************************************/
 	// Progress Dialog
 	private ProgressDialog pDialog;
@@ -102,11 +100,6 @@ public class ProfilPage extends Activity{
 		setContentView(R.layout.profil_page);
 		// Session class instance
 		session = new SessionManager(getApplicationContext());
-		/*getActionBar().setDisplayShowHomeEnabled(false);
-		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-		getActionBar().setCustomView(R.layout.koutchy_actionbar);
-		titleActionBar = (TextView)findViewById(R.id.titleActionBar);
-		titleActionBar.setText("Profil");*/
 		getActionBar().setTitle("");
 		rdioGenre = (RadioGroup)findViewById(R.id.rdioGenreProfil);
 		radioMadameButton = (RadioButton)findViewById(R.id.rdioMadameProfil);
@@ -125,6 +118,9 @@ public class ProfilPage extends Activity{
 		btnDateNaisProfil = (Button)findViewById(R.id.btnDateNaisProfil);
 		btnDatePermProfil = (Button)findViewById(R.id.btnDatePermProfil);
 		btnEditCountProfil = (Button)findViewById(R.id.btnEditCountProfil);
+
+		wf = (ConnectivityManager)this.getSystemService(CONNECTIVITY_SERVICE);
+		info = wf.getActiveNetworkInfo();
 
 
 		// get user data from session
@@ -158,7 +154,7 @@ public class ProfilPage extends Activity{
 		// Create the datetime string
 		fmtt = new SimpleDateFormat("dd-MM-yyyy");
 		datePermis= fmtt.format(inputDatePermis);
-		
+
 		btnDateNaisProfil.setText(dateNaissance);
 		btnDatePermProfil.setText(datePermis);
 
@@ -232,7 +228,15 @@ public class ProfilPage extends Activity{
 				fmtt = new SimpleDateFormat("yyyy-MM-dd");
 				datePermisProfil= fmtt.format(inputDatePermis);
 				Log.d("datePermis",datePermisProfil);
-				new AddUser().execute();
+
+				if(info != null && info.isConnectedOrConnecting())
+				{
+					new AddUser().execute();
+				}
+				else
+				{
+					Toast.makeText(ProfilPage.this, "Connexion non détecté", Toast.LENGTH_LONG).show();
+				}
 			}
 		});
 	}
