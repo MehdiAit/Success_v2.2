@@ -244,7 +244,7 @@ public class Main extends Activity implements OnClickListener{
 			pDialog = new ProgressDialog(Main.this);
 			pDialog.setMessage("Localisation en cours, Patientez ...");
 			pDialog.setIndeterminate(false);
-			pDialog.setCancelable(false);
+			pDialog.setCancelable(true);
 			pDialog.show();
 		}
 
